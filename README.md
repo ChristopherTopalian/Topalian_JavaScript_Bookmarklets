@@ -1,2 +1,3 @@
- <font size="4">Topalian_JavaScript_Bookmarklets</font>
+Topalian_JavaScript_Bookmarklets
+
 Learn programming the fun way with JavaScript bookmarklets.
