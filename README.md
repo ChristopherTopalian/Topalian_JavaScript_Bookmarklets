@@ -2,7 +2,7 @@
 
 Learn programming the fun way with JavaScript bookmarklets.
 
-We can easily paste any of our scripts into our Browswer console to execute them. Instructions:
+We can easily paste any of our scripts into our Browser console to execute them. Instructions:
 
    * With our Web Browswer open, we press F12 to open the console.
    * Paste the code into the console
