@@ -10,5 +10,5 @@ function()
     {
         let theTime = document.querySelector('video').currentTime += seconds;
     }
-    videoTimeAdjust(2);
+    videoTimeAdjust(-2);
 }());
