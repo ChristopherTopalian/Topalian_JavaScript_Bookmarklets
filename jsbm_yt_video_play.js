@@ -5,11 +5,11 @@ javascript:(
 /* play youtube video */
 function()
 {
-	function ytVideoPlay()
-	{
-		let theYtVideo = document.getElementById("movie_player");
-
-		theYtVideo.playVideo();
-	}
-	ytVideoPlay();
+    function ytVideoPlay()
+    {
+        let theYtVideo = document.getElementById("movie_player");
+	    
+        theYtVideo.playVideo();
+    }
+    ytVideoPlay();
 }());
