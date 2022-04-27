@@ -5,11 +5,11 @@ javascript:(
 /* pause youtube video */
 function()
 {
-	function ytVideoPause()
-	{
-		let theVideo = document.getElementById("movie_player");
+    function ytVideoPause()
+    {
+        let theVideo = document.getElementById("movie_player");
 
-		theVideo.pauseVideo();
-	}
+        theVideo.pauseVideo();
+    }
     ytVideoPause();
 }());
