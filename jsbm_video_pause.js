@@ -5,11 +5,11 @@ javascript:(
 /* pause video */
 function()
 {
-function videoPause()
-{
-	let theVideo = document.querySelector("video");
+    function videoPause()
+    {
+        let theVideo = document.querySelector("video");
 
-	theVideo.pause();
-}
-videoPause();
+        theVideo.pause();
+    }
+    videoPause();
 }());
