@@ -11,5 +11,5 @@ function()
 
 		theYtVideo.playVideo();
 	}
-    ytVideoPlay();
+	ytVideoPlay();
 }());
