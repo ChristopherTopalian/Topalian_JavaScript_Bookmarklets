@@ -1,7 +1,7 @@
 javascript:(
 /* Dedicated to God the Father */
 /* All Rights Reserved Christopher Topalian Copyright 2000-2022 */
-/* jsbm_alert_class.js */
+/* jsbm_alert_class_001.js */
 /* shows an alert message */
 function()
 {
