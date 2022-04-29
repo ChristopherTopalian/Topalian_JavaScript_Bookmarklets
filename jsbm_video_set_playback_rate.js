@@ -11,5 +11,5 @@ function()
 
         theVideo.playbackRate = speed;
     }
-    videoSetPlaybackRate(4.0);
+    videoSetPlaybackRate(2.0);
 }());
