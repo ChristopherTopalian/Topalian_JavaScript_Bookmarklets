@@ -28,8 +28,8 @@ function()
         {
             return whichArray.name === searchWord;
         }
-    );
-    return index;
+        );
+        return index;
     }
 
     function buttonCreate(xPos, yPos, theText)
