@@ -24,10 +24,10 @@ function()
 
 	    /* index in the array of the found word */
         let index = whichArray.findIndex(
-        function(whichArray)
-        {
-            return whichArray.name === searchWord;
-        }
+            function(whichArray)
+            {
+                return whichArray.name === searchWord;
+            }
         );
         return index;
     }
