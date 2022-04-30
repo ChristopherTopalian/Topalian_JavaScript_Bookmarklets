@@ -82,7 +82,8 @@ function()
     function displayResult(theChoice)
     {
         /* display name and abbreviation of chosen index */
-        document.getElementById("showResult").innerHTML = elements[findTheIndex(theChoice)].name + "<br>" + elements[findTheIndex(theChoice)].abbreviation;
+        document.getElementById("showResult").innerHTML = elements[findTheIndex(theChoice)].name + "<br>" +
+        elements[findTheIndex(theChoice)].abbreviation;
     }
     content();
 }());
