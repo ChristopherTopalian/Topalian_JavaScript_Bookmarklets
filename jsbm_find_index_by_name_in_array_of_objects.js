@@ -69,13 +69,13 @@ function()
 
     function content()
     {
-                          /* xPos, yPos, theText */
+                 /* xPos, yPos, theText */
         buttonCreate(100, 100, "Hydrogen");
 
-                          /* xPos, yPos, theText */
+                 /* xPos, yPos, theText */
         buttonCreate(100, 135, "Helium");
 
-                    /* xPos, yPos, theText */
+              /* xPos, yPos, theText */
         divCreate(240, 100, "ELEMENTS");
     }
 
