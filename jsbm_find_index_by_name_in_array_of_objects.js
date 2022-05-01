@@ -8,21 +8,21 @@ function()
 {
     let elements = [
     {
-    	name: 'Hydrogen',
-    	abbreviation: 'H'
+        name: 'Hydrogen',
+        abbreviation: 'H'
     },
     {
-    	name: 'Helium',
-    	abbreviation: 'He'
+        name: 'Helium',
+        abbreviation: 'He'
     }
     ];
 
     function findTheIndex(searchWord)
     {
-    	/* name of the array that we are searching */
-    	let whichArray = elements;
+        /* name of the array that we are searching */
+        let whichArray = elements;
 
-	    /* index in the array of the found word */
+        /* index in the array of the found word */
         let index = whichArray.findIndex(
             function(whichArray)
             {
@@ -69,7 +69,7 @@ function()
 
     function content()
     {
-                 /* xPos, yPos, theText */
+           /* xPos, yPos, theText */
         buttonCreate(100, 100, "Hydrogen");
 
                  /* xPos, yPos, theText */
