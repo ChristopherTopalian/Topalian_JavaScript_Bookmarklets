@@ -25,9 +25,9 @@ function()
     }
 
     let player001 = new Person(
-        "Niobi",        /* firstName */
-        "Grace",      /* middleName */
-        "Amber"      /* lastName*/
+        "Niobi",   /* firstName */
+        "Grace",   /* middleName */
+        "Amber"    /* lastName*/
     );
 
     alert(player001.nameFull());
