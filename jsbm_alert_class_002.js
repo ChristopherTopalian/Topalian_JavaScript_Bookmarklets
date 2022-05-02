@@ -16,4 +16,4 @@ function()
     let greetingObject001 = new OurAlertClass();
 
     alert(greetingObject001.showAlert("Howdy"));
-})();
+}());
