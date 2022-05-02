@@ -27,10 +27,10 @@ function()
             urlsOfImages += "\n\n";
         }
 
-        /* show the urls of the images in the collection using alert */
+        /* show the urls of the images using alert */
         alert(urlsOfImages);
 
-        /* show the urls of the images in the collection using console.log */
+        /* show the urls of the images using console.log */
         console.log(urlsOfImages);
     }
 
