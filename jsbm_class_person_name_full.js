@@ -31,4 +31,4 @@ function()
     );
 
     alert(player001.nameFull());
-})();
+}());
