@@ -8,4 +8,4 @@ function()
 
     alert("Howdy");
 
-})();
+}());
