@@ -14,4 +14,4 @@ function()
         return theDuration + " seconds";
     }
     alert(ytVideoGetDuration());
-})();
+}());
