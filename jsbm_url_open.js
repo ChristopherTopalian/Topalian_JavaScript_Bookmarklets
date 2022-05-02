@@ -12,4 +12,4 @@ function()
     /* blank to open the url in a new tab */
     /* self to open the url in the current tab */
     urlOpen("https://www.google.com", "self");
-})();
+}());
