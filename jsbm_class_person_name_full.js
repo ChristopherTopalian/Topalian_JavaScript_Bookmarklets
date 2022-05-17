@@ -12,7 +12,7 @@ function()
             this.firstName = firstName;
             this.middleName = middleName;
             this.lastName = lastName;
-         }
+        }
 
         nameFull()
         {
