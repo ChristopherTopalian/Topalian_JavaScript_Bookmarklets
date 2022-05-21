@@ -9,10 +9,11 @@ javascript:(
 
 function()
 {
-    function questionInput(question)
+    function questionInput()
     {
         let message;
-
+        let question;
+        
         do
         {
             question = prompt("What is 5 x 5?");
