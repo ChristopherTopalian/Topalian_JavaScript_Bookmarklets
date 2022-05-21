@@ -8,22 +8,22 @@ javascript:(
 
 function()
 {
-function nameInput(name)
-{
-    name = prompt("Enter Name");
-
-    let nameFormatted = name.toLowerCase();
-
-    if(nameFormatted == "tabitha")
+    function nameInput(name)
     {
-        return "Hi Tabitha.";
-    }
-    else
-    {
-        return "Hi " + name + "." + " Where is Tabitha?";
-    }
-}
+        name = prompt("Enter Name");
 
-alert(nameInput());
+        let nameFormatted = name.toLowerCase();
+
+        if(nameFormatted == "tabitha")
+        {
+            return "Hi Tabitha.";
+        }
+        else
+        {
+            return "Hi " + name + "." + " Where is Tabitha?";
+        }
+    }
+    
+    alert(nameInput());
 
 }());
