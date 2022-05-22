@@ -42,6 +42,7 @@ function()
     ourDiv.style.background = "rgb(0, 0, 0)";
     ourDiv.style.color = "rgb(255, 255, 255)";
     ourDiv.style.fontWeight = "bold";
+    
     ourDiv.title = "Left Click to Remove this Div";
     ourDiv.id = "ourDivId";
 
