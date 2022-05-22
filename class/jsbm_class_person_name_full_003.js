@@ -3,8 +3,9 @@ javascript:(
 /* All Rights Reserved Christopher Topalian Copyright 2000-2022 */
 /* jsbm_class_person_name_full_003.js */
 /*
-shows the first and last name of the person by using our Person class object
-creates a div on the page with a name greeting message
+shows a greeting message with the the first and last name of the person
+by using our Person class object
+creates a div on the page with that name greeting message
 the div can be removed by left clicking on it
 */
 
