@@ -47,7 +47,8 @@ function()
 /*
 we can choose any type of element,
 such as:
-img, video, div, a, p, textarea, h1, h2, h3, h4, h5, h6, i, b, table, tr, td, th, button, iframe, embed, input, and more
+img, video, div, a, p, textarea, h1, h2, h3, h4, h5, h6, i, b,
+table, tr, td, th, button, iframe, embed, input, and more
 */
 
 /* get info and set style of images */
