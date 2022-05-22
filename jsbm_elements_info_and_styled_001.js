@@ -17,7 +17,7 @@ function()
     {
         let theElements = document.getElementsByTagName(elementType);
 
-        for(let x = 0; x < theElements.length; x++)
+        for (let x = 0; x < theElements.length; x++)
         {
             console.log(counter);
             console.log(theElements[x]);
