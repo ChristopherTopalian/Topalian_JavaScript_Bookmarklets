@@ -10,5 +10,3 @@ Instructions:
    * Press Enter
 
 The JavaScript Bookmarklet code will execute.
-
-https://github.com/ChristopherTopalian
