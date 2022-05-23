@@ -1,8 +1,10 @@
 javascript:(
 /* Dedicated to God the Father */
 /* All Rights Reserved Christopher Topalian Copyright 2000-2022 */
+/* https://github.com/ChristopherTopalian */
 /* jsbm_yt_video_play.js */
 /* play youtube video */
+	
 function()
 {
     function ytVideoPlay()
@@ -11,5 +13,7 @@ function()
 	    
         theYtVideo.playVideo();
     }
+	
     ytVideoPlay();
+
 }());
