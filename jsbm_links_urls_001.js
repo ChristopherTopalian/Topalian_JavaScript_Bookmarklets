@@ -1,6 +1,7 @@
 javascript:(
 /* Dedicated to God the Father */
 /* All Rights Reserved Christopher Topalian Copyright 2000-2022 */
+/* https://github.com/ChristopherTopalian */
 /* jsbm_links_urls_001.js */
 /*
 gets all links on a page
