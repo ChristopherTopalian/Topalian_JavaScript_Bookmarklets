@@ -24,7 +24,6 @@ function()
         }
 
         return linksFormatted;
-
     }
 
     function linksShow()
