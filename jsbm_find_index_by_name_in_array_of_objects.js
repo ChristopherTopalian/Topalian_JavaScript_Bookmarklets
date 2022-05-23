@@ -1,6 +1,7 @@
 javascript:(
 /* Dedicated to God the Father */
 /* All Rights Reserved Christopher Topalian Copyright 2000-2022 */
+/* https://github.com/ChristopherTopalian */
 /* jsbm_find_index_by_name_in_array_of_objects.js */
 /* finds the index by name in an array of objects */
 /* and shows the data of the found index object */
