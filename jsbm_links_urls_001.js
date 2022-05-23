@@ -5,7 +5,8 @@ javascript:(
 /*
 gets all links on a page
 shows the href of each link using console.log and a textarea
-the textarea is located at the bottom of the page
+the textarea will be located at the top or bottom of the page,
+depending on which website we activate this script on
 */
 
 function()
