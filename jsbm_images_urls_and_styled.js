@@ -1,6 +1,7 @@
 javascript:(
 /* Dedicated to God the Father */
 /* All Rights Reserved Christopher Topalian Copyright 2000-2022 */
+/* https://github.com/ChristopherTopalian */
 /* jsbm_images_urls_and_styled.js */
 /* finds all images on a page and styles their borders */
 /* shows urls of all images using alert and console.log */
