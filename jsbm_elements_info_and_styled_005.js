@@ -1,6 +1,7 @@
 javascript:(
 /* Dedicated to God the Father */
 /* All Rights Reserved Christopher Topalian Copyright 2000-2022 */
+/* https://github.com/ChristopherTopalian */
 /* jsbm_elements_info_and_styled_005.js */
 /*
 finds all elements of a specified type on a page
