@@ -1,6 +1,7 @@
 javascript:(
 /* Dedicated to God the Father */
 /* All Rights Reserved Christopher Topalian Copyright 2000-2022 */
+/* https://github.com/ChristopherTopalian */
 /* jsbm_class_person_name_full_003.js */
 /*
 shows a greeting message with the the first and last name of the person
@@ -55,4 +56,5 @@ function()
     ourDiv.onclick= function(){ document.getElementById("ourDivId").remove(); };
 
     document.body.append(ourDiv);
+
 }());
