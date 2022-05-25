@@ -38,7 +38,8 @@ function()
 
         infoDiv.innerHTML = window.document.title + "<br><br>";
 
-        infoDiv.innerHTML += '<a href = \'' + window.location.href + '\' target = "_blank"> ' + window.location.href + ' </a><br>';
+        infoDiv.innerHTML += '<a href = \'' + window.location.href + '\' target = "_blank"> ' +
+        window.location.href + ' </a><br>';
 
         let mainDiv = document.createElement("div");
         mainDiv.id = "mainDivId";
