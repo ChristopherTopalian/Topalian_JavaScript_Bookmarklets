@@ -28,9 +28,9 @@ function()
 
     function documentInfoGetAndShow()
     {
-        if (document.getElementById("infoDivId"))
+        if (document.getElementById("mainDivId"))
         {
-            document.getElementById("infoDivId").remove();
+            document.getElementById("mainDivId").remove();
         }
 
         let infoDiv = document.createElement("div");
@@ -58,12 +58,13 @@ function()
 
         infoDiv.onclick = function() { moveDown("infoDivId"); };
 
-        infoDiv.oncontextmenu = function() { elementRemove("infoDivId"); };
+        infoDiv.oncontextmenu = function() { elementRemove("mainDivId"); };
 
-        let theBreakDiv = document.createElement("div");
-        theBreakDiv.innerHTML = "<br>";
-        document.body.append(theBreakDiv);
-        theBreakDiv.append(infoDiv);
+        let mainDiv = document.createElement("div");
+        mainDiv.id = "mainDivId";
+        mainDiv.innerHTML = "<br>";
+        document.body.append(mainDiv);
+        mainDiv.append(infoDiv);
     }
 
     documentInfoGetAndShow();
