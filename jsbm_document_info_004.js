@@ -31,10 +31,16 @@ function()
 
     function documentInfoGetAndShow()
     {
-        if (document.getElementById("infoDivId"))
+        if (document.getElementById("mainDivId"))
         {
-            document.getElementById("infoDivId").remove();
+            document.getElementById("mainDivId").remove();
         }
+
+        let mainDiv = document.createElement("div");
+        mainDiv.id = "mainDivId";
+        mainDiv.style.position = "relative";
+        mainDiv.innerHTML = "<br>";
+        document.body.append(mainDiv);
 
         let infoDiv = document.createElement("div");
         infoDiv.style.position = "relative";
@@ -57,16 +63,14 @@ function()
 
         infoDiv.innerHTML = window.document.title + "<br><br>";
 
-        infoDiv.innerHTML += '<a href = \'' + window.location.href + '\' target = "_blank"> ' + window.location.href + ' </a><br>';
+        infoDiv.innerHTML += '<a href = \'' + window.location.href + '\' target = "_blank"> ' +
+        window.location.href + ' </a><br>';
 
-        infoDiv.addEventListener("click", function() { moveDown("infoDivId"); });
+        infoDiv.addEventListener("click", function() { moveDown("mainDivId"); });
 
-        infoDiv.addEventListener("contextmenu", function() { elementRemove("infoDivId"); });
+        infoDiv.addEventListener("contextmenu", function() { elementRemove("mainDivId"); });
 
-        let theBreakDiv = document.createElement("div");
-        theBreakDiv.innerHTML = "<br>";
-        document.body.append(theBreakDiv);
-        theBreakDiv.append(infoDiv);
+        mainDiv.append(infoDiv);
     }
 
     documentInfoGetAndShow();
