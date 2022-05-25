@@ -65,10 +65,10 @@ function()
 
         infoDiv.addEventListener("contextmenu", function() { elementRemove(infoDiv.id); });
 
-        let theBreak = document.createElement("div");
-        theBreak.innerHTML = "<br>";
-        document.body.append(theBreak);
-        theBreak.append(infoDiv);
+        let theBreakDiv = document.createElement("div");
+        theBreakDiv.innerHTML = "<br>";
+        document.body.append(theBreakDiv);
+        theBreakDiv.append(infoDiv);
     }
 
     documentInfoGetAndShow();
