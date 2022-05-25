@@ -75,7 +75,8 @@ function()
 
         infoDiv.innerHTML = documentTitleGet() + "<br><br>";
 
-        infoDiv.innerHTML += '<a href = \'' + documentUrlGet() + '\' target = "_blank"> ' + documentUrlGet() + ' </a><br>';
+        infoDiv.innerHTML += '<a href = \'' + documentUrlGet() + '\' target = "_blank"> ' +
+        documentUrlGet() + ' </a><br>';
 
         infoDiv.onclick = function() { moveDown("mainDivId"); };
 
