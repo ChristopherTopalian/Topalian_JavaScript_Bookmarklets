@@ -9,7 +9,7 @@ shows the info on a div at the bottom of the screen
 the div can be moved down by left clicking on it
 the div can be removed by right clicking on it
 in this slight variation, in the event section,
-we show that we can use infoDiv.id instead of typing "infoDivId"
+we show that we can use mainDiv.id instead of typing "mainDivId"
 to specify which element we are referring to
 */
 
