@@ -10,8 +10,8 @@ the div can be moved down by left clicking on it
 the div can be removed by right clicking on it
 in this slight variation, in the event section,
 we show how to use addEventListener again
-but this time, we use infoDiv.id
-instead of typing "infoDivId"
+but this time, we use mainDiv.id
+instead of typing "mainDivId"
 to specify which element we are referring to
 */
 
