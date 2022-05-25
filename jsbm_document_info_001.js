@@ -17,6 +17,11 @@ function()
             document.getElementById("mainDivId").remove();
         }
 
+        let mainDiv = document.createElement("div");
+        mainDiv.id = "mainDivId";
+        mainDiv.innerHTML = "<br>";
+        document.body.append(mainDiv);
+
         let infoDiv = document.createElement("div");
         infoDiv.style.position = "relative";
         infoDiv.style.zIndex = "998";
@@ -38,13 +43,8 @@ function()
 
         infoDiv.innerHTML = window.document.title + "<br><br>";
 
-        infoDiv.innerHTML += '<a href = \'' + window.location.href + '\' target = "_blank"> ' +
-        window.location.href + ' </a><br>';
+        infoDiv.innerHTML += '<a href = \'' + window.location.href + '\' target = "_blank"> ' + window.location.href + ' </a><br>';
 
-        let mainDiv = document.createElement("div");
-        mainDiv.id = "mainDivId";
-        mainDiv.innerHTML = "<br>";
-        document.body.append(mainDiv);
         mainDiv.append(infoDiv);
     }
 
