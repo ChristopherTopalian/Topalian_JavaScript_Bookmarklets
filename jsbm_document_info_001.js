@@ -12,9 +12,9 @@ function()
 {
     function documentInfoGetAndShow()
     {
-        if (document.getElementById("infoDivId"))
+        if (document.getElementById("theMainDiv"))
         {
-            document.getElementById("infoDivId").remove();
+            document.getElementById("theMainDiv").remove();
         }
 
         let infoDiv = document.createElement("div");
@@ -38,12 +38,14 @@ function()
 
         infoDiv.innerHTML = window.document.title + "<br><br>";
 
-        infoDiv.innerHTML += '<a href = \'' + window.location.href + '\' target = "_blank"> ' + window.location.href + ' </a><br>';
+        infoDiv.innerHTML += '<a href = \'' + window.location.href + '\' target = "_blank"> ' +
+        window.location.href + ' </a><br>';
 
-        let theBreakDiv = document.createElement("div");
-        theBreakDiv.innerHTML = "<br>";
-        document.body.append(theBreakDiv);
-        theBreakDiv.append(infoDiv);
+        let theMainDiv = document.createElement("div");
+        theMainDiv.id = "theMainDivId";
+        theMainDiv.innerHTML = "<br>";
+        document.body.append(theMainDiv);
+        theMainDiv.append(infoDiv);
     }
 
     documentInfoGetAndShow();
