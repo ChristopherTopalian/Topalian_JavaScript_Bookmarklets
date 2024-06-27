@@ -1620,3 +1620,246 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` Images - Gray Scale ```
+```javascript
+javascript:(
+/* Images - Gray Scale */
+function()
+{
+    function makeImagesGrayScale()
+    {
+        let theImages = document.getElementsByTagName('img');
+
+        for (let x = 0; x < theImages.length; x++)
+        {
+            theImages[x].style.filter = 'grayscale(100%)';
+        }
+    }
+
+    makeImagesGrayScale();
+
+}());
+```
+
+---
+
+#### ``` Toggle Images On/Off ```
+```javascript
+javascript:(
+/* Toggle Images On/Off */
+function()
+{
+    function toggleImagesOnOrOff()
+    {
+        let images = document.getElementsByTagName('img');
+
+        for (let x = 0; x < images.length; x++)
+        {
+            let display = window.getComputedStyle(images[x]).display;
+
+            if (display === 'none')
+            {
+                images[x].style.display = 'block';
+            }
+            else
+            {
+                images[x].style.display = 'none';
+            }
+        }
+    }
+
+    toggleImagesOnOrOff();
+
+}());
+
+/*
+if images are hidden, it will show them
+
+if images are visible, it will hide them
+*/
+```
+
+---
+
+#### ``` Mouse Click Changes Font Weight ```
+```javascript
+javascript:(
+/* Mouse Click Changes Font Weight */
+function()
+{
+    function mouseTriggersStyle()
+    {
+        document.onclick = function()
+        {
+            let elements = document.getElementsByTagName('*');
+
+            for (let x = 0; x < elements.length; x++)
+            {
+                elements[x].style.fontWeight = "bold";
+            }
+        };
+    }
+
+    mouseTriggersStyle();
+
+}());
+```
+
+---
+
+#### ``` First Click Does X, Second Click Does Y ```
+```javascript
+javascript:(
+/* First Click Does X, Second Click Does Y */
+function()
+{
+    function mouseTriggersStyle()
+    {
+        let toggleFlag = false;
+
+        document.onclick = function()
+        {
+            let elements = document.getElementsByTagName('*');
+
+            for (let x = 0; x < elements.length; x++)
+            {
+                if (toggleFlag)
+                {
+                    elements[x].style.fontWeight = "normal";
+                } 
+                else
+                {
+                    elements[x].style.fontWeight = "bold";
+                }
+            }
+
+            toggleFlag = !toggleFlag;
+        };
+    }
+
+    mouseTriggersStyle();
+
+}());
+
+/*
+The next tutorial shows a variation of this idea. Choose the way that you find to be more natural.
+*/
+```
+
+---
+
+#### ``` First Click Does X, Second Click Does Y - Variation ```
+```javascript
+javascript:(
+/* First Click Does X, Second Click Does Y - Variation */
+function()
+{
+    let toggleFlag = false;
+
+    function mouseTriggersStyle()
+    {
+        document.onclick = function()
+        {
+            let elements = document.getElementsByTagName('*');
+
+            for (let x = 0; x < elements.length; x++)
+            {
+                if (toggleFlag == false)
+                {
+                    elements[x].style.fontWeight = "normal";
+
+                    toggleFlag = true;
+                }
+                else
+                {
+                    elements[x].style.fontWeight = "bold";
+
+                    toggleFlag = false;
+                }
+            }
+        };
+    }
+
+    mouseTriggersStyle();
+
+}());
+```
+
+---
+
+#### ``` First Click do X, Second Click do Y, Third Click do Z ```
+```javascript
+javascript:(
+/* First Click do X, Second Click do Y, Third Click do Z */
+function()
+{
+    let state = 0;
+
+    function toggleFontWeightAndColor(element)
+    {
+        if (state === 0)
+        {
+            element.style.fontWeight = "normal";
+
+            element.style.color = "red";
+
+            state = 1;
+        }
+
+        else if (state === 1)
+        {
+            element.style.fontWeight = "bold";
+            element.style.color = "green";
+            state = 2;
+        }
+
+        else
+        {
+            element.style.color = "blue";
+            state = 0;
+        }
+    }
+
+    function mouseTriggersStyle()
+    {
+        document.onclick = function()
+        {
+            let elements = document.getElementsByTagName('*');
+
+            for (let x = 0; x < elements.length; x++)
+            {
+          toggleFontWeightAndColor(elements[x]);
+            }
+        };
+    }
+    mouseTriggersStyle();
+
+}());
+```
+
+---
+
+#### ``` Random Number Generator from 1 to 100 ```
+```javascript
+javascript:(
+/* Random Number Generator from 1 to 100 */
+function()
+{
+    function generateRandomNumber()
+    {
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        return randomNumber;
+    }
+
+    console.log(generateRandomNumber());
+
+    alert(generateRandomNumber());
+
+}());
+
+/* In this script, console.log will show one random value and alert will show another random value */
+```
