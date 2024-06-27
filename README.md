@@ -26,3 +26,25 @@ function()
 
 }());
 ```
+
+---
+
+```javascript
+javascript: (
+/* equal_to.js */
+function()
+{
+    function askName(name)
+    {
+        name = prompt("Enter Name").toLowerCase();
+
+        if (name == "john")
+        {
+            alert("Hi " + name);
+        }
+    }
+
+    askName();
+
+}());
+```
