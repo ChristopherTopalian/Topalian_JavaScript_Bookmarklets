@@ -259,3 +259,106 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` prompt, while loop, <= less than equal to ```
+```javascript
+javascript:(
+/* prompt, while loop, <= less than equal to */
+function()
+{
+    function askQuestion()
+    {
+        let players = prompt("Enter Number of Players");
+
+        let x = 1;
+
+        while (x <= players)
+        {
+            console.log("Player " + x + ", ");
+
+            x++;
+        }
+    }
+
+    askQuestion();
+
+}());
+```
+
+---
+
+#### ``` prompt, for loop, createElement ```
+```javascript
+javascript:(
+/* prompt, for loop, createElement */
+function()
+{
+    function askQuestion()
+    {
+        let players = prompt("Enter Number of Players");
+
+        let mainDiv = document.createElement("div");
+        mainDiv.style.position = "absolute";
+        mainDiv.style.width = 200 + "px";
+        mainDiv.style.height = 200 + "px";
+        mainDiv.style.display = "flex";
+        mainDiv.style.flexDirection = "column";
+        mainDiv.style.overflowY = "scroll";
+        document.body.append(mainDiv);
+
+        for (let x = 0; x < players; x++)
+        {
+            let player = document.createElement("button");
+
+            player.onclick = function()
+            {
+                alert("Player " + x);
+            };
+
+            player.innerHTML = "Player " + x;
+
+            mainDiv.append(player);
+        }
+    }
+
+    askQuestion();
+
+}());
+```
+
+---
+
+#### ``` prompt, for loop with break ```
+```javascript
+javascript:(
+/* prompt, for loop with break */
+function()
+{
+    function askQuestion()
+    {
+        let players = prompt("Enter Number of Players");
+
+        for (let x = 1; x <= players; x++)
+        {
+            if (players <= 3)
+            {
+                alert(players + " people is not enough");
+
+                break;
+            }
+
+            console.log("Player " + x + ", ");
+        }
+    }
+
+    askQuestion();
+
+}());
+
+
+/*
+we use a for loop to display how many players the user chose and use break if it is not enough players chosen
+*/
+```
