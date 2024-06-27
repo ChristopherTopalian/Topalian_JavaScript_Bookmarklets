@@ -2577,3 +2577,276 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` Video Forward 2 Seconds ```
+```javascript
+javascript:(
+/* Video Forward 2 Seconds */
+function()
+{
+    function videoSkipForward()
+    {
+        let theTime = document.querySelector('video').currentTime += 2;
+    }
+
+    videoSkipForward();
+
+}());
+```
+
+---
+
+#### ``` Video Forward 2 Seconds, Keep Activating ```
+```javascript
+javascript:(
+/* Video Forward 2 Seconds, Keep Activating */
+function()
+{
+    function videoSkipForward()
+    {
+      document.querySelector('video').currentTime += 2;
+    }
+
+    setInterval(videoSkipForward, 1000);
+
+}());
+```
+
+---
+
+#### ``` Video currentTime ```
+```javascript
+javascript:(
+/* Video currentTime */
+function()
+{
+    function videoCurrentTime()
+    {
+        let time = document.querySelector('video').currentTime;
+
+        return time;
+    }
+
+    console.log(videoCurrentTime());
+
+    alert(videoCurrentTime());
+
+}());
+```
+
+---
+
+#### ``` Video currentTime with round ```
+```javascript
+javascript:(
+/* Video currentTime with round */
+function()
+{
+    function videoCurrentTime()
+    {
+        let time = document.querySelector('video').currentTime;
+
+        let roundedTime = Math.round(time);
+
+        return roundedTime;
+    }
+
+    console.log(videoCurrentTime());
+
+    alert(videoCurrentTime());
+
+}());
+```
+
+---
+
+#### ``` Video currentTime using toFixed ```
+```javascript
+javascript:(
+/* Video currentTime using toFixed */
+function()
+{
+    function videoCurrentTime()
+    {
+        let time = document.querySelector('video').currentTime;
+
+        let formattedTime = time.toFixed(2);
+
+        return formattedTime;
+    }
+
+    console.log(videoCurrentTime());
+
+    alert(videoCurrentTime());
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Video - Set the currentTime */
+function()
+{
+    function videoSetTime(whichSeconds)
+    {
+   document.querySelector('video').currentTime = whichSeconds;
+    }
+
+    videoSetTime(60);
+
+}());
+```
+
+---
+
+
+```javascript
+javascript:(
+/* Video - Duration - Total Length in Seconds */
+function()
+{
+    function videoGetDuration()
+    {
+        let theDuration = document.querySelector('video').duration;
+
+        return theDuration;
+    }
+
+    console.log(videoGetDuration());
+
+    alert(videoGetDuration());
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Video - loop if true, non loop if false */
+function()
+{
+    function videoLoop(whichLoopSetting)
+    {
+        document.querySelector('video').loop = whichLoopSetting;
+    }
+
+    videoLoop(true);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Video muted if true, unmuted if false */
+function()
+{
+    function videoMute(whichMuteSetting)
+    {
+        document.querySelector('video').muted = whichMuteSetting;
+    }
+
+    videoMute(true);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Video URL - window.location.href */
+function()
+{
+    function videoSource()
+    {
+        let theSrc = window.location.href;
+
+        return theSrc;
+    }
+
+    alert(videoSource());
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Video Volume - 0.0 Mute, 1.0 Full */
+function()
+{
+    function videoVolume(whichVolume)
+    {
+        document.querySelector('video').volume = whichVolume;
+    }
+
+    videoVolume(0.5);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Video Volume - Get Volume Level 0.0 to 1.0 */
+function()
+{
+    function videoVolumeGet()
+    {
+        let theSrc = document.querySelector('video').volume;
+
+        return theSrc;
+    }
+
+    alert(videoVolumeGet());
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Video Speed to Custom Value */
+/* Set the speed value of the video, such as: 0.0, 0.25, 0.5, 0.75, 1.00, 1.25, 1.5, 1.75, 2.00, 20.0, or super slow 0.01 */
+function()
+{
+    function videoSpeedSet(whichSpeed)
+    {
+   document.querySelector('video').playbackRate = whichSpeed;
+    }
+
+    videoSpeedSet(0.5);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Video - Custom Speed */
+function()
+{
+    function videoSpeedSet()
+    {
+        let speedInput = prompt('Enter a Speed', '0.50');
+
+        let videoSpeed = parseFloat(speedInput);
+
+ document.querySelector('video').playbackRate = videoSpeed;
+    }
+
+    videoSpeedSet();
+
+}());
+```
