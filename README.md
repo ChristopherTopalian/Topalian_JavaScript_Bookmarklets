@@ -439,3 +439,178 @@ function()
 
 /* Year: 2023 */
 ```
+
+---
+
+#### ``` Date - Month ```
+```javascript
+javascript:(
+/* Date - Month */
+function()
+{
+    function getTheMonth()
+    {
+        let currentDate = new Date();
+
+        let month = currentDate.getMonth();
+
+        if (month == 0)
+        {
+            return "January";
+        }
+        else if (month == 1)
+        {
+            return "February";
+        }
+        else if (month == 2)
+        {
+            return "March";
+        }
+        else if (month == 3)
+        {
+            return "April";
+        }
+        else if (month == 4)
+        {
+            return "May";
+        }
+        else if (month == 5)
+        {
+            return "June";
+        }
+        else if (month == 6)
+        {
+            return "July";
+        }
+        else if (month == 7)
+        {
+            return "August";
+        }
+        else if (month == 8)
+        {
+            return "September";
+        }
+        else if (month == 9)
+        {
+            return "October";
+        }
+        else if (month == 10)
+        {
+            return "November";
+        }
+        else if (month == 11)
+        {
+            return "December";
+        }
+
+        /* return month; */
+    }
+
+    console.log("Month is: " + getTheMonth());
+
+    alert("Month is: " + getTheMonth());
+
+}());
+
+/*
+August
+*/
+```
+
+---
+
+#### ``` Date - Day ```
+```javascript
+javascript:(
+/* Date - Day */
+function()
+{
+    function getTheDay()
+    {
+        let currentDate = new Date();
+
+        let day = currentDate.getDay();
+
+        if (day == 0)
+        {
+            return "Sunday";
+        }
+        else if (day == 1)
+        {
+            return "Monday";
+        }
+        else if (day == 2)
+        {
+            return "Tuesday";
+        }
+        else if (day == 3)
+        {
+            return "Wednesday";
+        }
+        else if (day == 4)
+        {
+            return "Thursday";
+        }
+        else if (day == 5)
+        {
+            return "Friday";
+        }
+        else if (day == 6)
+        {
+            return "Saturday";
+        }
+
+        /* return day; */
+    }
+
+    console.log("Today is: " + getTheDay());
+
+    alert("Today is: " + getTheDay());
+
+}());
+
+/*
+Sunday
+*/
+```
+
+---
+
+#### ``` Date - Time - Military - 24 Hour Format ```
+```javascript
+javascript:(
+/* Date - Time - Military - 24 Hour Format */
+function()
+{
+    function getMilitaryTime()
+    {
+        let currentDate = new Date();
+        let hours = currentDate.getHours();
+        let minutes = currentDate.getMinutes();
+        let seconds = currentDate.getSeconds();
+
+        if (minutes < 10)
+        {
+            minutes = "0" + minutes;
+        }
+
+        if (seconds < 10)
+        {
+            seconds = "0" + seconds;
+        }
+
+        let timeString = hours + ":" + minutes + ":" + seconds;
+
+        return timeString;
+    }
+
+    console.log("Time: " + getMilitaryTime());
+
+    alert("Time: " + getMilitaryTime());
+
+}());
+
+/*
+Time: 17:17:28
+*/
+```
