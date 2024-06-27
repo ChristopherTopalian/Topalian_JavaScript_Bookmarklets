@@ -56,8 +56,8 @@ function()
 
 #### ``` prompt toLowerCase if alert ```
 ```javascript
-javascript: (
-/* prompt toLowerCase if alert */
+javascript:(
+/* prompt, if, toLowerCase, alert, == Equal To */
 function()
 {
     function askName()
@@ -79,8 +79,8 @@ function()
 
 #### ``` Prompt, if else, toLowerCase, == EQUAL TO ```
 ```javascript
-javascript: (
-/* Prompt, if else, toLowerCase, == EQUAL TO */
+javascript:(
+/* prompt, if else, toLowerCase, == Equal To */
 function()
 {
     function askName()
@@ -93,7 +93,34 @@ function()
         }
         else
         {
-            return "Hi " + name + " Where is John";
+            return "Hi " + name + ". Where is John?";
+        }
+    }
+
+    alert(askName());
+
+}());
+```
+
+---
+
+#### ``` prompt, if else, toLowerCase != Not Equal To ```
+```javascript
+javascript:(
+/* prompt, if else, toLowerCase != Not Equal To */
+function()
+{
+    function askName()
+    {
+        let name = prompt("Enter Name").toLowerCase();
+
+        if (name != "john")
+        {
+            return "Hi " + name + ". Where is John?";
+        }
+        else
+        {
+            return "Hi John";
         }
     }
 
