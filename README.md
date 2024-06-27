@@ -823,3 +823,79 @@ function()
 
 }());
 ```
+
+#### ``` Title of the webpage ```
+```javascript
+javascript:(
+/* Title of the webpage */
+function()
+{
+    function titleOfPage()
+    {
+        let title = document.title;
+
+        return title;
+    }
+
+    console.log(titleOfPage());
+
+    alert(titleOfPage());
+
+}());
+```
+
+---
+
+#### ``` Title and URL of the webpage ```
+```javascript
+javascript:(
+/* Title and URL of the webpage */
+function()
+{
+    function titleOfPage()
+    {
+        let title = document.title;
+        return title;
+    }
+
+    function urlOfPage()
+    {
+        let url = window.location.href;
+        return url;
+    }
+
+    console.log(titleOfPage() + "\n" + urlOfPage());
+
+    alert(titleOfPage() + "\n" + urlOfPage());
+
+}());
+```
+
+---
+
+#### ``` Title and URL of webpage as single function ```
+```javascript
+javascript:(
+/* Title and URL of webpage as single function */
+function()
+{
+    function getPageData()
+    {
+        let pageTitle = document.title;
+        let pageURL = window.location.href;
+
+        let pageData =
+        "Title: " + pageTitle + "\n" +
+        "URL: " + pageURL;
+
+        return pageData;
+    }
+
+    console.log(getPageData());
+
+    alert(getPageData());
+
+}());
+```
+
+---
