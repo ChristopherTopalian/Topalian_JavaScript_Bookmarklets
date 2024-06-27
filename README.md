@@ -29,9 +29,10 @@ function()
 
 ---
 
+#### ``` prompt toLowerCase if alert ```
 ```javascript
 javascript: (
-/* equal_to.js */
+/* prompt toLowerCase if alert */
 function()
 {
     function askName(name)
