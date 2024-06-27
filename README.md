@@ -3419,3 +3419,877 @@ function()
 
 ---
 
+```javascript
+javascript:(
+/* Scene - Position - Get Current Position of the square object by left clicking it */
+function()
+{
+    let horizon = document.createElement('div');
+    horizon.style.position = 'absolute';
+    horizon.style.left = '0px';
+    horizon.style.top = '0px';
+    horizon.style.width = '100%';
+    horizon.style.height = '50%';
+    horizon.style.backgroundColor = 'rgb(0, 100, 200)';
+    document.body.append(horizon);
+
+    /*----*/
+
+    let grass = document.createElement('div');
+    grass.style.position = 'absolute';
+    grass.style.left = '0px';
+    grass.style.bottom = '0px';
+    grass.style.width = '100%';
+    grass.style.height = '50%';
+    grass.style.backgroundColor = 'rgb(0, 120, 0)';
+    document.body.append(grass);
+
+    /*----*/
+
+    let road = document.createElement('div');
+    road.style.position = 'absolute';
+    road.style.left = '30%';
+    road.style.bottom = '0%';
+    road.style.width = '20%';
+    road.style.height = '100%';
+    road.style.clipPath = 'polygon(0 100%, 50% 50%, 100% 100%)';
+    road.style.backgroundColor = 'rgb(0, 20, 0)'; 
+    document.body.append(road);
+
+    /*----*/
+
+    let object001 = document.createElement('div');
+    object001.style.position = 'absolute';
+    object001.style.left = '400px';
+    object001.style.top = '500px';
+    object001.style.width = '20px';
+    object001.style.height = '20px';
+    object001.style.backgroundColor = 'tan';
+    object001.style.cursor = 'pointer';
+    object001.style.zIndex = '10000';
+
+    object001.onclick = function(event)
+    {
+        /* get position */
+        let objectRect = object001.getBoundingClientRect();
+
+        console.log('X: ' + objectRect.x + ', Y: ' + objectRect.y);
+
+        alert('X: ' + objectRect.x + ', Y: ' + objectRect.y);
+    };
+
+    document.body.append(object001);
+
+    /*----*/
+
+    let sun = document.createElement('div');
+    sun.style.position = 'absolute';
+    sun.style.left = '300px';
+    sun.style.bottom = '400px';
+    sun.style.width = '100px';
+    sun.style.height = '100px';
+    sun.style.borderRadius = "50%";
+    sun.style.backgroundColor = 'yellow';
+    sun.style.cursor = 'pointer';
+    sun.style.zIndex = '10000';
+    document.body.append(sun);
+
+}());
+
+/*
+Result:
+X: 400, Y: 500
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement - Get link textContent - right click removes element */
+function()
+{
+    function createInfoDiv()
+    {
+        let report = "";
+
+        let theLinks = document.getElementsByTagName("a");
+
+        for (let x = 0; x < theLinks.length; x++)
+        {
+            report += '<a href = " ' + theLinks[x] + ' " target = "_blank">' + theLinks[x].textContent + '</a>';
+
+            report += "<hr>";
+        }
+
+        let ourDiv = document.createElement("div");
+        ourDiv.id = "theDiv";
+        ourDiv.style.position = "absolute";
+        ourDiv.style.left = "100px";
+        ourDiv.style.top = "100px";
+        ourDiv.style.width = "300px";
+        ourDiv.style.height = "200px";
+        ourDiv.style.paddingLeft = "10px";
+        ourDiv.style.paddingRight = "10px";
+        ourDiv.style.paddingBottom = "5px";
+        ourDiv.style.paddingTop = "5px";
+        ourDiv.style.borderRadius = "8px";
+        ourDiv.style.background = "rgb(0, 0, 0)";
+        ourDiv.style.zIndex = "1000";
+        ourDiv.style.fontSize = 22 + "px";
+        ourDiv.style.color = "rgb(0, 255, 255)";
+        ourDiv.style.overflowY = "scroll";
+
+        ourDiv.innerHTML = report;
+
+        ourDiv.oncontextmenu = function()
+        {
+    document.getElementById("theDiv").remove();
+        };
+
+        document.body.append(ourDiv);
+    }
+
+    createInfoDiv();
+
+}());
+
+/* For example: we can search Google for the word News and then activate our script */
+
+/*
+The div is created on the page and the links of the page are shown in the div and are clickable.
+The div is also scrollable.
+*/
+
+/*
+Choose the sytax style that you like using more:
+
+report += "<a href = ' " + theLinks[x] + " ' target = '_blank'>" + theLinks[x].textContent + "</a>";
+
+report += '<a href = " ' + theLinks[x] + ' " target = "_blank">' + theLinks[x].textContent + '</a>';
+
+report += '<a href = \'' + theLinks[x] + '\' target = "_blank"> '+theLinks[x].textContent+' </a>';
+
+report += `<a href = "${theLinks[x]}" target = "_blank">${theLinks[x].textContent}</a>`;
+
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement - Get URL when button is clicked, onmouseover, onmouseout */
+function()
+{
+    function showUrl()
+    {
+        let ourButton = document.createElement("button");
+        ourButton.style.position = "fixed";
+        ourButton.style.right = 5 + "px";
+        ourButton.style.top = 5 + "px";
+        ourButton.style.borderRadius = 8 + "px";
+        ourButton.style.paddingLeft = 10 + "px";
+        ourButton.style.paddingRight = 10 + "px";
+        ourButton.style.paddingBottom = 5 + "px";
+        ourButton.style.paddingTop = 5 + "px";
+        ourButton.style.zIndex = "1000";
+        ourButton.style.background = "rgb(0, 0, 0)";
+        ourButton.style.fontSize = 20 + "px";
+        ourButton.style.fontWeight = "bold";
+        ourButton.style.color = "rgb(255, 255, 255)";
+
+        ourButton.onclick = function()
+        {
+              console.log(window.location.href);
+            alert(window.location.href);
+        };
+
+        ourButton.onmouseover = function()
+        {
+              ourButton.style.borderColor = "aqua";
+            ourButton.style.color = "aqua";
+        };
+
+        ourButton.onmouseout = function()
+        {
+              ourButton.style.borderColor = "white";
+            ourButton.style.color = "white";
+        };
+
+        ourButton.innerHTML = "Show URL";
+
+        document.body.append(ourButton);
+    }
+
+    showUrl();
+
+}());
+
+/* onmouseover the button changes style, onmouseout the button changes style again.
+onclick it shows the url of the page in a console message and alert message box */
+```
+
+---
+
+
+```javascript
+javascript:(
+/* createElement, Video pause button */
+function()
+{
+    function videoPause()
+    {
+        let ourButton = document.createElement("button");
+        ourButton.id = "theButton";
+        ourButton.style.position = "absolute";
+        ourButton.style.left = "100px";
+        ourButton.style.top = "100px";
+        ourButton.style.paddingLeft = 10 + "px";
+        ourButton.style.paddingRight = 10 + "px";
+        ourButton.style.paddingTop = 5 + "px";
+        ourButton.style.paddingBottom = 5 + "px";
+        ourButton.style.borderRadius = 8 + "px";
+        ourButton.style.zIndex = "1000";
+        ourButton.style.background = "rgb(0, 0, 0)";
+        ourButton.style.fontSize = 20 + "px";
+        ourButton.style.fontWeight = "bold";
+        ourButton.style.color = "rgb(255, 255, 255)";
+        ourButton.innerHTML = "Pause Button";
+
+        ourButton.onmouseover = function()
+        {
+            ourButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        ourButton.onmouseout = function()
+        {
+            ourButton.style.color = "rgb(255, 255, 255)";
+        };
+
+        ourButton.onclick = function()
+        {
+            let theVideo = document.querySelectorAll("video");
+
+            theVideo.pause();
+        };
+
+        document.body.append(ourButton);
+
+    }
+
+    videoPause();
+
+}());
+
+
+/* When we have a video playing in our browser we can pause it using this button. */
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement, Video, Play, Pause Buttons */
+function()
+{
+    function createPausePlayButtons()
+    {
+        let playButton = document.createElement("button");
+        playButton.id = "playButton";
+        playButton.style.position = "absolute";
+        playButton.style.left = 100 + "px";
+        playButton.style.top = 100 + "px";
+        playButton.style.paddingLeft = 10 + "px";
+        playButton.style.paddingRight = 10 + "px";
+        playButton.style.paddingTop = 5 + "px";
+        playButton.style.paddingBottom = 5 + "px";
+        playButton.style.borderRadius = 8 + "px";
+        playButton.style.zIndex = 1000;
+       playButton.style.background = "rgb(0, 0, 0)";
+        playButton.style.fontSize = 20 + "px";
+        playButton.style.fontWeight = "bold";
+       playButton.style.color = "rgb(255, 255, 255)";
+        playButton.innerHTML = "Play Button";
+
+        playButton.onmouseover = function()
+        {
+           playButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        playButton.onmouseout = function()
+        {
+       playButton.style.color = "rgb(255, 255, 255)";
+        };
+
+        playButton.onclick = function()
+        {
+            let theVideo = document.querySelectorAll("video");
+
+            theVideo.play();
+        };
+
+        document.body.append(playButton);
+
+        /*----*/
+
+        let pauseButton = document.createElement("button");
+        pauseButton.id = "pauseButton";
+        pauseButton.style.position = "absolute";
+        pauseButton.style.left = 100 + "px";
+        pauseButton.style.top = 150 + "px";
+        pauseButton.style.paddingLeft = 10 + "px";
+        pauseButton.style.paddingRight = 10 + "px";
+        pauseButton.style.paddingTop = 5 + "px";
+        pauseButton.style.paddingBottom = 5 + "px";
+        pauseButton.style.borderRadius = 8 + "px";
+        pauseButton.style.zIndex = 1000;
+        pauseButton.style.background = "rgb(0, 0, 0)";
+        pauseButton.style.fontSize = 20 + "px";
+        pauseButton.style.fontWeight = "bold";
+        pauseButton.style.color = "rgb(255, 255, 255)";
+        pauseButton.innerHTML = "Pause Button";
+
+        pauseButton.onmouseover = function()
+        {
+            pauseButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        pauseButton.onmouseout = function()
+        {
+            pauseButton.style.color = "rgb(255, 255, 255)";
+        };
+
+        pauseButton.onclick = function()
+        {
+            let theVideo = document.querySelectorAll("video");
+
+            theVideo.pause();
+        };
+        document.body.append(pauseButton);
+    }
+    createPausePlayButtons();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement Video, play, pause, back, forward, Mute, UnMute */
+function()
+{
+    function createVideoControls()
+    {
+        let thePaddingLeft = 10;
+        let thePaddingRight = 10;
+        let thePaddingTop = 5;
+        let thePaddingBottom = 5;
+        let theMargin = 1;
+        let theBorderRadius = 8;
+        let theZIndex = 1000;
+        let theFontSize = 16;
+        let theTextColor = "rgb(255, 255, 255)";
+        let theBackgroundColor = "rgba(0, 0, 0, 0.3)";
+        let theBorderColor = "rgba(255, 255, 255, 0.3)";
+        let theFontWeight = "bold";
+
+        /*----*/
+
+        let mainDiv = document.createElement("div");
+        mainDiv.style.position = "absolute";
+        mainDiv.style.left = 5 + "px";
+        mainDiv.style.top = 70 + "px";
+        mainDiv.style.display = "flex";
+        mainDiv.style.flexDirection = "column";
+        document.body.append(mainDiv);
+
+        /*----*/
+
+        let playButton = document.createElement("button");
+        playButton.id = "playButton";
+        playButton.style.paddingLeft = thePaddingLeft + "px";
+        playButton.style.paddingRight = thePaddingRight + "px";
+        playButton.style.paddingTop = thePaddingTop + "px";
+        playButton.style.paddingBottom = thePaddingBottom + "px";
+        playButton.style.margin = theMargin + "px";
+        playButton.style.borderRadius = theBorderRadius + "px";
+        playButton.style.borderColor = theBorderColor;
+        playButton.style.zIndex = theZIndex;
+        playButton.style.background = theBackgroundColor;
+        playButton.style.fontSize = theFontSize + "px";
+        playButton.style.fontWeight = theFontWeight;
+        playButton.style.color = theTextColor;
+        playButton.innerHTML = "Play";
+
+        playButton.onmouseover = function()
+        {
+            playButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        playButton.onmouseout = function()
+        {
+            playButton.style.color = theTextColor;
+        };
+
+        playButton.onclick = function()
+        {
+            let theVideo = document.querySelector("video");
+
+            theVideo.play();
+        };
+
+        mainDiv.append(playButton);
+
+        /*----*/
+
+        let pauseButton = document.createElement("button");
+        pauseButton.id = "pauseButton";
+        pauseButton.style.paddingLeft = thePaddingLeft + "px";
+        pauseButton.style.paddingRight = thePaddingRight + "px";
+        pauseButton.style.paddingTop = thePaddingTop + "px";
+        pauseButton.style.paddingBottom = thePaddingBottom + "px";
+        pauseButton.style.margin = theMargin + "px";
+        pauseButton.style.borderRadius = theBorderRadius + "px";
+        pauseButton.style.borderColor = theBorderColor;
+        pauseButton.style.zIndex = theZIndex;
+        pauseButton.style.background = theBackgroundColor;
+        pauseButton.style.fontSize = theFontSize + "px";
+        pauseButton.style.fontWeight = theFontWeight;
+        pauseButton.style.color = theTextColor;
+        pauseButton.innerHTML = "Pause";
+
+        pauseButton.onmouseover = function()
+        {
+            pauseButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        pauseButton.onmouseout = function()
+        {
+            pauseButton.style.color = theTextColor;
+        };
+
+        pauseButton.onclick = function()
+        {
+            let theVideo = document.querySelector("video");
+
+        theVideo.pause();
+        };
+
+        mainDiv.append(pauseButton);
+
+        /*----*/
+
+        let backButton = document.createElement("button");
+        backButton.id = "backButton";
+        backButton.style.paddingLeft = thePaddingLeft + "px";
+        backButton.style.paddingRight = thePaddingRight + "px";
+        backButton.style.paddingTop = thePaddingTop + "px";
+        backButton.style.paddingBottom = thePaddingBottom + "px";
+        backButton.style.margin = theMargin + "px";
+        backButton.style.borderRadius = theBorderRadius + "px";
+        backButton.style.borderColor = theBorderColor;
+        backButton.style.zIndex = theZIndex;
+        backButton.style.background = theBackgroundColor;
+        backButton.style.fontSize = theFontSize + "px";
+        backButton.style.fontWeight = theFontWeight;
+        backButton.style.color = theTextColor;
+        backButton.innerHTML = "Back";
+
+        backButton.onmouseover = function()
+        {
+            backButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        backButton.onmouseout = function()
+        {
+            backButton.style.color = theTextColor;
+        };
+
+        backButton.onclick = function()
+        {
+            let theVideo = document.querySelector("video");
+
+            theVideo.currentTime += -2;
+        };
+
+        mainDiv.append(backButton);
+
+        /*----*/
+
+        let forwardButton = document.createElement("button");
+        forwardButton.id = "forwardButton";
+        forwardButton.style.paddingLeft = thePaddingLeft + "px";
+        forwardButton.style.paddingRight = thePaddingRight + "px";
+        forwardButton.style.paddingTop = thePaddingTop + "px";
+        forwardButton.style.paddingBottom = thePaddingBottom + "px";
+        forwardButton.style.margin = theMargin + "px";
+        forwardButton.style.borderRadius = theBorderRadius + "px";
+        forwardButton.style.borderColor = theBorderColor;
+        forwardButton.style.zIndex = theZIndex;
+        forwardButton.style.background = theBackgroundColor;
+        forwardButton.style.fontSize = theFontSize + "px";
+        forwardButton.style.fontWeight = theFontWeight;
+        forwardButton.style.color = theTextColor;
+        forwardButton.innerHTML = "Forward";
+
+        forwardButton.onmouseover = function()
+        {
+            forwardButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        forwardButton.onmouseout = function()
+        {
+            forwardButton.style.color = theTextColor;
+        };
+
+        forwardButton.onclick = function()
+        {
+            let theVideo = document.querySelector("video")[0];
+
+            theVideo.currentTime += 2;
+        };
+
+        mainDiv.append(forwardButton);
+
+        /*----*/
+
+        let speedButton = document.createElement("button");
+        speedButton.id = "speedButton";
+        speedButton.style.paddingLeft = thePaddingLeft + "px";
+        speedButton.style.paddingRight = thePaddingRight + "px";
+        speedButton.style.paddingTop = thePaddingTop + "px";
+        speedButton.style.paddingBottom = thePaddingBottom + "px";
+        speedButton.style.margin = theMargin + "px";
+        speedButton.style.borderRadius = theBorderRadius + "px";
+        speedButton.style.borderColor = theBorderColor;
+        speedButton.style.zIndex = theZIndex;
+        speedButton.style.background = theBackgroundColor;
+        speedButton.style.fontSize = theFontSize + "px";
+        speedButton.style.fontWeight = theFontWeight;
+        speedButton.style.color = theTextColor;
+        speedButton.innerHTML = "Speed";
+
+        speedButton.onmouseover = function()
+        {
+            speedButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        speedButton.onmouseout = function()
+        {
+            speedButton.style.color = theTextColor;
+        };
+
+        speedButton.onclick = function()
+        {
+            let video = document.querySelector("video");
+
+            let speedInput = prompt("Enter speed", "");
+
+            video.playbackRate = parseFloat(speedInput);
+        };
+
+        mainDiv.append(speedButton);
+
+        /*----*/
+
+        let muteButton = document.createElement("button");
+        muteButton.id = "muteButton";
+        muteButton.style.paddingLeft = thePaddingLeft + "px";
+        muteButton.style.paddingRight = thePaddingRight + "px";
+        muteButton.style.paddingTop = thePaddingTop + "px";
+        muteButton.style.paddingBottom = thePaddingBottom + "px";
+        muteButton.style.margin = theMargin + "px";
+        muteButton.style.borderRadius = theBorderRadius + "px";
+        muteButton.style.borderColor = theBorderColor;
+        muteButton.style.zIndex = theZIndex;
+        muteButton.style.background = theBackgroundColor;
+        muteButton.style.fontSize = theFontSize + "px";
+        muteButton.style.fontWeight = theFontWeight;
+        muteButton.style.color = theTextColor;
+        muteButton.innerHTML = "Mute";
+
+        muteButton.onmouseover = function()
+        {
+            muteButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        muteButton.onmouseout = function()
+        {
+            muteButton.style.color = theTextColor;
+        };
+
+        muteButton.onclick = function()
+        {
+           document.querySelector("video").muted = true;
+        };
+
+        mainDiv.append(muteButton);
+
+        /*----*/
+
+        let unmuteButton = document.createElement("button");
+        unmuteButton.id = "unmuteButton";
+        unmuteButton.style.paddingLeft = thePaddingLeft + "px";
+        unmuteButton.style.paddingRight = thePaddingRight + "px";
+        unmuteButton.style.paddingTop = thePaddingTop + "px";
+        unmuteButton.style.paddingBottom = thePaddingBottom + "px";
+        unmuteButton.style.margin = theMargin + "px";
+        unmuteButton.style.borderRadius = theBorderRadius + "px";
+        unmuteButton.style.borderColor = theBorderColor;
+        unmuteButton.style.zIndex = theZIndex;
+        unmuteButton.style.background = theBackgroundColor;
+        unmuteButton.style.fontSize = theFontSize + "px";
+        unmuteButton.style.fontWeight = theFontWeight;
+        unmuteButton.style.color = theTextColor;
+        unmuteButton.innerHTML = "Unmute";
+
+        unmuteButton.onmouseover = function()
+        {
+            unmuteButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        unmuteButton.onmouseout = function()
+        {
+            unmuteButton.style.color = theTextColor;
+        };
+
+        unmuteButton.onclick = function()
+        {
+            document.querySelector("video").muted = false;
+        };
+
+        mainDiv.append(unmuteButton);
+    }
+
+    createVideoControls();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Show elements of a class name on https://CollegeOfScripting.weebly.com */
+function()
+{
+    function showData()
+    {
+        let nameList = document.querySelectorAll(".buttonStyle");
+
+        let theNames = [];
+
+        for (let x = 0; x < nameList.length; x++)
+        {
+            nameList[x].style.borderColor = "rgb(0, 255, 255)";
+
+            theNames += nameList[x].textContent;
+
+            theNames += "\n";
+        }
+
+        return theNames.toString();
+    }
+
+    console.log(showData());
+
+    alert(showData());
+
+}());
+
+/*
+This Bookmarklet is designed to work ONLY on https://CollegeOfScripting.weebly.com
+Right Click on the buttons, such as the JavaScript button and then
+Choose Inspect Element
+
+We see that the Element has a css style class called .buttonStyle
+We use the dot syntax before the class name.
+The css style class name is .buttonStyle
+Inspecting an Element
+After Right Clicking on the Button and choosing Inspect Element, the Inspector Opens and allows us to see the name of the class of that Button.
+In this case, the buttons of this Weebly Website have a class called 
+buttonStyle
+Thus, we simply use that class name, when we want to reference only elements that use that class. This allows us to examine any webpage and inspect any element to find their class name, which therefore allows us the ability to reference any elements on the page that use that class.
+*/
+```
+
+---
+
+```javascript
+Inspecting an Element
+
+/* After Right Clicking on the button and choosing Inspect Element, the Inspector Opens and shows the name of the class of that button. In this case, the button of this Weebly Website has a class named buttonStyle */
+```
+
+---
+
+```javascript
+javascript:(
+/* Solar Wind Speed - https://www.swpc.noaa.gov/ */
+function()
+{
+    function getSolarWindSpeed()
+    {
+        let solarWindSpeed = document.querySelector("#WindSpeed").textContent;
+
+        return solarWindSpeed;
+    }
+
+    function showData()
+    {
+        let solarWindSpeed = "Solar Wind Speed: " + getSolarWindSpeed() + " km/second";
+
+        console.log(solarWindSpeed);
+        alert(solarWindSpeed);
+    }
+    showData();
+
+}());
+
+/*
+Solar Wind Speed: 354 km/second
+
+When we go to https://www.swpc.noaa.gov and right click on the Solar Wind Speed and choose Inspect, we find out many things about the element, including the id, which we use in this script to get the textContent of that id.
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Solar Wind Speed - https://www.swpc.noaa.gov - Timer */
+function()
+{
+    function getSolarWindSpeed()
+    {
+        let solarWindSpeed = document.querySelector("#WindSpeed").textContent;
+
+        return solarWindSpeed;
+    }
+
+    function showData()
+    {
+        let solarWindSpeed = "Solar Wind Speed: " + getSolarWindSpeed() + " km/second";
+
+        console.log(solarWindSpeed);
+    }
+
+    showData();
+
+    let theTimer = setInterval(function()
+    {
+        showData();
+    }, 60 * 1000);
+
+}());
+
+/*
+We go to https://www.swpc.noaa.gov and then activate this script.
+
+This script will keep getting the Solar Wind Speed from the element id "WindSpeed" textContent. */
+```
+
+---
+
+```javascript
+javascript:(
+/* Solar Wind Speed - https://www.swpc.noaa.gov - Timer - Array */
+function()
+{
+    let solarWindArray = [];
+
+    function getSolarWindSpeed()
+    {
+        let solarWindSpeed = document.querySelector("#WindSpeed").textContent;
+
+        let date = new Date();
+
+        let dateLocal = date.toLocaleString();
+
+        return dateLocal + " - Solar Wind Speed: " + solarWindSpeed + " km/second";
+    }
+
+    /* push data into the array */
+    solarWindArray.push(getSolarWindSpeed());
+
+    console.log(JSON.stringify(solarWindArray));
+
+    let theTimer = setInterval(function()
+    {
+      /* push data into the array on each iteration */
+       solarWindArray.push(getSolarWindSpeed());
+
+      console.log(JSON.stringify(solarWindArray));
+
+    }, 60 * 1000);
+
+}());
+
+/*
+When activated on https://www.swpc.noaa.gov this script will get the Solar Wind Speed every 1 minute and add the solar wind speed to the array, in addition to the date and time.
+
+The first time that the script gathers the solar wind speed it looks like this:
+["8/28/2023, 6:54:56 AM - Solar Wind Speed: 327 km/second"]
+
+The second time that the script gathers the solar wind speed it looks like this:
+["8/28/2023, 6:54:17 AM - Solar Wind Speed: 327 km/second","8/28/2023, 6:55:17 AM - Solar Wind Speed: 325 km/second"]
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Solar Wind Speed - https://www.swpc.noaa.gov - Timer - Array of Objects -*/
+function()
+{
+    let solarWindArray = [];
+
+    function getSolarWindSpeed()
+    {
+        let solarWindSpeed = document.querySelector("#WindSpeed").textContent;
+
+        let date = new Date();
+        let dateLocal = date.toLocaleString();
+
+        return {
+            date: dateLocal,
+            speed: solarWindSpeed
+        };
+    }
+
+    /* push data into the array */
+    solarWindArray.push(getSolarWindSpeed());
+
+    console.log(JSON.stringify(solarWindArray));
+
+    let theTimer = setInterval(function()
+    {
+      /* push data into array on each iteration */
+    solarWindArray.push(getSolarWindSpeed());
+   
+   console.log(JSON.stringify(solarWindArray));
+    }, 60 * 1000);
+
+}());
+
+/* When activated on https://www.swpc.noaa.gov script gets solar wind speed every 1 minute and add the solar wind speed to the array of objects, in addition to the date and time.
+
+first time script gathers solar wind speed
+[{"date":"8/28/2023, 7:15:49 AM","speed":"323"}]
+
+second time script gathers solar wind speed
+[{"date":"8/28/2023, 7:15:49 AM","speed":"323"},{"date":"8/28/2023, 7:16:49 AM","speed":"325"}]
+
+third time script gathers solar wind speed
+[{"date":"8/28/2023, 7:15:49 AM","speed":"323"},{"date":"8/28/2023, 7:16:49 AM","speed":"325"},{"date":"8/28/2023, 7:17:49 AM","speed":"324"}]
+
+fourth time script gathers solar wind speed
+[{"date":"8/28/2023, 7:15:49 AM","speed":"323"},{"date":"8/28/2023, 7:16:49 AM","speed":"325"},{"date":"8/28/2023, 7:17:49 AM","speed":"324"},{"date":"8/28/2023, 7:18:49 AM","speed":"323"}]
+*/
+```
+
+---
+
