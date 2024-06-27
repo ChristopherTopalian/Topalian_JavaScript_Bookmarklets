@@ -14,15 +14,16 @@ The JavaScript Bookmarklet code will execute.
 #### ``` prompt and alert ```
 ```javascript
 javascript:(
+/* prompt, alert */
 function()
 {
-    function getName()
+    function askName()
     {
         let name = prompt("Enter Name");
         return name;
     }
 
-    alert("Hi " + getName());
+    alert("Hi " + askName());
 
 }());
 ```
