@@ -995,3 +995,98 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` Style Links ```
+```javascript
+javascript:(
+/* Style Links */
+function()
+{
+    function styleLinks()
+    {
+        let links = document.getElementsByTagName('a');
+
+        for (let x = 0; x < links.length; x++)
+        {
+            links[x].style.backgroundColor = "rgb(0, 255, 255)";
+
+            links[x].style.color = "rgb(0, 0, 0)";
+        }
+    }
+
+    styleLinks();
+
+}());
+```
+
+---
+
+#### ``` Style Specified Elements ```
+```javascript
+javascript:(
+/* Style Specified Elements */
+function()
+{
+    function styleSpecifiedElements(whichElementType)
+    {
+        let elements = document.getElementsByTagName(whichElementType);
+
+        for (let x = 0; x < elements.length; x++)
+        {
+            elements[x].style.backgroundColor = "rgb(0, 255, 255)";
+            elements[x].style.color = "rgb(0, 0, 0)";
+        }
+    }
+
+    styleSpecifiedElements("a");
+
+}());
+```
+
+---
+
+#### ``` Text Color of a Webpage Changed to Aqua ```
+```javascript
+javascript:(
+/* Text Color of a Webpage Changed to Aqua */
+function()
+{
+    function textColorChange()
+    {
+        let ourStyle = document.createElement("style");
+
+        ourStyle.textContent = "body * { color: aqua !important; }";
+
+        document.head.append(ourStyle);
+    }
+
+    textColorChange();
+
+}());
+
+/* !important makes a CSS rule a higher specificity. It overrides any other style */
+```
+
+---
+
+#### ``` Text Color of a Webpage Changed to a Specified Color ```
+```javascript
+javascript:(
+/* Text Color of a Webpage Changed to a Specified Color */
+function()
+{
+    function textColorChange(whichColor)
+    {
+        let ourStyle = document.createElement("style");
+
+        ourStyle.textContent = "body * { color: " + whichColor + " !important; }";
+
+        document.head.append(ourStyle);
+    }
+
+    textColorChange("aqua");
+
+}());
+```
