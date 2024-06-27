@@ -2395,7 +2395,8 @@ function()
     let numberOfCircles = prompt("Enter number of circles to create");
 
     if (numberOfCircles && !isNaN(numberOfCircles))
-    {               moveObjectRandomPositions(Number(numberOfCircles));
+    {
+        moveObjectRandomPositions(Number(numberOfCircles));
     }
     else
     {
@@ -4288,6 +4289,404 @@ third time script gathers solar wind speed
 
 fourth time script gathers solar wind speed
 [{"date":"8/28/2023, 7:15:49 AM","speed":"323"},{"date":"8/28/2023, 7:16:49 AM","speed":"325"},{"date":"8/28/2023, 7:17:49 AM","speed":"324"},{"date":"8/28/2023, 7:18:49 AM","speed":"323"}]
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Timer - Every 5 Seconds, Trigger function */
+function()
+{
+    let counter = 0;
+
+    function showCounterData()
+    {
+        console.log(counter);
+
+        counter += 1;
+    }
+
+    setInterval(showCounterData, 5000);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Timer - Every 1 Second, Count Up */
+function()
+{
+    let counter = 0;
+
+    function updateIt()
+    {
+        counter += 1;
+
+        return counter;
+    }
+
+    function createCounterDiv()
+    {
+        let ourDiv = document.createElement("div");
+        ourDiv.id = "theDiv";
+        ourDiv.style.position = "absolute";
+        ourDiv.style.left = 20 + "px";
+        ourDiv.style.top = 150 + "px";
+        ourDiv.style.width = 100 + "px";
+        ourDiv.style.height = 25 + "px";
+        ourDiv.style.padding = 10 + "px";
+        ourDiv.style.backgroundColor = "rgb(0, 0, 0)";
+        ourDiv.style.fontSize = 20 + "px";
+        ourDiv.style.color = "rgb(255, 255, 255)";
+        ourDiv.innerHTML = updateIt();
+        document.body.append(ourDiv);
+    }
+
+    setInterval(createCounterDiv, 1000);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Timer - Every 1 Second, Count Down, clearInterval */
+function()
+{
+    let counter = prompt("Enter Count Down Start Time");
+
+    function countDown()
+    {
+        counter -= 1;
+
+        if (counter == 0)
+        {
+            clearInterval(ourTimer);
+        }
+        return counter;
+    }
+
+    function createCounterDiv()
+    {
+        let ourDiv = document.createElement("div");
+        ourDiv.id = "theDiv";
+        ourDiv.style.position = "absolute";
+        ourDiv.style.left = 100 + "px";
+        ourDiv.style.top = 100 + "px";
+        ourDiv.style.padding = 10 + "px";
+        ourDiv.style.borderRadius = 8 + "px";
+     ourDiv.style.backgroundColor = "rgb(0, 0, 0)";
+        ourDiv.style.fontSize = 25 + "px";
+        ourDiv.style.fontWeight = "bold";
+        ourDiv.style.color = "rgb(255, 255, 255)";
+        ourDiv.innerHTML = countDown();
+        document.body.append(ourDiv);
+    }
+
+    let ourTimer = setInterval(createCounterDiv, 1000);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - JSON.stringify */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        }
+    ];
+
+    function showData(whichArray)
+    {
+        console.log(whichArray);
+
+        console.log(JSON.stringify(whichArray));
+    }
+
+    showData(people);
+
+}());
+
+/*
+Here is the Output
+
+console.log(people);
+0: Object { name: "Melissa", date: "1980/03/01" }
+
+1: Object { name: "Tabitha", date: "1983/04/05" }
+
+console.log(JSON.stringify(people));
+[{"name":"Melissa","date":"1980/03/01"},{"name":"Tabitha","date": "1983/04/05"}]
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - for loop */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        }
+    ];
+
+    function showData(whichArray)
+    {
+        for (let x = 0; x < whichArray.length; x++)
+        {
+            console.log(whichArray[x]);
+        }
+    }
+
+    showData(people);
+
+}());
+
+/*
+
+Object { name: "Melissa", date: "1980/03/01" }
+
+Object { name: "Tabitha", date: "1983/04/05" }
+
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - while loop */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        }
+    ];
+
+    function showData(whichArray)
+    {
+        let x = 0;
+
+        while (x < whichArray.length)
+        {
+            console.log(whichArray[x]);
+
+            x += 1;
+        }
+    }
+
+    showData(people);
+
+}());
+
+/*
+{ name: 'Melissa', date: '1980/03/01' }
+{ name: 'Tabitha', date: '1983/04/05' }
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Names only */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        }
+    ];
+
+    function showData(whichArray)
+    {
+        let x = 0;
+
+        while (x < whichArray.length)
+        {
+            console.log(whichArray[x].name);
+
+            x += 1;
+        }
+    }
+
+    showData(people);
+
+}());
+
+/*
+Melissa
+Tabitha
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Dates only */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        }
+    ];
+
+    let x = 0;
+
+    while (x < people.length)
+    {
+        console.log(people[x].date);
+
+        x += 1;
+    }
+
+}());
+
+/*
+1980/03/01
+1983/04/05
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - for loop */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        }
+    ];
+
+    function showData(whichArray)
+    {
+        let output = 'Name\t\tDate\n';
+
+        for (let x = 0; x < whichArray.length; x++)
+        {
+            output = output + whichArray[x].name;
+
+            output += "\t";
+
+            output += whichArray[x].date;
+
+            output += "\n";
+        }
+
+        console.log(output);
+
+        alert(output);
+    }
+
+    showData(people);
+
+}());
+
+/*
+Name       Date
+Melissa   1980/03/01
+Tabitha    1983/04/05
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - First Letter Initial */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        }
+    ];
+
+    function showFirstLetterOfName(whichArray)
+    {
+        let x = 0
+
+        while (x < whichArray.length)
+        {
+            console.log(whichArray[x].name[0]);
+
+            x += 1;
+        }
+    }
+
+    showFirstLetterOfName(people);
+
+}());
+
+/*
+M
+T
 */
 ```
 
