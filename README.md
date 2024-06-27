@@ -2404,3 +2404,176 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` Random Border Color with Timer ```
+```javascript
+javascript:(
+/* Random Border Color with Timer */
+function()
+{
+    let theTimer;
+    let isRunning = false;
+
+    function getRandomColor()
+    {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+        return 'rgb('+r+', '+g+', '+b+')';
+    }
+
+    function toggleColorChange()
+    {
+        if (!isRunning)
+        {
+            document.body.style.borderStyle = "solid";
+
+            document.body.style.borderColor = "rgb(255, 255, 255)";
+
+            theTimer = setInterval(function()
+            {
+                document.body.style.borderColor = getRandomColor();
+            }, 1000);
+        }
+        else
+        {
+            clearInterval(theTimer);
+
+            document.body.style.backgroundColor = '';
+        }
+        isRunning = !isRunning;
+    }
+
+    toggleColorChange();
+
+    document.body.addEventListener('click', toggleColorChange);
+
+}());
+```
+
+---
+
+#### ``` Replace Images with a Random Image from our Array ```
+```javascript
+javascript:(
+/* Replace Images with a Random Image from our Array */
+function()
+{
+    let textures =
+    [
+'https://collegeofscripting.weebly.com/uploads/6/4/4/8/64482293/wood1.jpg',
+
+'https://collegeofscripting.weebly.com/uploads/6/4/4/8/64482293/copper.jpg',
+
+'https://collegeofscripting.weebly.com/uploads/6/4/4/8/64482293/silver.jpg',
+
+'https://collegeofscripting.weebly.com/uploads/6/4/4/8/64482293/gold.jpg',
+    ];
+
+    function replaceImages()
+    {
+        let images = document.getElementsByTagName('img');
+
+        for (let x = 0; x < images.length; x++)
+        {
+            let imageIndex = x % textures.length;
+
+            images[x].src = textures[imageIndex];
+
+            images[x].alt = 'Replaced Image';
+        }
+    }
+
+    replaceImages();
+
+}());
+
+/* replaces all images on the current page with random images from our array */
+```
+
+---
+
+#### ``` Replace Images with specified Image ```
+```javascript
+javascript:(
+/* Replace Images with specified Image */
+function()
+{
+    function replaceImages()
+    {
+        let images = document.getElementsByTagName('img');
+
+        for (let x = 0; x < images.length; x++)
+        {
+            images[x].src = 'https://collegeofscripting.weebly.com/uploads/6/4/4/8/64482293/asphalt.jpg';
+
+            images[x].alt = 'Asphalt';
+        }
+    }
+
+    replaceImages();
+
+}());
+```
+
+---
+
+#### ``` Video Pause - Pauses the Video ```
+```javascript
+javascript:(
+/* Video Pause - Pauses the Video */
+function()
+{
+    function videoPause()
+    {
+        let theVideo = document.querySelector('video');
+
+        theVideo.pause();
+    }
+
+    videoPause();
+
+}());
+
+/* When Activated, this Bookmarklet will PAUSE the first video found on the page. */
+```
+
+---
+
+#### ``` Video Play ```
+```javascript
+javascript:(
+/* Video Play */
+function()
+{
+    function videoPlay()
+    {
+        let theVideo = document.querySelector('video');
+
+        theVideo.play();
+    }
+
+    videoPlay();
+
+}());
+```
+
+---
+
+#### ``` Video Back 2 Seconds ```
+```javascript
+javascript:(
+/* Video Back 2 Seconds */
+function()
+{
+    function videoSkipBackwards()
+    {
+        let theTime = document.querySelector('video').currentTime += -2;
+    }
+
+    videoSkipBackwards();
+
+}());
+```
