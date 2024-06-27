@@ -22,7 +22,7 @@ function()
         return name;
     }
 
-    alert("Hi" + getName());
+    alert("Hi " + getName());
 
 }());
 ```
