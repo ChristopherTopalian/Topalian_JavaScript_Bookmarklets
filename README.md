@@ -1861,5 +1861,137 @@ function()
 
 }());
 
-/* In this script, console.log will show one random value and alert will show another random value */
+/* In this script, console.log
+will show one random value
+and alert will show
+another random value */
 ```
+
+---
+
+#### ``` Random Background Color ```
+```javascript
+javascript:(
+/* Random Background Color */
+function()
+{
+    function randomBackgroundColor()
+    {
+        let randomColor = 'rgb(' +
+Math.floor(Math.random() * 255) + ',' +
+Math.floor(Math.random() * 255) + ',' +
+Math.floor(Math.random() * 255) + ')';
+
+        document.body.style.backgroundColor = randomColor;
+    }
+
+    randomBackgroundColor();
+
+}());
+
+/* // Template Literal Version
+let randomColor = `rgb(
+${ Math.floor(Math.random() * 255) },
+${ Math.floor(Math.random() * 255) },
+${ Math.floor(Math.random() * 255) }
+)`;
+*/
+```
+
+---
+
+#### ``` Random Background Color - Variation ```
+```javascript
+javascript:(
+/* Random Background Color - Variation */
+function()
+{
+    function randomValue()
+    {
+        return Math.floor(Math.random() * 255);
+    }
+
+    let red = randomValue();
+    let green = randomValue();
+    let blue = randomValue();
+
+    let randomColor = 'rgb('+red+', '+green+', '+ blue+')';
+
+    document.body.style.backgroundColor = randomColor;
+
+}());
+
+/*
+// Template Literal Version
+let randomColor = `rgb(${red}, ${green}, ${blue})`;
+*/
+```
+
+---
+
+#### ``` Random Greeting ```
+```javascript
+javascript:(
+/* Random Greeting */
+function()
+{
+    let greetings =
+    [
+        "Hi",
+        "Howdy.",
+        "How ya doing?",
+        "You having fun?",
+        "Glad you are here.",
+        "Nice weather today.",
+        "It's such a nice day out."
+    ];
+
+    function makeRandomMessage(whichArray)
+    {
+        let randomGreeting = whichArray[Math.floor(Math.random() * whichArray.length)];
+
+        return randomGreeting;
+    }
+
+    let message = makeRandomMessage(greetings);
+
+    console.log(message);
+
+    alert(message);
+
+}());
+```
+
+---
+
+#### ``` Random Quote Generator ```
+```javascript
+javascript:(
+/* Random Quote Generator */
+function()
+{
+    function generateRandomQuote()
+    {
+        let quotes =
+        [
+            "Always be kind",
+            "Be excellent to each other",
+            "Live long and prosper"
+        ];
+
+        let randomIndex = Math.floor(Math.random() * quotes.length);
+
+        let randomQuote = quotes[randomIndex];
+        return randomQuote;
+    }
+
+    let quote = generateRandomQuote();
+    console.log(quote);
+    alert(quote);
+
+}());
+```
+
+---
+
+
