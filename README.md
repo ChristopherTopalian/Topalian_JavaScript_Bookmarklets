@@ -166,3 +166,32 @@ if the person presses the OK button without first entering their name, it tells 
 if the person presses the Cancel button it tells them that they pressed the Cancel button.
 */
 ```
+
+#### ``` prompt if else if, < less than, > greater than ```
+```javascript
+javascript:(
+/* prompt if else if, < less than, > greater than */
+function()
+{
+    function askQuestion()
+    {
+        let question = prompt("What is 5 x 5?");
+
+        if (question < 25)
+        {
+            return "A bit higher";
+        }
+        else if (question > 25)
+        {
+            return "A bit lower";
+        }
+        else
+        {
+            return "Correct";
+        }
+    }
+
+    alert(askQuestion());
+
+}());
+```
