@@ -30,6 +30,28 @@ function()
 
 ---
 
+#### ``` How to Add Comments ```
+```javascript
+javascript:(
+/* How to Add Comments */
+function()
+{
+    function askName()
+    {
+        let name = prompt("Enter Name");
+
+        /* Here is another comment. Comments can be on multiple lines using this way */
+
+        return name;
+    }
+
+    alert("Hi " + askName());
+
+}());
+```
+
+---
+
 #### ``` prompt toLowerCase if alert ```
 ```javascript
 javascript: (
