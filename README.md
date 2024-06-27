@@ -1464,3 +1464,159 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` Get Selected Text ```
+```javascript
+javascript:(
+/* Get Selected Text */
+function()
+{
+    function getSelectedText()
+    {
+        let selectedText = window.getSelection().toString();
+
+        return selectedText;
+    }
+
+    console.log(getSelectedText());
+
+    alert(getSelectedText());
+
+}());
+```
+
+---
+
+#### ``` Replace Words on a Webpage ```
+```javascript
+javascript:(
+/* Replace Words on a Webpage */
+function()
+{
+    function replaceWords()
+    {
+        let elements = document.getElementsByTagName('*');
+
+        for (let x = 0; x < elements.length; x++)
+        {
+            let theElement = elements[x];
+
+            theElement.innerHTML = theElement.innerHTML.replace(/\b(?:News)\b/gi, 'Howdy');
+
+            theElement.innerHTML = theElement.innerHTML.replace(/\b(?:The|Was|A|To|Were)\b/gi, 'LOL');
+
+            theElement.innerHTML = theElement.innerHTML.replace(/\b(?:What|Where|When|Why|How)\b/gi, 'Funny');
+        }
+    }
+
+    replaceWords();
+
+}());
+
+/*
+
+/ beginning and ending slashes show the start and end of the regular expression pattern.
+
+g means global and it replaces all occurrences of the pattern, not only the first one.
+
+i means case insensitive, meaning it matches uppercase and lowercase of the found pattern.
+
+\b(?:News)\b The regular expression pattern being searched for
+
+\b word boundary anchor means that the pattern is matched only as a whole word but not as part of a bigger word.
+
+(?:News) This is a non-capturing group that matches the word "News." The ?: at the beginning of the group makes it non-capturing, which means it won't be found as part of a match.
+
+\b word boundary anchor ensures the whole word is matched.
+*/
+```
+
+---
+
+#### ``` Replace Words on a Webpage - Variation ```
+```javascript
+javascript:(
+/* Replace Words on a Webpage - Variation */
+function()
+{
+    function replaceText(whichElement)
+    {
+        whichElement.innerHTML = whichElement.innerHTML.replace(/\bgoogle\b/gi, 'Orc Factory');
+    }
+
+    let elements = document.getElementsByTagName('*');
+
+    for (let x = 0; x < elements.length; x++)
+    {
+        replaceText(elements[x]);
+    }
+
+}());
+```
+
+---
+
+#### ``` Remove Element by Left Clicking it ```
+```javascript
+javascript:(
+/* Remove Element by Left Clicking it */
+function()
+{
+    document.addEventListener('click', function(event)
+    {
+        event.preventDefault();
+
+        event.target.remove();
+    });
+
+}());
+```
+
+---
+
+#### ``` Remove Element by Left Clicking it - Variation ```
+```javascript
+javascript:(
+/* Remove Element by Left Clicking it - Variation */
+function()
+{
+    document.onclick = function(event)
+    {
+        event.preventDefault();
+
+        event.target.remove();
+    };
+
+}());
+```
+
+---
+
+#### ``` Images Display to None ```
+```javascript
+javascript:(
+/* Images Display to None */
+function()
+{
+    function hideImages()
+    {
+        let images = document.getElementsByTagName('img');
+
+        for (let x = 0; x < images.length; x++)
+        {
+            if (window.getComputedStyle(images[x]).display === "none")
+            {
+                images[x].style.display = "block";
+            }
+            else
+            {
+                images[x].style.display = "none";
+            }
+        }
+    }
+    hideImages();
+
+}());
+```
