@@ -668,4 +668,158 @@ function()
 /* Time: 8:50:17 AM */
 ```
 
+---
 
+#### ``` Date - Time - AM or PM - 12 Hour Format – Updates Time in a div ```
+```javascript
+javascript:(
+/* Date - Time - AM or PM - 12 Hour Format – Updates Time in a div */
+function()
+{
+    function getTheTime()
+    {
+        let currentDate = new Date();
+        let hours = currentDate.getHours();
+        let minutes = currentDate.getMinutes();
+        let seconds = currentDate.getSeconds();
+        let amOrPm;
+
+        if (hours >= 12)
+        {
+            amOrPm = "PM";
+            if (hours > 12)
+            {
+                hours -= 12;
+            }
+        }
+        else
+        {
+            amOrPm = "AM";
+            if (hours === 0)
+            {
+                hours = 12;
+            }
+        }
+
+        if (minutes < 10)
+        {
+            minutes = "0" + minutes;
+        }
+
+        if (seconds < 10)
+        {
+            seconds = "0" + seconds;
+        }
+
+        let timeString = hours + ":" + minutes + ":" + seconds + " " + amOrPm;
+
+        return timeString;
+    }
+
+    function createTimeText()
+    {
+        let timeDiv = document.createElement("div");
+        timeDiv.style.position = "fixed";
+        timeDiv.style.right = "0px";
+        timeDiv.style.top = "0px";
+        timeDiv.style.paddingLeft = "15px";
+        timeDiv.style.paddingRight = "15px";
+        timeDiv.style.paddingTop = "5px";
+        timeDiv.style.paddingBottom = "5px";
+        timeDiv.style.borderRadius = "8px";
+        timeDiv.style.backgroundColor = "rgb(0, 0, 0)";
+        timeDiv.style.fontSize = "30px";
+        timeDiv.style.color = "rgb(255, 255, 255)";
+
+        setInterval(function()
+        {
+            timeDiv.innerHTML = getTheTime();
+        }, 1000);
+
+        document.body.append(timeDiv);
+    }
+
+    createTimeText();
+
+}());
+
+/* Time: 8:57:17 AM */
+```
+
+---
+
+#### ``` Date - Time - Time Zones America ```
+```javascript
+javascript:(
+/* Date - Time - Time Zones America */
+function()
+{
+    function getCurrentTimeAndDate(timezone, label)
+    {
+        let now = new Date();
+
+        let options = {
+            timeZone: timezone,
+            timeStyle: 'short',
+            dateStyle: 'medium'
+        };
+
+        let formattedTimeAndDate = now.toLocaleString(undefined, options);
+
+        return label + " " + formattedTimeAndDate;
+    }
+ console.log(getCurrentTimeAndDate('America/Los_Angeles', 'West Coast'));
+    console.log(getCurrentTimeAndDate('America/Denver', 'Mountain'));
+ console.log(getCurrentTimeAndDate('America/Chicago', 'Central'));
+
+console.log(getCurrentTimeAndDate('America/New_York', 'East Coast'));
+
+}());
+
+/* West Coast Oct 19, 2023, 12:31 PM
+Mountain Oct 19, 2023, 1:31 PM
+Central Oct 19, 2023, 2:31 PM
+East Coast Oct 19, 2023, 3:31 PM */
+```
+
+---
+
+#### ``` URL - Go to a Webpage ```
+```javascript
+javascript:(
+/* URL - Go to a Webpage */
+function()
+{
+    let url001 = "https://www.google.com";
+
+    function openWebpage()
+    {
+        window.location.href = url001;
+    }
+
+    openWebpage();
+
+}());
+```
+
+---
+
+#### ``` URL of the webpage ```
+```javascript
+javascript:(
+/* URL of the webpage */
+function()
+{
+    function getURL()
+    {
+        let url = window.location.href;
+
+        return url;
+    }
+
+    console.log(getURL());
+
+    alert(getURL());
+
+}());
+```
