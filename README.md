@@ -49,3 +49,30 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` Prompt, if else, toLowerCase, == EQUAL TO ```
+```javascript
+javascript: (
+/* Prompt, if else, toLowerCase, == EQUAL TO */
+function()
+{
+    function askName()
+    {
+        let name = prompt("Enter Name").toLowerCase();
+
+        if (name == "john")
+        {
+            return "Hi John";
+        }
+        else
+        {
+            return "Hi " + name + " Where is John";
+        }
+    }
+
+    alert(askName());
+
+}());
+```
