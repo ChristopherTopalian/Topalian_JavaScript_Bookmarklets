@@ -195,3 +195,41 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` prompt, if else if, do while loop, <, >, != ```
+```javascript
+javascript:(
+/* prompt, if else if, do while loop, <, >, != */
+function()
+{
+    function askQuestion()
+    {
+        let message;
+
+        do
+        {
+            let question = prompt("What is 5 x 5?");
+
+            if (question < 25)
+            {
+                message = "A bit higher";
+            }
+            else if (question > 25)
+            {
+                message = "A bit lower";
+            }
+            else
+            {
+                message = "Correct";
+            }
+            alert(message);
+        }
+        while (question != 25);
+    }
+
+    askQuestion();
+
+}());
+```
