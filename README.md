@@ -2850,3 +2850,572 @@ function()
 
 }());
 ```
+
+---
+
+```javascript
+javascript:(
+/* YouTube - Style Description Border color */
+function()
+{
+    function createBorderAroundVideoInfo()
+    {
+        let theBorder = document.querySelector(".style-scope ytd-watch-metadata");
+        
+        theBorder.style.borderStyle = 'solid';
+
+        theBorder.style.borderColor = 'aqua';
+    }
+
+    createBorderAroundVideoInfo();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* YouTube - Get URL, Title, Description, Date */
+function()
+{
+    function getInfo()
+    {
+        let nameList = document.querySelectorAll(".style-scope ytd-video-primary-info-renderer");
+
+        let theNames = [];
+
+        for (let x = 0; x < nameList.length; x++)
+        {
+            theNames += nameList[x].textContent;
+
+            theNames += "\n";
+        }
+
+        let theTextArea = document.createElement("textarea");
+        theTextArea.style.position = "absolute";
+        theTextArea.style.left = 100 + 'px';
+        theTextArea.style.top = 200 + 'px';
+        theTextArea.style.width = 700 + 'px';
+        theTextArea.style.height = 200 + 'px';
+        theTextArea.style.zIndex = "1000";
+        theTextArea.style.border = "solid 2px rgba(0,0,100,1.0)";
+        theTextArea.style.background = "white";
+        theTextArea.style.fontFamily = "arial";
+        theTextArea.style.fontWeight = "normal";
+        theTextArea.style.fontSize = "medium";
+        theTextArea.style.color = "black";
+        theTextArea.style.textAlign = "center";
+
+        theTextArea.setAttribute("readonly", "true");
+
+        theTextArea.value = theNames;
+
+        document.body.append(theTextArea);
+    }
+
+    getInfo();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Shows Mouse Position when person clicks the screen */
+function()
+{
+    function mousePos()
+    {
+        let mouseX = event.pageX;
+        let mouseY = event.pageY;
+
+        let mousePos =
+        "Mouse" + "\n" +
+        "X " + mouseX + "\n" +
+        "Y " + mouseY;
+
+        console.log(mousePos);
+
+        document.title = mousePos;
+    }
+
+    window.addEventListener("click", mousePos, false);
+
+    mousePos();
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Create Video Game Player on Any Webpage */
+function()
+{
+    function createPlayer()
+    {
+        let player = document.createElement("div");
+        player.id = "thePlayer";
+        player.style.position = "absolute";
+        player.style.left = 0;
+        player.style.top = 0;
+        player.style.width = "50px";
+        player.style.height = "50px";
+        player.style.zIndex = "15";
+        player.style.fontFamily = "exo";
+        player.style.fontSize = "20px";
+        player.style.fontWeight = "bold";
+        player.style.color = "rgb(255, 255, 255)";
+        player.style.textAlign = "center";
+        player.style.background = "rgba(76, 175, 180, 0.5)";
+        document.body.append(player);
+
+        /*----*/
+
+        /* keyboard Letter Codes Being Pressed */
+        let keyboard = {};
+        keyboard.UP = 87;
+        keyboard.DOWN = 83;
+        keyboard.LEFT = 65;
+        keyboard.RIGHT = 68;
+
+        /*----*/
+
+        /* player's start position and id */
+        let ourPlayer =
+        {
+            x: 100,
+            y: 300,
+            speedMultiplier: 2,
+            playerId: document.getElementById("thePlayer")
+        };
+
+        /*----*/
+
+        /* key press detection */
+        document.body.onkeyup = document.body.onkeydown = function(e)
+{
+        if (e.keyCode == 80) /* letter p */
+        {
+            ourPlayer.playerId.style.background = "rgba(0, 175, 80, 0.5)";
+            ourPlayer.speedMultiplier = 4;
+        }
+        if (e.keyCode == 79) /* letter o */
+        {
+            ourPlayer.playerId.style.background = "rgba(76, 0, 80, 0.5)";
+            ourPlayer.speedMultiplier = 3;
+        }
+        if (e.keyCode == 73) /* letter i */
+        {
+            ourPlayer.playerId.style.background = "rgba(76, 175, 180, 0.5)";
+            ourPlayer.speedMultiplier = 2;
+        }
+
+        /* find out which key was pressed */
+        let theKeyCode = e.keyCode || e.which;
+
+        keyboard[theKeyCode] = e.type == 'keydown';
+    };
+
+    /*----*/
+
+    /* character movement updating */
+    let movePlayer = function(theX, theY)
+    {
+        ourPlayer.x += (theX || 0) * ourPlayer.speedMultiplier;
+
+        ourPlayer.y += (theY || 0) * ourPlayer.speedMultiplier;
+
+        ourPlayer.playerId.style.left = ourPlayer.x + 'px';
+
+        ourPlayer.playerId.style.top = ourPlayer.y + 'px';
+    };
+
+    /*----*/
+
+    /* player controls */
+    let sensePlayerMotion = function()
+    {
+        if (keyboard[keyboard.LEFT])
+        {
+            movePlayer(-1, 0);
+        }
+        if (keyboard[keyboard.RIGHT])
+        {
+            movePlayer(1, 0);
+        }
+        if (keyboard[keyboard.UP])
+        {
+            movePlayer(0, -1);
+        }
+        if (keyboard[keyboard.DOWN])
+        {
+            movePlayer(0, 1);
+        }
+    };
+
+    /*----*/
+
+    /* update the Position of the player */
+    movePlayer();
+
+    /*----*/
+
+    function scrollIt()
+    {
+document.getElementById("thePlayer").scrollIntoView(
+        {
+            block: "center",
+            inline: "center"
+        });
+    }
+
+    let loop001;
+
+    function gameLoop()
+    {
+        sensePlayerMotion();
+
+        scrollIt();
+
+        loop001 = requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
+}
+
+createPlayer();
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement, append, Make a div, style */
+function()
+{
+    function createInfoDiv()
+    {
+        let ourDiv = document.createElement("div");
+        ourDiv.style.position = "absolute";
+        ourDiv.style.left = "100px";
+        ourDiv.style.top = "100px";
+        ourDiv.style.paddingLeft = "10px";
+        ourDiv.style.paddingRight = "10px";
+        ourDiv.style.paddingTop = "5px";
+        ourDiv.style.paddingBottom = "5px";
+        ourDiv.style.zIndex = "1000";
+        ourDiv.style.borderStyle = "solid";
+        ourDiv.style.borderWidth = "1px";
+        ourDiv.style.borderRadius = "8px";
+        ourDiv.style.borderColor = "rgb(0, 255, 255)";
+        ourDiv.style.background = "rgb(0, 0, 0)";
+        ourDiv.style.fontSize = "30px";
+        ourDiv.style.fontWeight = "bold";
+        ourDiv.style.color = "rgb(0, 255, 255)";
+        ourDiv.style.textAlign = "center";
+        ourDiv.innerHTML = "Copper";
+        ourDiv.innerHTML += "<br>";
+        ourDiv.innerHTML += "29";
+        document.body.append(ourDiv);
+    }
+
+    createInfoDiv();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement - id - Right click on the Div and choose Inspect */
+function()
+{
+    function createDiv()
+    {
+        let ourDiv = document.createElement("div");
+        ourDiv.id = "ourDiv";
+        ourDiv.style.position = "absolute";
+        ourDiv.style.left = 100 + "px";
+        ourDiv.style.top = 100 + "px";
+        ourDiv.style.paddingLeft = "10px";
+        ourDiv.style.paddingRight = "10px";
+        ourDiv.style.paddingTop = "5px";
+        ourDiv.style.paddingBottom = "5px";
+        ourDiv.style.background = "rgb(0, 0, 0)";
+        ourDiv.style.borderStyle = "solid";
+        ourDiv.style.borderWidth = "1px";
+        ourDiv.style.borderRadius = "8px";
+        ourDiv.style.borderColor = "rgb(0, 255, 255)";
+        ourDiv.style.background = "rgb(0, 0, 0)";
+        ourDiv.style.fontSize = "30px";
+        ourDiv.style.fontWeight = "bold";
+        ourDiv.style.color = "rgb(0, 255, 255)";
+        ourDiv.style.textAlign = "center";
+        ourDiv.innerHTML = "Right click this div. Choose Inspect.";
+        document.body.append(ourDiv);
+    }
+
+    createDiv();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement, append, Make a Paragraph */
+function()
+{
+    function createParagraph()
+    {
+        let ourParagraph = document.createElement("p");
+        ourParagraph.style.position = "absolute";
+        ourParagraph.style.top = 100 + 'px';
+        ourParagraph.style.left = 100 + 'px';
+        ourParagraph.innerHTML = "Here is the text.";
+        document.body.append(ourParagraph);
+    }
+
+    createParagraph();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement, div, style, url new tab */
+function()
+{
+    function createInfoDiv()
+    {
+        let copper =
+        {
+            name: "copper",
+            number: "29",
+            link: "https://en.wikipedia.org/wiki/Copper"
+        };
+
+        let ourDiv = document.createElement("div");
+        ourDiv.style.position = "absolute";
+        ourDiv.style.left = "100px";
+        ourDiv.style.top = "100px";
+        ourDiv.style.paddingLeft = "10px";
+        ourDiv.style.paddingRight = "10px";
+        ourDiv.style.paddingBottom = "15px";
+        ourDiv.style.paddingTop = "9px";
+        ourDiv.style.zIndex = "1000";
+        ourDiv.style.borderRadius = "8px";
+        ourDiv.style.background = "rgb(0, 0, 0)";
+        ourDiv.style.fontSize = 30 + "px";
+        ourDiv.style.color = "rgb(0, 255, 255)";
+        ourDiv.style.textAlign = "center";
+        ourDiv.innerHTML = copper.name;
+        ourDiv.innerHTML += "<br>";
+        ourDiv.innerHTML += copper.number;
+        ourDiv.innerHTML += "<br>";
+        ourDiv.innerHTML += '<a href = \'' + copper.link + '\' target = "_blank"> Link </a>';
+        document.body.append(ourDiv);
+    }
+
+    createInfoDiv();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement, Array Of Objects - link */
+function()
+{
+    function createInfoDiv()
+    {
+        let myRecord =
+        [
+            {
+                name: "Key",
+                weight: 140,
+                link: "https://google.com/news"
+            },
+            {
+                name: "Donald",
+                weight: 160,
+                link: "https://google.com"
+            }
+        ];
+
+        let ourDiv = document.createElement("div");
+        ourDiv.style.position = "absolute";
+        ourDiv.style.left = "100px";
+        ourDiv.style.top = "100px";
+        ourDiv.style.width = "100px";
+        ourDiv.style.paddingLeft = "10px";
+        ourDiv.style.paddingRight = "10px";
+        ourDiv.style.paddingBottom = "15px";
+        ourDiv.style.paddingTop = "9px";
+        ourDiv.style.borderRadius = "8px";
+        ourDiv.style.background = "rgb(0, 0, 0)";
+        ourDiv.style.zIndex = "1000";
+        ourDiv.style.fontSize = 30 + "px";
+        ourDiv.style.color = "rgb(0, 255, 255)";
+        ourDiv.style.textAlign = "center";
+        ourDiv.innerHTML = myRecord[0].name;
+        ourDiv.innerHTML += "<br>";
+        ourDiv.innerHTML += myRecord[0].weight;
+        ourDiv.innerHTML += "<br>";
+        ourDiv.innerHTML += '<a href = \'' + myRecord[0].link + '\' target = "_blank"> Link </a>';
+
+        document.body.append(ourDiv);
+    }
+
+    createInfoDiv();
+
+}());
+
+/*
+We make an Array of Objects that we named myRecord
+
+The 0 entry of the myRecord array is Key.
+
+The 1 entry of the myRecord array is Donald.
+In the above script, we only display one record, which is the entry that has the name Key.
+
+To display the first entry name we use myRecord[0].name
+To display the first entry weight we use myRecord[0].weight
+
+To display the second entry name we use myRecord[1].name
+To display the second entry weight we use myRecord[1].weight
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement, Array of Objects - Show All */
+function()
+{
+    function createInfoDiv()
+    {
+        let myRecord =
+        [
+            {
+                name: "Key",
+                weight: 140,
+                link: "https://google.com/news"
+            },
+            {
+                name: "Donald",
+                weight: 160,
+                link: "https://google.com"
+            }
+        ];
+
+        /*----*/
+
+        let ourDiv = document.createElement("div");
+        ourDiv.style.position = "absolute";
+        ourDiv.style.left = "100px";
+        ourDiv.style.top = "100px";
+        ourDiv.style.paddingLeft = "10px";
+        ourDiv.style.paddingRight = "10px";
+        ourDiv.style.paddingBottom = "2px";
+        ourDiv.style.paddingTop = "2px";
+        ourDiv.style.borderRadius = "8px";
+        ourDiv.style.background = "rgb(0, 0, 0)";
+        ourDiv.style.zIndex = "1000";
+        ourDiv.style.fontSize = 30 + "px";
+        ourDiv.style.color = "rgb(0, 255, 255)";
+        ourDiv.style.textAlign = "right";
+        document.body.append(ourDiv);
+
+        let output = "";
+
+        for (let x = 0; x < myRecord.length; x++)
+        {
+            output += "<hr>";
+            output += myRecord[x].name;
+            output += " ";
+            output += myRecord[x].weight;
+            output += " ";
+            output += '<a href = \'' + myRecord[x].link + '\' target = "_blank"> Link </a>';
+        }
+
+        output += '<hr>';
+
+        ourDiv.innerHTML = output;
+
+    }
+
+    createInfoDiv();
+
+}());
+
+/*
+Creates a New div on the page with style & url link of an array of objects, displaying all entries.
+We loop through the entries of the myRecords array to display all of them at once.
+The for loop will only continue for as many entries that are found. In this case, there are only two entries.
+We display all of the entries on a div that we have made using createElement.
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* createElement, Make a Button */
+function()
+{
+    function textMessage(whichText)
+    {
+        alert(whichText);
+    }
+
+    function createMessage(whichText)
+    {
+        let ourButton = document.createElement("button");
+        ourButton.style.position = "absolute";
+        ourButton.style.left = "100px";
+        ourButton.style.top = "100px";
+        ourButton.style.padding = "2px";
+        ourButton.style.zIndex = "1000";
+        ourButton.style.background = "rgb(0, 0, 0)";
+        ourButton.style.fontSize = 22 + "px";
+        ourButton.style.color = "rgb(255, 255, 255)";
+        ourButton.innerHTML = "Greeting";
+
+        ourButton.onmouseover = function()
+        {
+            ourButton.style.color = "rgb(0, 255, 255)";
+        };
+
+        ourButton.onmouseout = function()
+        {
+            ourButton.style.color = "rgb(255, 255, 255)";
+        };
+
+        ourButton.onclick = function()
+        {
+            textMessage(whichText);
+        };
+
+        document.body.append(ourButton);
+
+    }
+
+    createMessage("Hi Everyone");
+
+}());
+```
+
+---
+
