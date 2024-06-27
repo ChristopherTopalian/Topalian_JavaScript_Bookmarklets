@@ -1994,4 +1994,413 @@ function()
 
 ---
 
+#### ``` Random Font for the entire Webpage ```
+```javascript
+javascript:(
+/* Random Font for the entire Webpage */
+function()
+{
+    let fonts =
+    [
+        'Arial',
+        'Times New Roman',
+        'Courier New',
+        'Garamond',
+        'Avant Garde',
+        'Palatino Linotype'
+    ];
 
+    function makeRandomFont()
+    {
+        let elements = document.getElementsByTagName('*');
+
+        let randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+
+        for (let x = 0; x < elements.length; x++)
+        {
+            elements[x].style.fontFamily = randomFont;
+        }
+
+        console.log('Changed font to ' + randomFont);
+
+        alert('Changed font to ' + randomFont);
+    }
+
+    makeRandomFont();
+
+}());
+```
+
+---
+
+#### ``` Random Background Color ```
+```javascript
+javascript:(
+/* Random Background Color */
+function()
+{
+    function getRandomColor()
+    {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+
+        return 'rgb('+r+', '+g+ ', '+b+')';
+    }
+
+    document.body.style.backgroundColor = getRandomColor();
+
+}());
+
+/*
+// Template Literal Version
+return `rgb(${r}, ${g}, ${b})`;
+*/
+```
+
+---
+
+#### ``` Random BG to Specified Element ```
+```javascript
+javascript:(
+/* Random BG to Specified Element */
+function()
+{
+    function styleSpecifiedElements(whichElementType)
+    {
+        let elements = document.getElementsByTagName(whichElementType);
+
+        for (let x = 0; x < elements.length; x++)
+        {
+            let randomColor = 'rgb(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ')';
+
+            elements[x].style.backgroundColor = randomColor;
+        }
+    }
+
+    styleSpecifiedElements("a");
+
+}());
+```
+
+---
+
+#### ``` Random BG to Specified Elements - Variation ```
+```javascript
+javascript:(
+/* Random BG to Specified Elements - Variation */
+function()
+{
+    function styleSpecifiedElements(whichElementType, whichRgbColor)
+    {
+        let theElements = document.getElementsByTagName(whichElementType);
+
+        for (let x = 0; x < theElements.length; x++)
+        {
+            theElements[x].style.backgroundColor = whichRgbColor;
+        }
+    }
+
+    styleSpecifiedElements("p", 'rgb(' +
+Math.floor(Math.random() * 255) + ',' +
+Math.floor(Math.random() * 255) + ',' +
+Math.floor(Math.random() * 255) + ')');
+
+}());
+```
+
+---
+
+#### ``` Random Positions for a Circle ```
+```javascript
+javascript:(
+/* Random Positions for a Circle */
+function()
+{
+    function createCircle()
+    {
+        let circle = document.createElement("div");
+        circle.id = "circle";
+        circle.style.position = "absolute";
+        circle.style.width = "20px";
+        circle.style.height = "20px";
+        circle.style.background = "aqua";
+        circle.style.borderRadius = "50%";
+        document.body.append(circle);
+        return circle;
+    }
+
+    function getRandomPosition()
+    {
+        let x = Math.floor(Math.random() * window.innerWidth);
+
+        let y = Math.floor(Math.random() * window.innerHeight);
+
+        return {
+            x: x,
+            y: y
+        };
+    }
+
+    function moveObject(circle)
+    {
+        let pos = getRandomPosition();
+        circle.style.left = pos.x + "px";
+        circle.style.top = pos.y + "px";
+    }
+
+    function moveObjectRandomPositions()
+    {
+        let circle = createCircle();
+
+        /* move every 1 second */
+        setInterval(function()
+        {
+            moveObject(circle);
+        }, 1000);
+    }
+    moveObjectRandomPositions();
+
+}());
+```
+
+---
+
+#### ``` Random Positions and Colors for a Circle ```
+```javascript
+javascript:(
+/* Random Positions and Colors for a Circle */
+function()
+{
+    function createCircle()
+    {
+        let circle = document.createElement("div");
+        circle.id = "circle";
+        circle.style.position = "absolute";
+        circle.style.width = "20px";
+        circle.style.height = "20px";
+        circle.style.borderRadius = "50%";
+        document.body.append(circle);
+        return circle;
+    }
+
+    function getRandomPosition()
+    {
+        let x = Math.floor(Math.random() * window.innerWidth);
+
+        let y = Math.floor(Math.random() * window.innerHeight);
+
+        return {
+            x: x,
+            y: y
+        };
+    }
+
+    function getRandomColor()
+    {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        return "rgb("+r+", "+g+", "+b+")";
+    }
+
+    function moveObject(circle)
+    {
+        let pos = getRandomPosition();
+
+        circle.style.backgroundColor = getRandomColor();
+
+        circle.style.left = pos.x + "px";
+        circle.style.top = pos.y + "px";
+    }
+
+    function moveObjectRandomPositions()
+    {
+        let circle = createCircle();
+        moveObject(circle);
+
+        /* move every 1 second */
+        setInterval(function()
+        {
+            moveObject(circle);
+        }, 1000);
+    }
+
+    moveObjectRandomPositions();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Random Positions and Colors for a Circle - How Many */
+function()
+{
+    function createCircle()
+    {
+        let circle = document.createElement("div");
+        circle.id = "circle";
+        circle.style.position = "absolute";
+        circle.style.width = "20px";
+        circle.style.height = "20px";
+        circle.style.borderRadius = "50%";
+        document.body.append(circle);
+        return circle;
+    }
+
+    function getRandomPosition()
+    {
+        let x = Math.floor(Math.random() * window.innerWidth);
+
+        let y = Math.floor(Math.random() * window.innerHeight);
+
+        return {
+            x: x,
+            y: y
+        };
+    }
+
+    function getRandomColor()
+    {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        return "rgb("+r+", "+g+", "+b+")";
+    }
+
+    function moveObject(circle)
+    {
+        let pos = getRandomPosition();
+
+        circle.style.backgroundColor = getRandomColor();
+
+        circle.style.left = pos.x + "px";
+        circle.style.top = pos.y + "px";
+    }
+
+    function moveObjectRandomPositions(numberOfCircles)
+    {
+        for (let i = 0; i < numberOfCircles; i++)
+        {
+            let circle = createCircle();
+
+            moveObject(circle);
+        }
+
+        /* move every 1 second */
+        setInterval(function()
+        {
+            let circles = document.querySelectorAll("#circle");
+
+            for (let i = 0; i < circles.length; i++)
+            {
+                moveObject(circles[i]);
+            }
+        }, 1000);
+    }
+
+    let numberOfCircles = prompt("Enter number of circles to create");
+
+    if (numberOfCircles && !isNaN(numberOfCircles))
+    {
+        moveObjectRandomPositions(Number(numberOfCircles));
+    }
+    else
+    {
+        alert("Enter 1 or higher");
+    }
+
+}());
+```
+
+---
+
+#### ``` Random Pos, Size, Color for Circles ```
+```javascript
+javascript:(
+/* Random Pos, Size, Color for Circles */
+function()
+{
+    function createCircle()
+    {
+        let circle = document.createElement("div");
+        circle.id = "circle";
+        circle.style.position = "absolute";
+        let size = getRandomSize();
+        circle.style.width = size + "px";
+        circle.style.height = size + "px";
+        circle.style.borderRadius = "50%";
+        document.body.append(circle);
+        return circle;
+    }
+
+    function getRandomSize()
+    {
+        // random size between 10 and 100 pixels
+        return Math.floor(Math.random() * 91) + 10;
+    }
+
+    function getRandomPosition()
+    {
+        let x = Math.floor(Math.random() * window.innerWidth);
+
+        let y = Math.floor(Math.random() * window.innerHeight);
+
+        return {
+            x: x,
+            y: y
+        };
+    }
+
+    function getRandomColor()
+    {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        return "rgb("+r+", "+g+", "+b+")";
+    }
+
+    function moveObject(circle)
+    {
+        let pos = getRandomPosition();
+
+        circle.style.backgroundColor = getRandomColor();
+
+        circle.style.left = pos.x + "px";
+        circle.style.top = pos.y + "px";
+    }
+
+    function moveObjectRandomPositions(numberOfCircles)
+    {
+        for (let i = 0; i < numberOfCircles; i++)
+        {
+            let circle = createCircle();
+            moveObject(circle);
+        }
+
+        /* move every 1 second */
+        setInterval(function()
+        {
+            let circles = document.querySelectorAll("#circle");
+
+            for (let i = 0; i < circles.length; i++)
+            {
+                moveObject(circles[i]);
+            }
+        }, 1000);
+    }
+
+    let numberOfCircles = prompt("Enter number of circles to create");
+
+    if (numberOfCircles && !isNaN(numberOfCircles))
+    {               moveObjectRandomPositions(Number(numberOfCircles));
+    }
+    else
+    {
+        alert("Enter a valid number.");
+    }
+
+}());
+```
