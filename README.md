@@ -16,9 +16,9 @@ The JavaScript Bookmarklet code will execute.
 javascript:(
 function()
 {
-    function getName(name)
+    function getName()
     {
-        name = prompt("Enter Name");
+        let name = prompt("Enter Name");
         return name;
     }
 
@@ -35,9 +35,9 @@ javascript: (
 /* prompt toLowerCase if alert */
 function()
 {
-    function askName(name)
+    function askName()
     {
-        name = prompt("Enter Name").toLowerCase();
+        let name = prompt("Enter Name").toLowerCase();
 
         if (name == "john")
         {
