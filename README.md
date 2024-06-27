@@ -73,6 +73,9 @@ function()
     askName();
 
 }());
+
+/* John or JOHN or jOhN will activate */
+/* Jo hn or JOH N or J O H N will NOT activate */
 ```
 
 ---
