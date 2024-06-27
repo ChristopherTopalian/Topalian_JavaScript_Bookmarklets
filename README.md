@@ -40,7 +40,9 @@ function()
     {
         let name = prompt("Enter Name");
 
-        /* Here is another comment. Comments can be on multiple lines using this way */
+        /* Here is another comment.
+        Comments can be on multiple lines
+        using this way */
 
         return name;
     }
