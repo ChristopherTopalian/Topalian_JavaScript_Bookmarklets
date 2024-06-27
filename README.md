@@ -359,6 +359,31 @@ function()
 
 
 /*
-we use a for loop to display how many players the user chose and use break if it is not enough players chosen
+we use a for loop to display
+how many players the user chose
+and use break if it is
+not enough players chosen
 */
+```
+
+#### ``` Date, Time, Time zone ```
+```javascript
+javascript:(
+/* Date, Time, Time zone */
+function()
+{
+    function getDateAndTime()
+    {
+        let currentDate = new Date();
+
+        return currentDate;
+    }
+
+    console.log(getDateAndTime());
+
+    alert(getDateAndTime());
+
+}());
+
+/* Sun Aug 27 2023 07:41:22 GMT-0400 (Eastern Daylight Time) */
 ```
