@@ -1066,7 +1066,8 @@ function()
 
 }());
 
-/* !important makes a CSS rule a higher specificity. It overrides any other style */
+/* !important makes a CSS rule a higher specificity.
+It overrides any other style */
 ```
 
 ---
@@ -1087,6 +1088,230 @@ function()
     }
 
     textColorChange("aqua");
+
+}());
+```
+
+---
+
+#### ``` Style All Elements of a Specified Type ```
+```javascript
+javascript:(
+/* Style All Elements of a Specified Type */
+function()
+{
+    function styleElement(whichElementType)
+    {
+        let elements = document.getElementsByTagName(whichElementType);
+
+        for (let x = 0; x < elements.length; x++)
+        {
+            elements[x].style.borderStyle = "solid";
+
+            elements[x].style.borderWidth = 1 + "px";
+
+            elements[x].style.borderRadius = 8 + "px";
+
+            elements[x].style.borderColor = "rgb(0, 255, 255)";
+
+            elements[x].style.fontSize = 20 + "px";
+
+            elements[x].style.fontWeight = "bold";
+        }
+    }
+
+    styleElement("div");
+
+}());
+```
+
+---
+
+#### ``` Number of Elements of Specified Type on Page ```
+```javascript
+javascript:(
+/* Number of Elements of Specified Type on Page */
+function()
+{
+    function getNumberOfSpecifiedElement(whichElement)
+    {
+        let elements = document.getElementsByTagName(whichElement);
+
+        return elements.length;
+    }
+
+console.log(getNumberOfSpecifiedElement("div"));
+
+    alert(getNumberOfSpecifiedElement("div"));
+
+}());
+```
+
+---
+
+#### ``` Show the innerHTML of each specified element type on a Page ```
+```javascript
+javascript:(
+/* Show the innerHTML of each specified element type on a Page */
+function()
+{
+    function showElementInnerHTML(whichElementType)
+    {
+        let report = "";
+
+        let elements = document.getElementsByTagName(whichElementType);
+
+        for (let x = 0; x < elements.length; x++)
+        {
+            report += elements[x].innerHTML;
+
+            report += "\n";
+        }
+
+        console.log(report);
+
+        alert(report);
+    }
+
+    showElementInnerHTML("p");
+
+}());
+
+/*
+Show innerHTML of element types, such as:
+/*
+<p>: Paragraph elements.
+<h1>, <h2>, <h3>, <h4>, <h5>, <h6>: Headings of different levels.
+<div>: Div elements.
+<span>: Span elements.
+<li>: List item elements within <ul> or <ol>.
+<a>: Anchor links.
+<button>: Buttons.
+<label>: Labels for form elements.
+<textarea>: Textareas within forms.
+<option>: Options within <select> elements.
+<blockquote>: Block quotes.
+<cite>: Citations within block quotes.
+<abbr>: Abbreviations.
+<code>: Code snippets.
+<pre>: Preformatted text.
+*/
+```
+
+---
+
+#### ``` Show the src of each specified element type on a Page ```
+```javascript
+javascript:(
+/* Show the src of each specified element type on a Page */
+function()
+{
+    function showElementsSrc(whichElementType)
+    {
+        let report = "";
+
+        let elements = document.getElementsByTagName(whichElementType);
+
+        for (let x = 0; x < elements.length; x++)
+        {
+            report += elements[x].src;
+
+            report += "\n";
+        }
+
+        console.log(report);
+
+        alert(report);
+    }
+
+    showElementsSrc("img");
+
+}());
+
+/*
+Show src of element types, such as:
+<img>: Image elements.
+<input>: Input elements.
+<script>: Script elements.
+*/
+```
+
+---
+
+#### ``` Show the href of each specified element type on a Page ```
+```javascript
+javascript:(
+/* Show the href of each specified element type on a Page */
+function()
+{
+    function showElementsHref(whichElementType)
+    {
+        let report = "";
+
+        let elements = document.getElementsByTagName(whichElementType);
+
+        for (let x = 0; x < elements.length; x++)
+        {
+            report += elements[x].href;
+
+            report += "\n";
+        }
+
+        console.log(report);
+
+        alert(report);
+    }
+
+    showElementsHref("link");
+
+}());
+
+/*
+Show href of element types, such as:
+
+<a>: Anchor elements.
+
+<link>: Link elements, such as style sheets.
+*/
+```
+
+---
+
+#### ``` Show the innerHTML of the specified element type and style it ```
+```javascript
+javascript:(
+/* Show the innerHTML of the specified element type and style it */
+function()
+{
+    function showElementInnerHTML(whichElementType)
+    {
+        let report = "";
+
+        let elements = document.getElementsByTagName(whichElementType);
+
+        for (let x = 0; x < elements.length; x++)
+        {
+            elements[x].style.padding = 10 + "px";
+
+            elements[x].style.borderStyle = "solid";
+
+            elements[x].style.borderWidth = 2 + "px";
+
+            elements[x].style.borderColor = "rgb(0, 255, 255)";
+
+            elements[x].style.fontWeight = "bold";
+
+            report += elements[x].innerHTML;
+
+            report += "\n";
+        }
+
+        console.log(report);
+
+        alert(report);
+    }
+
+    showElementInnerHTML("p");
 
 }());
 ```
