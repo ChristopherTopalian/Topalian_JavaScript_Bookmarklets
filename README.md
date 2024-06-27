@@ -233,3 +233,29 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` prompt, if, while loop, < less than ```
+```javascript
+javascript:(
+/* prompt, if, while loop, < less than */
+function()
+{
+    function askQuestion()
+    {
+        let players = prompt("Enter Number of Players");
+
+        let x = 0;
+
+        while (x < players)
+        {
+            x++;
+            console.log("Player " + x + ", ");
+        }
+    }
+
+    askQuestion();
+
+}());
+```
