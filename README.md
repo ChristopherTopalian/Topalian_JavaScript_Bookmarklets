@@ -824,6 +824,8 @@ function()
 }());
 ```
 
+---
+
 #### ``` Title of the webpage ```
 ```javascript
 javascript:(
@@ -899,3 +901,97 @@ function()
 ```
 
 ---
+
+#### ``` Elements - How Many Elements on a Page ```
+```javascript
+javascript:(
+/* Elements - How Many Elements on a Page */
+function()
+{
+    function howManyElements()
+    {
+        let elements = document.getElementsByTagName("*");
+
+        let elementCount = elements.length;
+
+        return elementCount;
+    }
+
+    console.log(howManyElements());
+
+    alert(howManyElements());
+
+}());
+```
+
+---
+
+#### ``` Images - How many Images on a page ```
+```javascript
+javascript:(
+/* Images - How many Images on a page */
+function()
+{
+    function howManyImages()
+    {
+        let images = document.getElementsByTagName('img');
+
+        let imageCount = images.length;
+
+        return imageCount;
+    }
+
+    console.log("Number of images is " + howManyImages());
+
+    alert("Number of images is " + howManyImages());
+
+}());
+```
+
+---
+
+#### ``` Links - How many links on a page ```
+```javascript
+javascript:(
+/* Links - How many links on a page */
+function()
+{
+    function howManyLinks()
+    {
+        let links = document.getElementsByTagName('a');
+
+        let linksCount = links.length;
+
+        return linksCount;
+    }
+
+    console.log("Number of Links: " + howManyLinks());
+
+    alert("Number of Links: " + howManyLinks());
+
+}());
+```
+
+---
+
+#### ``` How many specified elements ```
+```javascript
+javascript:(
+/* How many specified elements */
+function()
+{
+    function howManySpecifiedElements(whichElementType)
+    {
+        let elements = document.getElementsByTagName(whichElementType);
+
+        let elementCount = elements.length;
+
+        return elementCount;
+    }
+
+ console.log(howManySpecifiedElements("a"));
+
+    alert(howManySpecifiedElements("a"));
+
+}());
+```
