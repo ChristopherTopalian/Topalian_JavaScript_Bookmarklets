@@ -4,8 +4,9 @@ All Rights Reserved Christopher Andrew Topalian Copyright 2000-2024
 https://github.com/ChristopherTopalian
 
 * With our Web Browser open, we press F12 to open the console.
-* Paste the Code into the console
+* Paste the Code into the Console
 * Press Enter
+
 The JavaScript Bookmarklet code will execute.
 
 #### ``` prompt and alert ```
