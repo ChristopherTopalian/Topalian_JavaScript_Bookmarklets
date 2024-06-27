@@ -1315,3 +1315,152 @@ function()
 
 }());
 ```
+
+---
+
+#### ``` Show All Image URLS ```
+```javascript
+javascript:(
+/* Show All Image URLS */
+function()
+{
+    function showImageUrls()
+    {
+        let report = "";
+
+        let theLinks = document.getElementsByTagName("img");
+
+        for (let x = 0; x < theLinks.length; x++)
+        {
+            report += theLinks[x].src;
+            report += "\n";
+        }
+
+        console.log(report);
+
+        alert(report);
+    }
+
+    showImageUrls();
+
+}());
+
+/*
+alert shows a limited amount of characters.
+
+Use console.log or other method to show all image links found, when there are many.
+
+Press F12 to see the console report.
+*/
+```
+
+---
+
+#### ``` Show All Image URLS with style ```
+```javascript
+javascript:(
+/* Show All Image URLS with style */
+function()
+{
+    function showImageUrls()
+    {
+        let report = "";
+
+        let images = document.getElementsByTagName("img");
+
+        for (let x = 0; x < images.length; x++)
+        {
+            images[x].style.borderStyle = "solid";
+
+            images[x].style.borderWidth = 2 + "px";
+
+            images[x].style.borderColor = "rgb(0, 255, 255)";
+
+            report += images[x].src;
+
+            report += "\n";
+        }
+
+        console.log(report);
+
+        alert(report);
+    }
+
+    showImageUrls();
+
+}());
+```
+
+---
+
+#### ``` Show All Buttons with style ```
+```javascript
+javascript:(
+/* Show All Buttons with style */
+function()
+{
+    function showButons()
+    {
+        let report = "";
+
+        let buttons = document.getElementsByTagName("button");
+
+        for (let x = 0; x < buttons.length; x++)
+        {
+            buttons[x].style.borderStyle = "solid";
+
+            buttons[x].style.borderWidth = 2 + "px";
+
+            buttons[x].style.borderColor = "rgb(0, 255, 255)";
+
+            report += buttons[x].innerHTML;
+
+            report += "\n";
+        }
+
+        console.log(report);
+
+        alert(report);
+    }
+
+    showButons();
+
+}());
+```
+
+---
+
+#### ``` Show All Links with style ```
+```javascript
+javascript:(
+/* Show All Links with style */
+function()
+{
+    function showLinks()
+    {
+        let report = "";
+
+        let links = document.getElementsByTagName("a");
+
+        for (let x = 0; x < links.length; x++)
+        {
+            links[x].style.borderStyle = "solid";
+
+            links[x].style.borderWidth = 2 + "px";
+
+            links[x].style.borderColor = "rgb(0, 255, 255)";
+
+            report += links[x].href;
+
+            report += "\n";
+        }
+
+        console.log(report);
+
+        alert(report);
+    }
+
+    showLinks();
+
+}());
+```
