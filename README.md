@@ -387,3 +387,55 @@ function()
 
 /* Sun Aug 27 2023 07:41:22 GMT-0400 (Eastern Daylight Time) */
 ```
+
+---
+
+### ``` Date and Time - toLocaleString ```
+```javascript
+javascript:(
+/* Date and Time - toLocaleString */
+function()
+{
+    function getDateAndTime()
+    {
+        let currentDate = new Date();
+
+        let dateString = currentDate.toLocaleString();
+
+        return dateString;
+    }
+
+    console.log(getDateAndTime());
+
+    alert(getDateAndTime());
+
+}());
+
+/* 8/27/2023, 7:35:23 AM */
+```
+
+---
+
+#### ``` Date - getYear ```
+```javascript
+javascript:(
+/* Date - getYear */
+function()
+{
+    function getYear()
+    {
+        let currentDate = new Date();
+
+        let year = currentDate.getUTCFullYear();
+
+        return year;
+    }
+
+    console.log("Year: " + getYear());
+
+    alert("Year: " + getYear());
+
+}());
+
+/* Year: 2023 */
+```
