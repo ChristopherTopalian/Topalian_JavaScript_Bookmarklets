@@ -5,9 +5,7 @@ https://github.com/ChristopherTopalian
 
 * With our Web Browser open, we press F12 to open the console.
 * Paste the Code into the Console
-* Press Enter
-
-The JavaScript Bookmarklet code will execute.
+* Press Enter to Run the JavaScript Code
 
 #### ``` prompt and alert ```
 ```javascript
