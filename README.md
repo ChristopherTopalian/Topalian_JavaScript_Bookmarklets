@@ -4692,3 +4692,1220 @@ T
 
 ---
 
+```javascript
+javascript:(
+/* Array of Objects - First 3 Letter Initials  */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        }
+    ];
+
+    function showData(whichArray)
+    {
+        let x = 0;
+
+        while (x < whichArray.length)
+        {
+            console.log(whichArray[x]['name'][0] +
+            whichArray[x]['name'][1] +
+            whichArray[x]['name'][2]);
+
+            x += 1;
+        }
+    }
+
+    showData(people);
+
+}());
+
+/*
+Mel
+Tab
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Filter by Year */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        },
+
+        {
+            name: 'Jane',
+            date: '1987/08/12'
+        }
+    ];
+
+    function sortByDate(whichArray, direction) 
+    {
+        if (direction == "up")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(a.date) - new Date(b.date);
+            });
+        }
+
+        else if (direction == "down")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(b.date) - new Date(a.date);
+            });
+        }
+    }
+
+    function showData(whichArray)
+    {
+        for (let x = 0; x < whichArray.length; x++)
+        {
+            if (whichArray[x].date >= "1981")
+            {
+                console.log(whichArray[x].name + "\n" + whichArray[x].date); 
+            }
+        }
+    }
+
+    sortByDate(people, "up");
+
+    showData(people);
+
+}());
+
+/*
+Tabitha
+1983/04/05
+
+Jane
+1987/08/12
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Filter by Year and Month */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        },
+
+        {
+            name: 'Joan',
+            date: '1983/05/17'
+        },
+
+        {
+            name: 'Jane',
+            date: '1987/08/12'
+        }
+    ];
+
+    function sortByDate(whichArray, direction) 
+    {
+        if (direction == "up")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(a.date) - new Date(b.date);
+            });
+        }
+
+        else if (direction == "down")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(b.date) - new Date(a.date);
+            });
+        }
+    }
+
+    function showData(whichArray)
+    {
+        for (let x = 0; x < whichArray.length; x++)
+        {
+            if (whichArray[x].date >= "1983/05")
+            {
+                console.log(whichArray[x].name + "\n" + whichArray[x].date); 
+            }
+        }
+    }
+
+    sortByDate(people, "up");
+
+    showData(people);
+
+}());
+
+/*
+Joan
+1983/05/17
+
+Jane
+1987/08/12
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Filter by Year, Month and Day */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05'
+        },
+
+        {
+            name: 'Joan',
+            date: '1983/05/17'
+        },
+
+        {
+            name: 'Jane',
+            date: '1987/08/12'
+        }
+    ];
+
+    function sortByDate(whichArray, direction) 
+    {
+        if (direction == "up")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(a.date) - new Date(b.date);
+            });
+        }
+
+        else if (direction == "down")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(b.date) - new Date(a.date);
+            });
+        }
+    }
+
+    function showData(whichArray)
+    {
+        for (let x = 0; x < whichArray.length; x++)
+        {
+            if (whichArray[x].date == "1983/04/05")
+            {
+                console.log(whichArray[x].name + "\n" + whichArray[x].date); 
+            }
+        }
+    }
+
+    sortByDate(people, "up");
+
+    showData(people);
+
+}());
+
+/*
+Tabitha
+1983/04/05
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Filter by Year, Month, Day and Time */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01 12:00PM',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05 2:57PM'
+        },
+
+        {
+            name: 'Jennifer',
+            date: '1983/05/17 3:45PM'
+        },
+
+        {
+            name: 'Joan',
+            date: '1983/05/17 4:07PM'
+        },
+
+        {
+            name: 'Jane',
+            date: '1987/08/12 8:23PM'
+        }
+    ];
+
+    function sortByDate(whichArray, direction) 
+    {
+        if (direction == "up")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(a.date) - new Date(b.date);
+            });
+        }
+
+        else if (direction == "down")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(b.date) - new Date(a.date);
+            });
+        }
+    }
+
+    function showData(whichArray)
+    {
+        for (let x = 0; x < whichArray.length; x++)
+        {
+            if (whichArray[x].date >= "1983/05/17 3:50PM")
+            {
+                console.log(whichArray[x].name + "\n" + whichArray[x].date); 
+            }
+        }
+    }
+
+    sortByDate(people, "up");
+
+    showData(people);
+}());
+
+/*
+Joan
+1983/05/17 4:07PM
+Jane
+1987/08/12 8:23PM
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Filter Date A to Date B, YYYY/MM/DD */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '1980/03/01 12:00PM',
+        },
+
+        {
+            name: 'Tabitha',
+            date: '1983/04/05 2:57PM'
+        },
+
+        {
+            name: 'Jennifer',
+            date: '1983/05/17 3:45PM'
+        },
+
+        {
+            name: 'Joan',
+            date: '1983/05/17 4:07PM'
+        },
+
+        {
+            name: 'Jane',
+            date: '1987/08/12 8:23PM'
+        }
+    ];
+
+    function sortByDate(whichArray, direction) 
+    {
+        if (direction == "up")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(a.date) - new Date(b.date);
+            });
+        }
+
+        else if (direction == "down")
+        {
+            whichArray.sort(function(a, b)
+            {
+                return new Date(b.date) - new Date(a.date);
+            });
+        }
+    }
+
+    function showData(whichArray)
+    {
+        for (let x = 0; x < whichArray.length; x++)
+        {
+            if (whichArray[x].date >= "1983/05/17 3:45PM" && whichArray[x].date <= "1983/05/17 4:00PM")
+            {
+                console.log(whichArray[x].name + "\n" + whichArray[x].date); 
+            }
+        }
+    }
+
+    sortByDate(people, "up");
+
+    showData(people);
+
+}());
+
+/*
+Jennifer
+1983/05/17 3:45PM
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Special way to show keys and values */
+function()
+{
+    let people =
+    [
+        {
+            name: 'Melissa',
+            date: '2021/04/01',
+        },
+        {
+            name: 'Tabitha',
+            date: '2021/04/05'
+        }
+    ];
+
+    for (let x = 0; x < people.length; x++)
+    {
+        let person = people[x];
+
+        let entries = Object.entries(person);
+
+        for (let m = 0; m < entries.length; m++)
+        {
+            let key = entries[m][0];
+
+            let value = entries[m][1];
+
+            console.log(key + ': ' + value);
+        }
+    }
+
+}());
+
+/*
+we use a for loop to iterate through this array and access both the key and value for each property in the object
+
+name: Melissa
+date: 2021/04/01
+name: Tabitha
+date: 2021/04/05
+
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects with Nested Arrays */
+function()
+{
+    function showData()
+    {
+        let data =
+        [
+            {
+                name: 'James',
+                age: 30,
+                hobbies: ['Gardening', 'Gaming']
+            },
+
+            {
+                name: 'Joan',
+                age: 25,
+                hobbies: ['Hiking', 'Painting']
+            }
+        ];
+
+        let message = 'Array of Objects:\n';
+
+        for (let x = 0; x < data.length; x++)
+        {
+            let person = data[x];
+
+            message += 'Name: ' + person.name +
+', Age: ' + person.age + ', Hobbies: [' + person.hobbies.join(', ') + ']\n';
+        }
+
+        console.log(message);
+
+        alert(message);
+    }
+
+    showData();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Show Data on Rows of Divs */
+function()
+{
+    function showData()
+    {
+        let data =
+        [
+            {
+                name: 'Item 1',
+                description: 'Description 1'
+            },
+
+            {
+                name: 'Item 2',
+                description: 'Description 2'
+            },
+
+            {
+                name: 'Item 3',
+                description: 'Description 3'
+            },
+
+            {
+                name: 'Item 4',
+                description: 'Description 4'
+            },
+
+            {
+                name: 'Item 5',
+                description: 'Description 5'
+            },
+
+            {
+                name: 'Item 6',
+                description: 'Description 6'
+            },
+
+            {
+                name: 'Item 7',
+                description: 'Description 7'
+            },
+
+            {
+                name: 'Item 8',
+                description: 'Description 8'
+            },
+
+            {
+                name: 'Item 9',
+                description: 'Description 9'
+            },
+        ];
+
+        /* create a container for the rows of divs */
+        let container = document.createElement('div');
+        container.style.position = "absolute";
+        container.style.left = 10 + "px";
+        container.style.top = 10 + "px";
+        container.style.maxWidth = '800px';
+        container.style.padding = '10px';
+        container.style.display = 'flex';
+        container.style.flexWrap = 'wrap';
+        container.style.justifyContent = 'space-between';
+        document.body.append(container);
+
+        /* function to create a div for each object */
+        function createDivForObject(object)
+        {
+            let dataDiv = document.createElement('div');
+            dataDiv.style.width = '30%';
+            dataDiv.style.paddingLeft = '10px';
+            dataDiv.style.paddingRight = '10px';
+            dataDiv.style.paddingBottom = '5px';
+            dataDiv.style.marginLeft = '1px';
+            dataDiv.style.marginRight = '1px';
+            dataDiv.style.marginBottom = '7px';
+            dataDiv.style.marginTop = '7px';
+            dataDiv.style.border = '1px solid';
+            dataDiv.style.borderColor = 'rgb(255, 255, 255)';
+
+            dataDiv.innerHTML = '<h3>' + object.name + '</h3>' + '<p>' + object.description + '</p>';
+
+            container.append(dataDiv);
+        }
+
+        /* create divs for each object in the array */
+        for (let x = 0; x < data.length; x++)
+        {
+            createDivForObject(data[x]);
+        }
+    }
+
+    showData();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - map, filter, reduce - Finds Ages Over Specified Age */
+function()
+{
+    function showNamesOverSpecifiedAge(whichAge)
+    {
+        let data =
+        [
+            {
+                name: 'John',
+                age: 30
+            },
+            {
+                name: 'Jane',
+                age: 25
+            },
+            {
+                name: 'James',
+                age: 35
+            },
+            {
+                name: 'Alice',
+                age: 28
+            },
+            {
+                name: 'Joan',
+                age: 40
+            }
+        ];
+
+        /* map to extract names */
+        let names = [];
+
+        for (let x = 0; x < data.length; x++)
+        {
+            names.push(data[x].name);
+        }
+        console.log('Mapped Names:', names);
+
+        /*----*/
+
+        /* filter to find people over 30 */
+        let ageArray = [];
+
+        for (let x = 0; x < data.length; x++)
+        {
+            if (data[x].age >= whichAge)
+            {
+                ageArray.push(data[x]);
+            }
+        }
+        console.log('People Over ' + whichAge + ' Years Old:', ageArray);
+
+        /* reduce to calculate total age */
+        let totalAge = 0;
+
+        for (let x = 0; x < data.length; x++)
+        {
+            totalAge += data[x].age;
+        }
+
+        console.log('Total Age:', totalAge);
+
+        /*----*/
+
+        /* show each item */
+        for (let x = 0; x < data.length; x++)
+        {
+            console.log('Name:', data[x].name, '| Age:', data[x].age);
+        }
+    }
+    showNamesOverSpecifiedAge(30);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Emoji Fun */
+function()
+{
+    let funObjects =
+    [
+        {
+            name: "Smiling Face",
+            description: "A face with a big smile 😃",
+        },
+
+        {
+            name: "Big Hat",
+            description: "A big hat 🎩",
+        },
+
+        {
+            name: "SunShades",
+            description: "A pair of sunshades 😎",
+        },
+    ];
+
+    let message = "Fun Objects:\n\n";
+
+    for (let x = 0; x < funObjects.length; x++)
+    {
+        message += "Name: " + funObjects[x].name + "\n";
+
+        message += "Description: " + funObjects[x].description + "\n\n";
+    }
+
+    console.log(message);
+
+    alert(message);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Random Object – Programming Languages */
+function()
+{
+    let programmingFacts =
+    [
+        {
+            name: "C",
+            fact: "Invented in 1972",
+        },
+        {
+            name: "C++",
+            fact: "Invented in 1985",
+        },
+        {
+            name: "JavaScript",
+            fact: "Invented in 1995",
+        } 
+    ];
+
+    function generateRandomFact(whichArray)
+    {
+        let randomIndex = Math.floor(Math.random() * whichArray.length);
+
+        let randomFact = whichArray[randomIndex];
+
+        let message = randomFact.name + "\n" + randomFact.fact + "\n";
+
+        console.log(message);
+
+        alert(message);
+    }
+
+    generateRandomFact(programmingFacts);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Random Object - Periodic Elements */
+function()
+{
+    let periodicTable =
+    [
+        {
+            symbol: "H",
+            name: "Hydrogen",
+            atomicNumber: 1,
+        },
+
+        {
+            symbol: "He",
+            name: "Helium",
+            atomicNumber: 2,
+        },
+
+        {
+            symbol: "Li",
+            name: "Lithium",
+            atomicNumber: 3,
+        },
+
+        {
+            symbol: "Be",
+            name: "Beryllium",
+            atomicNumber: 4,
+        }
+    ];
+
+    function generateRandomFact(whichArray)
+    {
+        let randomIndex = Math.floor(Math.random() * whichArray.length);
+
+        let randomFact = whichArray[randomIndex];
+
+        let message = randomFact.symbol + "\n" + randomFact.name + "\n" + randomFact.atomicNumber;
+
+        console.log(message);
+
+        alert(message);
+    }
+
+    generateRandomFact(periodicTable);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Calculate the Average Score */
+function()
+{
+    function calculateAverageScore()
+    {
+        let students =
+        [
+            {
+                name: "Alice",
+                score: 85
+            },
+
+            {
+                name: "Bob",
+                score: 92
+            },
+
+            {
+                name: "James",
+                score: 78
+            },
+
+            {
+                name: "David",
+                score: 88
+            },
+
+            {
+                name: "Jennifer",
+                score: 95
+            },
+        ];
+
+        function calculateAverage(scores)
+        {
+            let total = 0;
+
+            for (let x = 0; x < scores.length; x++)
+            {
+                total += scores[x].score;
+            }
+
+            return total / scores.length;
+        }
+
+        /* calculate the average score */
+        let averageScore = calculateAverage(students);
+
+        /* display the result */
+        alert("Average Exam Score: " + averageScore.toFixed(2));
+    }
+
+    calculateAverageScore();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Calculate Average Score, Standard Deviation */
+function()
+{
+    let students =
+    [
+        {
+            name: "Alice",
+            score: 85
+        },
+
+        {
+            name: "Bob",
+            score: 92
+        },
+
+        {
+            name: "Jennifer",
+            score: 78
+        },
+
+        {
+            name: "David",
+            score: 88
+        },
+
+        {
+            name: "Joan",
+            score: 95
+        },
+    ];
+
+    function calculateAverage(scores)
+    {
+        let total = 0;
+
+        for (let x = 0; x < scores.length; x++)
+        {
+            total += scores[x].score;
+        }
+
+        return total / scores.length;
+    }
+
+    function calculateStandardDeviation(scores)
+    {
+        let average = calculateAverage(scores);
+
+        let variance = 0;
+
+        for (let x = 0; x < scores.length; x++)
+        {
+            variance += Math.pow(scores[x].score - average, 2);
+        }
+
+        let stdDeviation = Math.sqrt(variance / scores.length);
+
+        return stdDeviation;
+    }
+
+    /* calculate average score and standard deviation */
+    let averageScore = calculateAverage(students);
+
+    let standardDeviation = calculateStandardDeviation(students);
+
+    /* display the results */
+    alert("Average Score: " + averageScore.toFixed(2) + "\nStandard Deviation: " + standardDeviation.toFixed(2));
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Find Max/Min Temperature */
+function()
+{
+    function calculateMinMaxTemperature()
+    {
+        let cities =
+        [
+            {
+                name: "New York",
+                temperature: 90
+            },
+
+            {
+                name: "Los Angeles",
+                temperature: 82
+            },
+
+            {
+                name: "Chicago",
+                temperature: 76
+            },
+
+            {
+                name: "Boston",
+                temperature: 95
+            },
+
+            {
+                name: "Denver",
+                temperature: 87
+            },
+        ];
+
+        function findMaxTemperature(whichArray)
+        {
+            let max = whichArray[0].temperature;
+
+            for (let x = 1; x < whichArray.length; x++)
+            {
+                if (whichArray[x].temperature > max)
+                {
+                    max = whichArray[x].temperature;
+                }
+            }
+            return max;
+        }
+
+        function findMinTemperature(whichArray)
+        {
+            let min = whichArray[0].temperature;
+
+            for (let x = 1; x < whichArray.length; x++)
+            {
+                if (whichArray[x].temperature < min)
+                {
+                    min = whichArray[x].temperature;
+                }
+            }
+            return min;
+        }
+
+        /* find the maximum and minimum temperatures */
+        let maxTemperature = findMaxTemperature(cities);
+
+        let minTemperature = findMinTemperature(cities);
+
+        /* show the results */
+        alert("Maximum Temperature: " + maxTemperature + "°F\nMinimum Temperature: " + minTemperature + "°F");
+    }
+
+    calculateMinMaxTemperature();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Calculate Sales Total */
+function()
+{
+    function calculateSalesTotal()
+    {
+        let products =
+        [
+            {
+                name: "Store A",
+                sales: 250
+            },
+            {
+                name: "Store B",
+                sales: 180
+            },
+            {
+                name: "Store C",
+                sales: 320
+            },
+            {
+                name: "Store D",
+                sales: 420
+            },
+        ];
+
+        function calculateTotalSales(salesData)
+        {
+            let total = 0;
+
+            for (let x = 0; x < salesData.length; x++)
+            {
+                total += salesData[x].sales;
+            }
+
+            return total;
+        }
+
+        /* calculate the total sales */
+        let totalSales = calculateTotalSales(products);
+
+        return "Total Sales: $" + totalSales.toFixed(2);
+    }
+
+    /* display the result */
+    console.log(calculateSalesTotal());
+
+    alert(calculateSalesTotal());
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - Count occurrences of each item */
+function()
+{
+    let food =
+    [
+        {
+            name: "Apple",
+            quantity: 3
+        },
+
+        {
+            name: "Banana",
+            quantity: 2
+        },
+
+        {
+            name: "Strawberry",
+            quantity: 4
+        },
+
+        {
+            name: "Apple",
+            quantity: 2
+        },
+
+        {
+            name: "Pear",
+            quantity: 3
+        },
+
+        {
+            name: "Banana",
+            quantity: 1
+        },
+    ];
+
+    function countItemOccurrences(whichArray)
+    {
+        let itemCounts = {};
+
+        for (let x = 0; x < whichArray.length; x++)
+        {
+            let itemName = whichArray[x].name;
+
+            if (itemCounts[itemName])
+            {
+                itemCounts[itemName] += whichArray[x].quantity;
+            }
+            else
+            {
+                itemCounts[itemName] = whichArray[x].quantity;
+            }
+        }
+        return itemCounts;
+    }
+
+    /* count the occurrences of each item */
+    let itemOccurrences = countItemOccurrences(whichArray);
+
+    /* display the results */
+    let message = "Item Occurrences:\n\n";
+
+    let itemKeys = Object.keys(itemOccurrences);
+
+    for (let x = 0; x < itemKeys.length; x++)
+    {
+        let item = itemKeys[x];
+message += item + ": " + itemOccurrences[item] + "\n";
+    }
+
+    console.log(message);
+
+    alert(message);
+
+}());
+
+/*
+
+Item Occurrences:
+
+Apple: 5
+Banana: 3
+Strawberry: 4
+Pear: 3
+
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Array of Objects - push */
+function()
+{
+    let people =
+    [
+        {
+            name: "Jane",
+            eyeColor: "Brown",
+        },
+        {
+            name: "Jennifer",
+            eyeColor: "Blue",
+        }
+    ];
+
+    /* create a new person object */
+    let newPerson =
+    {
+        name: "Melissa",
+        eyeColor: "Green",
+    };
+
+    /* push adds new person to people array */
+    people.push(newPerson);
+
+    /* display the updated people array */
+    console.log(people);
+
+}());
+```
+
+---
