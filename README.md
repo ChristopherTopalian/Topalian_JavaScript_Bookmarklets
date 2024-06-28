@@ -5909,3 +5909,3165 @@ function()
 ```
 
 ---
+
+```javascript
+javascript:(
+/* Array of Objects - push with prompt */
+function()
+{
+    let people =
+    [
+        {
+            name: "Jane",
+            eyeColor: "Brown",
+        },
+        {
+            name: "Jennifer",
+            eyeColor: "Blue",
+        }
+    ];
+
+    /* create a new person object */
+    let newPerson = {};
+
+    /* ask the person their name */
+    newPerson.name = prompt("Enter Name:");
+
+    /* ask the person their eye color */
+    newPerson.eyeColor = prompt("Enter Eye Color:");
+
+    /* push adds new person to people array */
+    people.push(newPerson);
+
+    /* show updated people array */
+    console.log(people);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Links - List and Count */
+function()
+{
+    function listLinksAndCount()
+    {
+        let links = document.links;
+
+        let linkCount = links.length;
+
+        if (linkCount === 0)
+        {
+            alert('No links found on the page');
+        }
+        else
+        {
+            let linkSources = [];
+
+            for (let x = 0; x < linkCount; x++)
+            {
+                linkSources.push(links[x].href);
+            }
+
+            let data = 'Total Links: ' +
+            linkCount + '\n\n' +
+            'Link Sources: ' +
+            linkSources.join('\n');
+
+            console.log(data);
+
+            alert(data);
+        }
+    }
+
+    listLinksAndCount();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Element - List and Count Specified Type */
+function()
+{
+    function listAndCount(elementType)
+    {
+        let elements = document.getElementsByTagName(elementType);
+
+        let elementCount = elements.length;
+
+        if (elementCount === 0)
+        {
+            alert('No ' + elementType + 's found on this page');
+        }
+        else
+        {
+            let elementContents = [];
+
+            for (let x = 0; x < elementCount; x++)
+            {
+elementContents.push(elements[x].textContent);
+            }
+
+            let data = 'Total ' +
+            elementType + 's: ' +
+            elementCount + '\n\n' +
+            elementType + ' ' +
+            'Contents:' + '\n' +
+            elementContents.join('\n');
+
+            console.log(data);
+            alert(data);
+        }
+    }
+
+    listAndCount('a');
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Mouse Arrow Effect - Circles */
+function()
+{
+    function changeMouseArrow()
+    {
+        let theEffect = document.createElement('style');
+
+        theEffect.innerText = `
+     * {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="transparent"/><circle cx="12" cy="12" r="6" stroke="white" stroke-width="2" fill="transparent"/><circle cx="12" cy="12" r="2" fill="white"/></svg>'), auto !important;
+        }`;
+
+        document.head.append(theEffect);
+    }
+
+    changeMouseArrow();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Animate Words Typing Effect */
+function()
+{
+    function animateText()
+    {
+        let text = "Hi Everyone";
+        let x = 0;
+        let animationSpeed = 400;
+
+        let textDiv = document.createElement("div");
+        textDiv.style.position = "fixed";
+        textDiv.style.top = "50%";
+        textDiv.style.left = "50%";
+        textDiv.style.transform = "translate(-50%, -50%)";
+        textDiv.style.fontSize = "25px";
+        document.body.append(textDiv);
+
+        let animation = setInterval(function()
+        {
+            if (x < text.length)
+            {
+                textDiv.textContent = text.substring(0, x + 1);
+
+                x++;
+            }
+            else
+            {
+                clearInterval(animation);
+            }
+        }, animationSpeed);
+    }
+
+    animateText();
+
+}());
+
+/*
+displays a text of "Hi Everyone" with an animation. Each letter appears one by one.
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Detect which Web Browser is being used */
+function()
+{
+    function detectWebBrowser()
+    {
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1)
+        {
+            return 'You are using Firefox';
+        }
+        
+        if (navigator.userAgent.toLowerCase().indexOf('chrome') !== -1)
+        {
+            return 'You are using Chrome';
+        }
+        
+        if (navigator.userAgent.toLowerCase().indexOf('safari') !== -1)
+        {
+            return 'You are using Safari';
+        }
+
+        /* if none of the above, display a generic message */
+        return 'No known browser detected';
+    }
+
+    console.log(detectWebBrowser());
+
+    alert(detectWebBrowser());
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Pythagorean Theorem */
+function()
+{
+    /* create a function to calculate the hypotenuse length */
+    function calculateHypotenuse(a, b)
+    {
+        return Math.sqrt(a * a + b * b);
+    }
+
+    /* create a function to display the result */
+    function displayResult(a, b, c)
+    {
+        alert(
+            "Side A: " + a + "\n" +
+            "Side B: " + b + "\n" +
+            "Hypotenuse C: " + c.toFixed(2)
+        );
+    }
+
+    /* prompt the user for the lengths of side A and side B */
+    let sideA = parseFloat(prompt("Enter the length of side A:"));
+
+    let sideB = parseFloat(prompt("Enter the length of side B:"));
+
+    /* check if the input is valid */
+    if (isNaN(sideA) || isNaN(sideB))
+    {
+        alert("Enter only valid numbers");
+    }
+    else
+    {
+        /* calculate hypotenuse with the Pythagorean Theorem */
+        let hypotenuse = calculateHypotenuse(sideA, sideB);
+
+        /* display the result */
+        displayResult(sideA, sideB, hypotenuse);
+    }
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Calculate Factorial */
+function()
+{
+    /* create a function to calculate the factorial */
+    function calculateFactorial(whichNumber)
+    {
+        if (whichNumber < 0)
+        {
+            return "The factorial is not defined for negative numbers";
+        }
+        else if (whichNumber === 0)
+        {
+            return 1;
+        }
+        else
+        {
+            let factorial = 1;
+
+            for (let x = 1; x <= whichNumber; x++)
+            {
+                factorial *= x;
+            }
+
+            return factorial;
+        }
+    }
+
+    /* prompt the user for a number */
+    let number = parseInt(prompt("Enter a non-negative integer to calculate its factorial:"));
+
+    /* check if the input is valid */
+    if (isNaN(number) || number < 0)
+    {
+        alert("Enter a non-negative integer");
+    }
+    else
+    {
+        /* calculate the factorial */
+        let factorialResult = calculateFactorial(number);
+
+        /* display the result */
+        alert("Factorial of " + number + " is: " + factorialResult);
+    }
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Calculate Circle Circumference and Area */
+function()
+{
+    function calculateCircleProperties()
+    {
+        let radius = parseFloat(prompt("Enter the radius of the circle:"));
+
+        if (!isNaN(radius) && radius >= 0)
+        {
+            let area = Math.PI * Math.pow(radius, 2);
+
+            let circumference = 2 * Math.PI * radius;
+
+            alert(
+                "Radius: " + radius.toFixed(2) + "\n" +
+                "Area: " + area.toFixed(2) + "\n" +
+                "Circumference: " + circumference.toFixed(2)
+            );
+        }
+        else
+        {
+            alert("Enter a valid positive number for the radius.");
+        }
+    }
+
+    calculateCircleProperties();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Button Beep Sound using Oscillator */
+function()
+{
+    /* create a button element */
+    let button = document.createElement('button');
+    button.textContent = 'Click me for a beep';
+
+    /* create a new AudioContext */
+    let AudioContext = window.AudioContext || window.webkitAudioContext;
+
+    let audioContext = new AudioContext();
+
+    /* add click event to play the beep sound */
+    button.addEventListener('click', function()
+    {
+      /* create oscillator node for the beep sound */
+        let oscillator = audioContext.createOscillator();
+
+        oscillator.type = 'sine';
+
+        /* frequency of the beep sound */
+        oscillator.frequency.value = 1000;
+
+   oscillator.connect(audioContext.destination);
+
+        oscillator.start();
+
+        setTimeout(function()
+        {
+            oscillator.stop();
+        }, 100);
+    });
+
+    /* append the button to the body */
+    document.body.append(button);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Draggable Square */
+function()
+{
+    function createDraggableSquare()
+    {
+        let square = document.createElement('div');
+        square.style.position = 'absolute';
+        square.style.left = '100px';
+        square.style.top = '100px';
+        square.style.width = '50px';
+        square.style.height = '50px';
+        square.style.backgroundColor = 'aqua';
+        square.style.cursor = 'move';
+
+    /* initialize variables for tracking drag state */
+        let isDragging = false;
+        let offsetX;
+        let offsetY;
+
+        /* mouse down event and start dragging */
+        square.addEventListener('mousedown', function(event)
+        {
+            isDragging = true;
+
+            offsetX = event.clientX - square.getBoundingClientRect().left;
+
+            offsetY = event.clientY - square.getBoundingClientRect().top;
+        });
+
+        /* mouse up event and stop dragging */
+        window.addEventListener('mouseup', function()
+        {
+            isDragging = false;
+        });
+
+    /* mouse move event and update square pos */
+        window.addEventListener('mousemove', function(event)
+        {
+            if (isDragging)
+            {
+                let x = event.clientX - offsetX;
+                let y = event.clientY - offsetY;
+
+            /* make square stay within the viewport */
+                x = Math.min(Math.max(x, 0), window.innerWidth - 50);
+
+                y = Math.min(Math.max(y, 0), window.innerHeight - 50);
+
+                square.style.left = x + 'px';
+                square.style.top = y + 'px';
+            }
+        });
+
+        document.body.append(square);
+    }
+
+    createDraggableSquare();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Drag any element on any webpage */
+function()
+{
+    function makePageElementsDraggable()
+    {
+        let dragItem = null;
+        let offsetX;
+        let offsetY;
+
+    document.addEventListener('mousedown', function(e)
+        {
+            dragItem = e.target;
+
+            offsetX = e.clientX - dragItem.getBoundingClientRect().left;
+
+            offsetY = e.clientY - dragItem.getBoundingClientRect().top;
+
+            dragItem.style.position = 'absolute';
+document.body.append(dragItem);
+        });
+
+    document.addEventListener('mousemove', function(e)
+        {
+            if (dragItem)
+            {
+                dragItem.style.left = e.clientX - offsetX + 'px';
+
+                dragItem.style.top = e.clientY - offsetY + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', function()
+        {
+            dragItem = null;
+        });
+    }
+
+    makePageElementsDraggable();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Newton's First Law of Motion - The Law of Inertia.*/
+function()
+{
+    function createMovingSquare()
+    {
+        let box = document.createElement("div");
+        box.style.position = "absolute";
+        box.style.top = "50px";
+        box.style.left = "50px";
+        box.style.width = "100px";
+        box.style.height = "100px";
+        box.style.backgroundColor = "aqua";
+        document.body.append(box);
+
+        /* starting velocity */
+        let velocity = 1;
+
+        function animate()
+        {
+            /* move the box horizontally */
+            box.style.left = parseInt(box.style.left) + velocity + "px";
+
+            /* check if box has reached right edge */
+            if (parseInt(box.style.left) + parseInt(box.style.width) >= window.innerWidth)
+            {
+                /* reverse direction */
+                velocity = -1;
+            }
+
+            /* check if box has reached left edge */
+            if (parseInt(box.style.left) <= 0)
+            {
+                /* reverse direction */
+                velocity = 1;
+            }
+        }
+
+        let animationFrameId001;
+
+        function gameLoop()
+        {
+            animate();
+
+            animationFrameId001 = requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    }
+
+    createMovingSquare();
+
+}());
+
+/*
+Newton's First Law of Motion - an object will keep going in its current state of motion unless an external force acts on it.
+
+In this script, the object continues moving freely until it encounters the screen's edges.
+
+When it hits a wall, it changes direction by bouncing off with an equal and opposite force to its original motion.
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Calculate Distance of Galactus to Earth */
+function()
+{
+    function calculateGalactusDistanceToEarth()
+    {
+        /* start distance of Galactus to Earth */
+        let distance = 1000000; /* miles */
+
+        /* how fast Galactus is traveling */
+        let speed = 10000; /* mph */
+
+        /* how often to update the distance */
+        let updateTime = 1 * 1000;
+
+        function updateDistance()
+        {
+            /* update distance */
+            distance -= speed / 60;
+
+            if (distance <= 0)
+            {
+                document.getElementById("galactus-update").innerHTML = "Galactus has arrived!";
+
+                clearInterval(interval);
+            }
+            else
+            {
+                document.getElementById("galactus-update").innerHTML = "Galactus is " + distance.toFixed(2) + " miles away.";
+            }
+        }
+
+        /* create a div element for the updates */
+        let updateDiv = document.createElement("div");
+        updateDiv.id = "galactus-update";
+        updateDiv.style.position = "fixed";
+        updateDiv.style.right = "10px";
+        updateDiv.style.bottom = "10px";
+        updateDiv.style.padding = "10px";
+        updateDiv.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+        updateDiv.style.color = "white";
+        updateDiv.style.fontFamily = "Arial";
+        updateDiv.style.fontSize = "16px";
+        updateDiv.style.zIndex = "10000";
+        document.body.append(updateDiv);
+
+        /* update the distance initially */
+        updateDistance();
+
+        /* timer to update the distance */
+        let interval = setInterval(updateDistance, updateTime);
+    }
+
+    calculateGalactusDistanceToEarth();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Calculate Distance of Galactus to Earth and How Long Until Arrival */
+function()
+{
+    function calculateGalactusDistanceAndTimeToEarth()
+    {
+        /* start distance of Galactus to Earth */
+        let distance = 1000000; /* miles */
+
+        /* how fast Galactus is traveling */
+        let speed = 10000;  /* mph */
+
+        /* how often to update the distance */
+        let updateTime = 1 * 1000;
+
+        function updateDistance()
+        {
+            /* update distance */
+            distance -= speed / 60;
+
+            if (distance <= 0)
+            {
+                document.getElementById("galactus-update").innerHTML = "Galactus has arrived!";
+                clearInterval(interval);
+            }
+            else
+            {
+                /* calculate time in hours */
+                let timeInHours = distance / speed;
+
+               /* convert time to hours and minutes */
+                let hours = Math.floor(timeInHours);
+
+                let minutes = Math.floor((timeInHours - hours) * 60);
+
+                document.getElementById("galactus-update").innerHTML =
+"Galactus is " + distance.toFixed(2) +
+" miles away.<br>Arrival in " +
+hours + " hours and " + minutes + " minutes.";
+            }
+        }
+
+        /* create a div element for the updates */
+        let updateDiv = document.createElement("div");
+        updateDiv.id = "galactus-update";
+        updateDiv.style.position = "fixed";
+        updateDiv.style.right = "10px";
+        updateDiv.style.bottom = "10px";
+        updateDiv.style.padding = "10px";
+        updateDiv.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+        updateDiv.style.color = "white";
+        updateDiv.style.fontFamily = "Arial";
+        updateDiv.style.fontSize = "16px";
+        updateDiv.style.zIndex = "10000";
+        document.body.append(updateDiv);
+
+        /* update the distance initially */
+        updateDistance();
+
+        /* timer updates distance */
+        let interval = setInterval(updateDistance, updateTime);
+    }
+
+   calculateGalactusDistanceAndTimeToEarth();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Square Expands with Each Click */
+function()
+{
+    function createExpandingSquare()
+    {
+        /* create a square element */
+        let square = document.createElement('div');
+        square.id = "square";
+        square.style.position = "absolute";
+        square.style.left = 100 + "px";
+        square.style.top = 50 + "px";
+        square.style.width = '100px';
+        square.style.height = '100px';
+        square.style.backgroundColor = 'aqua';
+        square.style.transition = 'width 0.3s, height 0.3s';
+        square.style.cursor = 'pointer';
+
+        /* starting width and height */
+        let width = 100;
+        let height = 100;
+
+        /* add click event listener to grow the square on each click */
+        square.onclick = function()
+        {
+            width += 20;
+            height += 20;
+
+            square.style.width = width + 'px';
+            square.style.height = height + 'px';
+        };
+
+        /* add the square to the page */
+        document.body.append(square);
+    }
+
+    createExpandingSquare();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Square Expands/Contracts by Click */
+function()
+{
+    function createExpandingContractingSquare()
+    {
+        /* create a square element */
+        let square = document.createElement('div');
+        square.id = 'square';
+        square.style.position = 'absolute';
+        square.style.left = '100px';
+        square.style.top = '50px';
+        square.style.width = '100px';
+        square.style.height = '100px';
+        square.style.backgroundColor = 'aqua';
+        square.style.transition = 'width 0.3s, height 0.3s';
+        square.style.cursor = 'pointer';
+
+        /* starting width and height */
+        let width = 100;
+        let height = 100;
+
+        /* initialize a variable to keep track of the direction (expanding or contracting) */
+        let expanding = true;
+
+        /* onclick adjust the square's size */
+        square.onclick = function()
+        {
+            if (expanding)
+            {
+                width += 20;
+                height += 20;
+
+                if (width >= 300)
+                {
+                    expanding = false;
+                }
+            }
+            else
+            {
+                width -= 20;
+                height -= 20;
+
+                if (width <= 100)
+                {
+                    expanding = true;
+                }
+            }
+            square.style.width = width + 'px';
+            square.style.height = height + 'px';
+        };
+
+        /* add the square to the page */
+        document.body.append(square);
+    }
+
+    createExpandingContractingSquare();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Square Expands/Contracts by Timer */
+function()
+{
+    function createExpandingContractingSquare()
+    {
+        /* create a square element */
+        let square = document.createElement('div');
+        square.id = 'square';
+        square.style.position = 'absolute';
+        square.style.left = '100px';
+        square.style.top = '50px';
+        square.style.width = '100px';
+        square.style.height = '100px';
+        square.style.backgroundColor = 'aqua';
+        square.style.transition = 'width 0.3s, height 0.3s';
+        square.style.cursor = 'pointer';
+
+      /* stop timer when square is clicked */
+        square.onclick = function()
+        {
+            clearInterval(timerInterval);
+        };
+
+        /* add the square to the page */
+        document.body.append(square);
+
+        /*----*/
+
+        /* width and height */
+        let width = 100;
+        let height = 100;
+
+       /* keep track of expanding or contracting */
+        let expanding = true;
+
+        function updateSquareSize()
+        {
+            if (expanding)
+            {
+                width += 20;
+                height += 20;
+
+                if (width >= 300)
+                {
+                    expanding = false;
+                }
+            } 
+            else
+            {
+                width -= 20;
+                height -= 20;
+
+                if (width <= 100)
+                {
+                    expanding = true;
+                }
+            }
+
+            square.style.width = width + 'px';
+            square.style.height = height + 'px';
+        }
+
+        /* update square's size every 1 second */
+        let timerInterval = setInterval(updateSquareSize, 1000);
+    }
+
+    createExpandingContractingSquare();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Square Moves in Square Pattern by Timer */
+function()
+{
+    function createSquareMoveInSquarePattern()
+    {
+        /* create a square element */
+        let square = document.createElement('div');
+        square.style.position = 'absolute';
+        square.style.left = '20px';
+        square.style.top = '20px';
+        square.style.width = '50px';
+        square.style.height = '50px';
+        square.style.backgroundColor = 'aqua';
+        square.style.transition = 'transform 2s';
+
+        /* starting position */
+        let x = 20;
+        let y = 20;
+
+        /* 0 is right, 1 is down, 2 is left, 3 is up */
+        let direction = 0;
+
+        /* add the square to the page */
+        document.body.append(square);
+
+        function moveSquare()
+        {
+            if (direction === 0)
+            {
+                x += 100;
+            }
+            else if (direction === 1)
+            {
+                y += 100;
+            }
+            else if (direction === 2)
+            {
+                x -= 100;
+            }
+            else if (direction === 3)
+            {
+                y -= 100;
+            }
+
+            square.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+
+            /* update direction */
+            direction = (direction + 1) % 4;
+        }
+
+        /* start moving the square */
+        moveSquare();
+
+        /* repeat square pattern continuously */
+        setInterval(moveSquare, 2000);
+    }
+
+    createSquareMoveInSquarePattern();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Special Efx - when clicked div turns to particles */
+function()
+{
+    function makeClickableSpecialEfx()
+    {
+        let specialEfxBox = document.createElement('div');
+        specialEfxBox.style.position = 'absolute';
+        specialEfxBox.style.left = "100px";
+        specialEfxBox.style.top = "50px";
+        specialEfxBox.style.width = '50px';
+        specialEfxBox.style.height = '50px';
+        specialEfxBox.style.backgroundColor = 'blue';
+        specialEfxBox.style.cursor = 'pointer';
+
+        specialEfxBox.onclick = function()
+        {
+            let particles = [];
+
+            let amount = 500;
+
+            for (let x = 0; x < amount; x++)
+            {
+                let particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '5px';
+                particle.style.height = '5px';
+                particle.style.backgroundColor = 'aqua';
+                particle.style.animation = 'explode 1s ease-in-out';
+
+             /* random X coordinate within a range */
+             let randomX = Math.random() * 200 - 100;
+
+             /* random Y coordinate within a range */
+              let randomY = Math.random() * 200 - 100;
+
+                particle.style.left = specialEfxBox.getBoundingClientRect().left + randomX + 'px';
+
+                particle.style.top = specialEfxBox.getBoundingClientRect().top + randomY + 'px';
+
+                particles.push(particle);
+
+                document.body.append(particle);
+            }
+
+            /* hide the original div */
+            specialEfxBox.style.display = 'none';
+
+            setTimeout(function()
+            {
+                for (let i = 0; i < particles.length; i++)
+                {
+                  /* remove particles after animation */
+                    particles[i].remove();
+                }
+            }, 1000);
+        };
+
+        document.body.append(specialEfxBox);
+
+        /*----*/
+
+        let style001 = document.createElement('style');
+
+        style001.innerHTML = `
+           @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }`;
+
+        document.head.append(style001);
+    }
+
+    makeClickableSpecialEfx();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Special Efx - Random Color Squares */
+function()
+{
+    function makeClickableSpecialEfx()
+    {
+        let specialEfxBox = document.createElement('div');
+        specialEfxBox.style.position = 'absolute';
+        specialEfxBox.style.left = '100px';
+        specialEfxBox.style.top = '50px';
+        specialEfxBox.style.width = '50px';
+        specialEfxBox.style.height = '50px';
+        specialEfxBox.style.backgroundColor = 'blue';
+        specialEfxBox.style.cursor = 'pointer';
+
+        specialEfxBox.onclick = function()
+        {
+            let particles = [];
+
+            let amount = 500;
+
+            for (let x = 0; x < amount; x++)
+            {
+                let particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '10px';
+                particle.style.height = '10px';
+                particle.style.backgroundColor = getRandomColor();
+                particle.style.animation = 'explode 1s ease-in-out';
+
+             /* random X coordinate within a range */
+                let randomX = Math.random() * 200 - 100;
+
+             /* random Y coordinate within a range */
+                let randomY = Math.random() * 200 - 100;
+
+                particle.style.left = specialEfxBox.getBoundingClientRect().left + randomX + 'px';
+
+                particle.style.top = specialEfxBox.getBoundingClientRect().top + randomY + 'px';
+
+                particles.push(particle);
+
+                document.body.append(particle);
+            }
+
+            /* hide the original div */
+            specialEfxBox.style.display = 'none';
+
+            setTimeout(function()
+            {
+                for (let i = 0; i < particles.length; i++)
+                {
+                  /* remove particles after animation */
+                    particles[i].remove();
+                }
+            }, 500);
+        };
+
+        document.body.append(specialEfxBox);
+
+        /*----*/
+
+        let style001 = document.createElement('style');
+
+        style001.innerHTML = `
+            @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(5);
+            }
+        }`;
+
+        document.head.append(style001);
+    }
+
+    function getRandomColor()
+    {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+
+        return 'rgb('+r+', '+g+', '+b+')';
+    }
+
+    makeClickableSpecialEfx();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Special Efx - Circles Random Color and Size */
+function()
+{
+    function makeClickableSpecialEfx()
+    {
+        let specialEfxBox = document.createElement('div');
+        specialEfxBox.style.position = 'absolute';
+        specialEfxBox.style.left = '100px';
+        specialEfxBox.style.top = '50px';
+        specialEfxBox.style.width = '100px';
+        specialEfxBox.style.height = '100px';
+        specialEfxBox.style.backgroundColor = 'blue';
+        specialEfxBox.style.cursor = 'pointer';
+
+        specialEfxBox.onclick = function()
+        {
+            let particles = [];
+
+            let amount = 500;
+
+            for (let x = 0; x < amount; x++)
+            {
+                let particle = document.createElement('div');
+                particle.style.position = 'absolute';
+
+                /* get a random size for the circle */
+                let size = getRandomSize();
+
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                /* make it a circle */
+                particle.style.borderRadius = '50%';
+                particle.style.backgroundColor = getRandomColor();
+                particle.style.animation = 'explode 1s ease-in-out';
+
+             /* random X coordinate within a range */
+               let randomX = Math.random() * 200 - 100;
+
+             /* random Y coordinate within a range */
+               let randomY = Math.random() * 200 - 100;
+                particle.style.left = specialEfxBox.getBoundingClientRect().left + randomX + 'px';
+
+                particle.style.top = specialEfxBox.getBoundingClientRect().top + randomY + 'px';
+
+                particles.push(particle);
+
+                document.body.append(particle);
+            }
+
+            /* hide the original div */
+            specialEfxBox.style.display = 'none';
+
+            setTimeout(function()
+            {
+                for (let i = 0; i < particles.length; i++)
+                {
+                  /* remove particles after animation */
+                    particles[i].remove();
+                }
+            }, 500);
+        };
+
+        document.body.append(specialEfxBox);
+
+        /*----*/
+
+        let style001 = document.createElement('style');
+
+        style001.innerHTML = `
+            @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(5);
+            }
+        }`;
+
+        document.head.append(style001);
+    }
+
+    function getRandomColor()
+    {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+
+        return 'rgb('+r+', '+g+', '+b+')';
+    }
+
+    /* function to get a random size for circle */
+    function getRandomSize()
+    {
+        return Math.floor(Math.random() * 20) + 5;
+    }
+
+    makeClickableSpecialEfx();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Special Efx - Circles in a Circle */
+function()
+{
+    function makeClickableSpecialEfx()
+    {
+        let specialEfxBox = document.createElement('div');
+        specialEfxBox.style.position = 'absolute';
+        specialEfxBox.style.left = '50%';
+        specialEfxBox.style.top = '50%';
+        specialEfxBox.style.transform = 'translate(-50%, -50%)';
+        specialEfxBox.style.width = '50px';
+        specialEfxBox.style.height = '50px';
+        specialEfxBox.style.backgroundColor = 'blue';
+        /* make it a circle */
+        specialEfxBox.style.borderRadius = '50%';
+        specialEfxBox.style.cursor = 'pointer';
+
+        specialEfxBox.onclick = function()
+        {
+            let particles = [];
+            let amount = 500;
+
+            for (let angle = 0; angle < 360; angle += 360 / amount)
+            {
+                let particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '50px';
+                particle.style.height = '50px';
+                /* make it a circle */
+                particle.style.borderRadius = '50%';
+                particle.style.backgroundColor = getRandomColor();
+                particle.style.animation = 'explode 1s ease-in-out';
+
+                let radius = 200;
+
+                let x = Math.cos((angle * Math.PI) / 180) * radius;
+
+                let y = Math.sin((angle * Math.PI) / 180) * radius;
+
+                particle.style.left = 'calc(50% + ' + x + 'px)';
+
+                particle.style.top = 'calc(50% + ' + y + 'px)';
+
+                /*----*/
+
+                particles.push(particle);
+
+                document.body.append(particle);
+            }
+
+            /* hide the original div */
+            specialEfxBox.style.display = 'none';
+
+            setTimeout(function()
+            {
+                for (let i = 0; i < particles.length; i++)
+                {
+                    /* remove particles after animation */
+                    particles[i].remove();
+                }
+            }, 500);
+        };
+
+        document.body.append(specialEfxBox);
+
+        /*----*/
+
+        let style001 = document.createElement('style');
+
+        style001.innerHTML = `
+            @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(5);
+            }
+        }`;
+
+        document.head.append(style001);
+    }
+
+    function getRandomColor()
+    {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+
+        return 'rgb('+r+', '+g+', '+b+')';
+    }
+
+    makeClickableSpecialEfx();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Special Efx - Circle Expands */
+function()
+{
+    function makeSpecialEfx()
+    {
+        let particles = [];
+
+        let amount = 1000;
+
+        for (let angle = 0; angle < 360; angle += 360 / amount)
+        {
+            let particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '50px';
+            particle.style.height = '50px';
+            particle.style.borderRadius = "50%";
+            particle.style.backgroundColor = 'aqua';
+            particle.style.animation = 'explode 1s ease-in-out';
+
+            /* start particles from the center */
+            let radius = 0;
+
+            /*----*/
+
+            let x = Math.cos((angle * Math.PI) / 180) * radius;
+
+            let y = Math.sin((angle * Math.PI) / 180) * radius;
+
+            /*----*/
+
+            particle.style.left = 'calc(50% + ' + x + 'px)';
+
+            particle.style.top = 'calc(50% + ' + y + 'px)';
+
+            /*----*/
+
+            particles.push(particle);
+
+            document.body.append(particle);
+        }
+
+        setTimeout(function()
+        {
+            for (let i = 0; i < particles.length; i++)
+            {
+                /* remove particles after animation */
+                particles[i].remove();
+            }
+        }, 1000);
+    }
+
+    /*-----*/
+
+    let style001 = document.createElement('style');
+
+    style001.innerHTML = `
+        @keyframes explode {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(5);
+        }
+    }`;
+
+    document.head.append(style001);
+
+    makeSpecialEfx();
+
+}());
+
+/* 
+The Circle expands with a smooth animation.
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Special Efx - Circle Expands to Concentric Circles */
+function()
+{
+    function makeSpecialEfx()
+    {
+        let circles = [];
+
+        /* number of concentric circles */
+        let numCircles = 10;
+
+        /* initial size of the innermost circle */
+        let circleSize = 50;
+
+        for (let i = 0; i < numCircles; i++)
+        {
+            let circle = document.createElement('div');
+            circle.style.position = 'absolute';
+            circle.style.width = circleSize + 'px';
+            circle.style.height = circleSize + 'px';
+            circle.style.borderRadius = '50%';
+            circle.style.backgroundColor = 'aqua';
+            circle.style.animation = 'expandCircle 1s ease-in-out';
+
+            /*----*/
+
+            /* calculate position to center circles */
+            let leftPosition = (window.innerWidth - circleSize) / 2;
+
+            let topPosition = (window.innerHeight - circleSize) / 2;
+
+            /*----*/
+
+            circle.style.left = leftPosition + 'px';
+            circle.style.top = topPosition + 'px';
+
+            /*----*/
+
+            /* increase the circle size for the next concentric circle */
+            circleSize += 50;
+
+            circles.push(circle);
+
+            document.body.append(circle);
+        }
+
+        setTimeout(function()
+        {
+            for (let i = 0; i < circles.length; i++)
+            {
+                /* remove circles after animation */
+                circles[i].remove();
+            }
+        }, 1000);
+    }
+
+    /*----*/
+
+    let style001 = document.createElement('style');
+
+    style001.innerHTML = `
+        @keyframes expandCircle {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: scale(1.5);
+        }
+    }`;
+
+    document.head.append(style001);
+
+    makeSpecialEfx();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Special Efx - Array of Objects - Random Choice */
+function()
+{
+    function generateSpecialEffects()
+    {
+        let specialEfx =
+        [
+            {
+                name: 'Effect 1',
+                color: 'aqua',
+                size: 50,
+            },
+
+            {
+                name: 'Effect 2',
+                color: 'yellow',
+                size: 200,
+            },
+
+            {
+                name: 'Effect 3',
+                color: 'blue',
+                size: 400,
+            },
+        ];
+
+        function createRandomEfx()
+        {
+            let whichArray = specialEfx;
+
+            let randomIndex = Math.floor(Math.random() * whichArray.length);
+
+            let effectChosen = whichArray[randomIndex];
+
+            /*----*/
+
+            let particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = effectChosen.size + 'px';
+            particle.style.height = effectChosen.size + 'px';
+            particle.style.borderRadius = '50%';
+            particle.style.backgroundColor = effectChosen.color;
+            particle.style.animation = 'expandCircle 1s ease-in-out';
+
+            /*----*/
+
+          /* calculate position to center the circle */
+            let leftPosition = (window.innerWidth - effectChosen.size) / 2;
+
+            let topPosition = (window.innerHeight - effectChosen.size) / 2;
+
+            /*----*/
+
+            particle.style.left = leftPosition + 'px';
+            particle.style.top = topPosition + 'px';
+
+            /*----*/
+
+            document.body.append(particle);
+
+            setTimeout(function()
+            {
+                /* remove particle after animation */
+                particle.remove();
+            }, 700);
+        }
+
+        /*----*/
+
+        let style001 = document.createElement('style');
+
+        style001.innerHTML = `
+            @keyframes expandCircle {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.5);
+            }
+        }`;
+
+        document.head.append(style001);
+
+        /* create random efx at regular intervals */
+        setInterval(function()
+        {
+            createRandomEfx(specialEfx);
+        }, 2000);
+    }
+
+    generateSpecialEffects();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Cards - Shuffle Deck - Create the deck as an Array */
+function()
+{
+    function shuffleDeck()
+    {
+        let suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+
+        let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+
+        let deck = [];
+
+        /* create the deck as an array */
+        for (let i = 0; i < suits.length; i++)
+        {
+            for (let j = 0; j < values.length; j++)
+            {
+                deck.push(values[j] + ' of ' + suits[i]);
+            }
+        }
+
+        /* shuffle the deck */
+        for (let i = 0; i < deck.length - 1; i++)
+        {
+            let j = i + Math.floor(Math.random() * (deck.length - i));
+
+            /* swap the elements at indices i and j */
+            let temp = deck[i];
+
+            deck[i] = deck[j];
+
+            deck[j] = temp;
+        }
+
+        return deck;
+    }
+
+    let shuffledDeck = shuffleDeck();
+
+    /* show as objects */
+    console.log(shuffledDeck);
+
+    /* show as JSON */
+    console.log(JSON.stringify(shuffledDeck));
+
+    /* show as JSON */
+    alert(JSON.stringify(shuffledDeck));
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Cards - Shuffle Deck - Create deck as an Array - Rows of 4 */
+function()
+{
+    function shuffleDeck()
+    {
+        let suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+
+        let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+
+        let deck = [];
+
+        /* create the deck */
+        for (let i = 0; i < suits.length; i++)
+        {
+            for (let j = 0; j < values.length; j++)
+            {
+                deck.push(values[j] + ' of ' + suits[i]);
+            }
+        }
+
+        /* shuffle the deck */
+        for (let i = 0; i < deck.length - 1; i++)
+        {
+            let j = i + Math.floor(Math.random() * (deck.length - i));
+
+            /* swap the elements at indices i and j */
+            let temp = deck[i];
+
+            deck[i] = deck[j];
+
+            deck[j] = temp;
+        }
+
+        return deck;
+    }
+
+    let shuffledDeck = shuffleDeck();
+
+    /* create a container div to hold the cards */
+    let container = document.createElement('div');
+    container.style.position = "absolute";
+    container.style.left = "100px";
+    container.style.top = "10px";
+    container.style.display = 'grid';
+    container.style.gridTemplateColumns = 'repeat(4, 1fr)';
+    container.style.gridGap = '10px';
+    container.style.margin = '20px';
+
+    /* add each card to the container */
+    for (let i = 0; i < shuffledDeck.length; i++)
+    {
+        let cardDiv = document.createElement('div');
+        cardDiv.textContent = shuffledDeck[i];
+        cardDiv.style.padding = '10px';
+        cardDiv.style.border = '1px solid';
+        cardDiv.style.borderColor = 'rgb(255, 255, 255)';
+        cardDiv.style.borderRadius = '5px';
+        cardDiv.style.fontSize = '20px';
+        cardDiv.style.textAlign = 'center';
+        container.append(cardDiv);
+    }
+
+    /* append the container to the body */
+    document.body.append(container);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Cards - Shuffle Deck - Create deck as an Array of Objects */
+function()
+{
+    function shuffleDeck()
+    {
+        let suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+
+        let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+
+        let deck = [];
+
+        /* create the deck as an array of objects */
+        for (let i = 0; i < suits.length; i++)
+        {
+            for (let j = 0; j < values.length; j++)
+            {
+                deck.push(
+                {
+                    suit: suits[i],
+                    number: values[j]
+                });
+            }
+        }
+
+        /* shuffle the deck */
+        for (let i = 0; i < deck.length - 1; i++)
+        {
+            let j = i + Math.floor(Math.random() * (deck.length - i));
+
+            let temp = deck[i];
+
+            deck[i] = deck[j];
+
+            deck[j] = temp;
+        }
+
+        return deck;
+    }
+
+    let shuffledDeck = shuffleDeck();
+
+    /* show as objects */
+    console.log(shuffledDeck);
+
+    /* show as JSON */
+    console.log(JSON.stringify(shuffledDeck));
+
+    /* show as JSON */
+    alert(JSON.stringify(shuffledDeck));
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Cards - Shuffle Deck - Create the deck as an Array of Objects - Rows of 4 */
+function()
+{
+    function shuffleDeck()
+    {
+        let suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+
+        let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+
+        let deck = [];
+
+        /* create the deck as an array of objects */
+        for (let i = 0; i < suits.length; i++)
+        {
+            for (let j = 0; j < values.length; j++)
+            {
+                deck.push(
+                {
+                    suit: suits[i],
+                    number: values[j]
+                });
+            }
+        }
+
+        /* shuffle the deck */
+        for (let i = 0; i < deck.length - 1; i++)
+        {
+            let j = i + Math.floor(Math.random() * (deck.length - i));
+
+            let temp = deck[i];
+
+            deck[i] = deck[j];
+
+            deck[j] = temp;
+        }
+
+        return deck;
+    }
+
+    let shuffledDeck = shuffleDeck();
+
+    /* show as objects */
+    console.log(shuffledDeck);
+
+    /* show as JSON */
+    console.log(JSON.stringify(shuffledDeck));
+
+    /*----*/
+
+    /* create a container div to hold the cards */
+    let container = document.createElement('div');
+    container.style.position = "absolute";
+    container.style.left = "100px";
+    container.style.top = "10px";
+    container.style.display = 'grid';
+    container.style.gridTemplateColumns = 'repeat(4, 1fr)';
+    container.style.gridGap = '10px';
+    container.style.margin = '20px';
+
+    /* add each card to the container */
+    for (let i = 0; i < shuffledDeck.length; i++)
+    {
+        let cardDiv = document.createElement('div');
+        cardDiv.textContent = shuffledDeck[i].number + " of " + shuffledDeck[i].suit;
+        cardDiv.style.padding = '10px';
+        cardDiv.style.border = '1px solid';
+        cardDiv.style.borderColor = 'rgb(255, 255, 255)';
+        cardDiv.style.borderRadius = '5px';
+        cardDiv.style.fontSize = '20px';
+        cardDiv.style.textAlign = 'center';
+        container.append(cardDiv);
+    }
+
+    /* append the container to the body */
+    document.body.append(container);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Convert Degrees To Radians */
+function()
+{
+    function getAngleInDegree()
+    {
+        let angle = parseFloat(prompt("Enter an angle in degrees:"));
+
+        return angle;
+    }
+
+    function convertDegreeToRadian(angle)
+    {
+        if (!isNaN(angle))
+        {
+            /* angle in degree converted to radian */
+            let radians = angle * (Math.PI / 180);
+
+            return radians;
+        }
+        else
+        {
+            alert("Angle wasn't entered in numbers");
+        }
+    }
+
+    let result = convertDegreeToRadian(getAngleInDegree());
+
+    console.log(result);
+
+    alert(result);
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Sine */
+function()
+{
+    function getAngleInDegree()
+    {
+        let angle = parseFloat(prompt("Enter an angle in degrees:"));
+
+        return angle;
+    }
+
+    function convertDegreeToRadian(angle)
+    {
+        if (!isNaN(angle))
+        {
+            /* angle in degree converted to radian */
+            let radians = angle * (Math.PI / 180);
+
+            return radians;
+        }
+        else
+        {
+            alert("Angle wasn't entered in numbers");
+        }
+    }
+
+    let theRadians = convertDegreeToRadian(getAngleInDegree());
+
+    function sineOfAngle()
+    {
+        let sine = Math.sin(theRadians).toFixed(2);
+
+        return sine;
+    }
+
+    console.log(sineOfAngle());
+
+    alert(sineOfAngle());
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Cosine */
+function()
+{
+    function getAngleInDegree()
+    {
+        let angle = parseFloat(prompt("Enter an angle in degrees:"));
+
+        return angle;
+    }
+
+    function convertDegreeToRadian(angle)
+    {
+        if (!isNaN(angle))
+        {
+            /* angle in degree converted to radian */
+            let radians = angle * (Math.PI / 180);
+
+            return radians;
+        }
+        else
+        {
+            alert("Angle wasn't entered in numbers");
+        }
+    }
+
+    let theRadians = convertDegreeToRadian(getAngleInDegree());
+
+    function cosineOfAngle()
+    {
+        let cosine = Math.cos(theRadians).toFixed(2);
+
+        return cosine;
+    }
+
+    console.log(cosineOfAngle());
+
+    alert(cosineOfAngle());
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Tangent */
+function()
+{
+    function getAngleInDegree()
+    {
+        let angle = parseFloat(prompt("Enter an angle in degrees:"));
+
+        return angle;
+    }
+
+    function convertDegreeToRadian(angle)
+    {
+        if (!isNaN(angle))
+        {
+            /* angle in degree converted to radian */
+            let radians = angle * (Math.PI / 180);
+
+            return radians;
+        }
+        else
+        {
+            alert("Angle wasn't entered in numbers");
+        }
+    }
+
+    let theRadians = convertDegreeToRadian(getAngleInDegree());
+
+    function tangentOfAngle()
+    {
+        let tangent = Math.tan(theRadians).toFixed(2);
+
+        return tangent;
+    }
+
+    console.log(tangentOfAngle());
+
+    alert(tangentOfAngle());
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Sine, Cosine, Tangent Calculator */
+function()
+{
+    function calculateTrigonometry()
+    {
+        let angle = parseFloat(prompt("Enter an angle in degrees:"));
+
+        if (!isNaN(angle))
+        {
+            let radians = angle * (Math.PI / 180);
+            let sine = Math.sin(radians);
+            let cosine = Math.cos(radians);
+            let tangent = Math.tan(radians);
+
+            let message = "Angle: " + angle + " degrees\n";
+
+            message += "Sine: " + sine.toFixed(4) + "\n";
+            message += "Cosine: " + cosine.toFixed(4) + "\n";
+
+            message += "Tangent: " + tangent.toFixed(4);
+
+            alert(message);
+        }
+        else
+        {
+            alert("Angle wasn't entered in numbers");
+        }
+    }
+
+    calculateTrigonometry();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Circle made using Divs */
+function()
+{
+    function generateCircleOfDivs()
+    {
+        /* number of divs to create */
+        let numberOfDivs = 360;
+
+        /* the radius of the circle */
+        let radius = 50;
+
+        /* x pos of the circle's center */
+        let centerX = 100;
+
+        /* y pos of the circle's center */
+        let centerY = 100;
+
+        let container = document.createElement("div");
+        container.style.width = "200px";
+        container.style.height = "200px";
+        container.style.position = "fixed";
+        container.style.left = 100 + "px";
+        container.style.top = 100 + "px";
+        container.style.border = "1px solid black";
+        document.body.append(container);
+
+        for (let x = 0; x < numberOfDivs; x++)
+        {
+            let angle = (x / numberOfDivs) * 2 * Math.PI;
+
+            let xPos = centerX + radius * Math.cos(angle);
+
+            let yPos = centerY + radius * Math.sin(angle);
+
+            /*----*/
+
+            let div = document.createElement("div");
+            div.style.width = "10px";
+            div.style.height = "10px";
+            div.style.background = "blue";
+            div.style.borderRadius = "50%";
+            div.style.position = "absolute";
+            div.style.left = xPos + "px";
+            div.style.top = yPos + "px";
+            container.append(div);
+        }
+    }
+
+    generateCircleOfDivs();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Spinning Circle of Divs */
+function()
+{
+    function generateCircleOfMovingDivs()
+    {
+        /* number of divs to create */
+        let numberOfDivs = 36;
+
+        /* radius of the circle */
+        let radius = 50;
+
+        /* center position */
+        let centerX = 100;
+        let centerY = 100;
+
+        let container = document.createElement("div");
+        container.style.position = "fixed";
+        container.style.left = "20px";
+        container.style.top = "20px";
+        container.style.width = "200px";
+        container.style.height = "200px";
+        document.body.append(container);
+
+        for (let x = 0; x < numberOfDivs; x++)
+        {
+            let angle = (x / numberOfDivs) * 2 * Math.PI;
+
+            let xPos = centerX + radius * Math.cos(angle);
+
+            let yPos = centerY + radius * Math.sin(angle);
+
+            let div = document.createElement("div");
+            div.style.position = "absolute";
+            div.style.left = xPos + "px";
+            div.style.top = yPos + "px";
+            div.style.width = "10px";
+            div.style.height = "10px";
+            div.style.background = "blue";
+            div.style.borderRadius = "50%";
+            container.append(div);
+
+            /* animate the divs */
+            setInterval(function()
+            {
+                let rotateAngle = (x / numberOfDivs) * 2 * Math.PI + (new Date().getTime() / 1000);
+
+                xPos = centerX + radius * Math.cos(rotateAngle);
+
+                yPos = centerY + radius * Math.sin(rotateAngle);
+
+                div.style.left = xPos + "px";
+
+                div.style.top = yPos + "px";
+
+            }, 50);
+        }
+    }
+
+    generateCircleOfMovingDivs();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Pulsating Circle of Divs */
+function()
+{
+    function circleOfDivsPulsating()
+    {
+        /* number of divs to create */
+        let numberOfDivs = 60;
+
+        /* radius of the circle */
+        let radius = 50;
+
+        /* center position */
+        let centerX = 100;
+        let centerY = 100;
+
+        /* container for the circle */
+        let container = document.createElement("div");
+        container.style.position = "fixed";
+        container.style.left = "100px";
+        container.style.top = "100px";
+        container.style.width = "200px";
+        container.style.height = "200px";
+        container.style.margin = "0 auto";
+        container.style.overflow = "hidden";
+        document.body.append(container);
+
+        /* create the divs */
+        for (let x = 0; x < numberOfDivs; x++)
+        {
+            let angle = (x / numberOfDivs) * 2 * Math.PI;
+
+            let xPos = centerX + radius * Math.cos(angle);
+
+            let yPos = centerY + radius * Math.sin(angle);
+
+            let div = document.createElement("div");
+            div.style.width = "10px";
+            div.style.height = "10px";
+            div.style.background = "blue";
+            div.style.borderRadius = "50%";
+            div.style.position = "absolute";
+            div.style.left = xPos + "px";
+            div.style.top = yPos + "px";
+            container.append(div);
+        }
+
+        /* animate the pulsating effect */
+        let scale = 1;
+        let growing = true;
+
+        function animate()
+        {
+            if (growing)
+            {
+                scale += 0.01;
+
+                if (scale >= 2)
+                {
+                    growing = false;
+                }
+            }
+            else
+            {
+                scale -= 0.01;
+
+                if (scale <= 0.5)
+                {
+                    growing = true;
+                }
+            }
+
+            container.style.transform = 'scale('+scale+')';
+        }
+
+        setInterval(function()
+        {
+            animate();
+        }, 10);
+    }
+
+    circleOfDivsPulsating();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Draw Sine and Cosine */
+function()
+{
+    function graphSineAndCosine()
+    {
+        let canvas = document.createElement("canvas");
+        canvas.style.position = "absolute";
+        canvas.style.left = 100 + "px";
+        canvas.style.top = 50 + "px";
+        canvas.width = 700;
+        canvas.height = 500;
+
+        /*----*/
+
+        let context = canvas.getContext("2d");
+
+        /* clear the canvas */
+        context.clearRect(0, 0, canvas.width, 
+        canvas.height);
+
+        /* draw x and y axes */
+        context.beginPath();
+        context.moveTo(0, canvas.height / 2);
+        context.lineTo(canvas.width,     
+        canvas.height / 2);
+        context.moveTo(canvas.width / 2, 0);
+        context.lineTo(canvas.width / 2,         
+        canvas.height);
+        context.strokeStyle = "black";
+        context.stroke();
+        context.closePath();
+
+        /* draw sine function */
+        context.beginPath();
+        context.moveTo(0, canvas.height / 2);
+
+        for (let x = 0; x < canvas.width; x++)
+        {
+            let radians = (x - canvas.width / 2) * (Math.PI / 180);
+
+            let y = Math.sin(radians) * (canvas.height / 4) + (canvas.height / 2);
+
+            context.lineTo(x, y);
+        }
+
+        context.strokeStyle = "blue";
+        context.lineWidth = 4;
+        context.stroke();
+        context.closePath();
+
+        /* draw cosine function */
+        context.beginPath();
+        context.moveTo(0, canvas.height / 2);
+
+        for (let x = 0; x < canvas.width; x++)
+        {
+            let radians = (x - canvas.width / 2) * (Math.PI / 180);
+
+            let y = Math.cos(radians) * (canvas.height / 4) + (canvas.height / 2);
+
+            context.lineTo(x, y);
+        }
+
+        context.strokeStyle = "red";
+        context.lineWidth = 4;
+        context.stroke();
+        context.closePath();
+
+        document.body.append(canvas);
+    }
+
+    graphSineAndCosine();
+
+}());
+
+/*
+creates a dynamic trigonometric graph using canvas to draw the sine and cosine functions
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Sine Wave Motion */
+function()
+{
+    function generateSineWaveWithMotion()
+    {
+        let amplitude = 50;
+        let frequency = 0.1;
+
+        let xOffset = 0;
+        let yOffset = 100;
+
+        let canvasWidth = window.innerWidth;
+        let canvasHeight = 200;
+
+        /*----*/
+
+        let canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.left = '0';
+        canvas.style.top = '0';
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        canvas.style.zIndex = '10000';
+        canvas.style.pointerEvents = 'none';
+        document.body.append(canvas);
+
+        /*----*/
+
+        let context = canvas.getContext('2d');
+
+        /*----*/
+
+        function drawSineWave()
+        {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            context.beginPath();
+
+            for (let x = 0; x < canvasWidth; x += 1)
+            {
+                let y = amplitude * Math.sin(frequency * x + xOffset) + yOffset;
+
+                context.lineTo(x, y);
+            }
+
+            context.strokeStyle = 'blue';
+            context.lineWidth = 4;
+            context.stroke();
+        }
+
+        function animate()
+        {
+            xOffset += 1;
+            drawSineWave();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    }
+
+    generateSineWaveWithMotion();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Cosine Wave Motion */
+function()
+{
+    function generateCosineWaveWithMotion()
+    {
+        let amplitude = 50;
+        let frequency = 0.05;
+
+        let xOffset = 0;
+        let yOffset = 100;
+
+        let canvasWidth = window.innerWidth;
+        let canvasHeight = 200;
+
+        /*----*/
+
+        let canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.left = '0';
+        canvas.style.top = '0';
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        canvas.style.zIndex = '10000';
+        canvas.style.pointerEvents = 'none';
+        document.body.append(canvas);
+
+        /*----*/
+
+        let context = canvas.getContext('2d');
+
+        /*----*/
+
+        function drawCosineWaves()
+        {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            /* draw the cosine wave in red */
+            context.beginPath();
+            context.strokeStyle = 'red';
+            context.lineWidth = 4;
+
+            for (let x = 0; x < canvasWidth; x += 1)
+            {
+                let y = amplitude * Math.cos(frequency * x + xOffset) + yOffset;
+                context.lineTo(x, y);
+            }
+            context.stroke();
+        }
+
+       /*----*/
+
+        function animate()
+        {
+            xOffset += 0.1;
+            drawCosineWaves();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    }
+
+    generateCosineWaveWithMotion();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Tangent Wave Motion */
+function()
+{
+    function generateTangentWaveWithMotion()
+    {
+        let amplitude = 50;
+        let frequency = 0.05;
+
+        let xOffset = 0;
+        let yOffset = 100;
+
+        let canvasWidth = window.innerWidth;
+        let canvasHeight = 200;
+
+        /*----*/
+
+        let canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.left = '0';
+        canvas.style.top = '0';
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        canvas.style.zIndex = '10000';
+        canvas.style.pointerEvents = 'none';
+        document.body.append(canvas);
+
+        /*----*/
+
+        let context = canvas.getContext('2d');
+
+        /*----*/
+
+        function drawTangentWave()
+        {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.beginPath();
+
+            for (let x = 0; x < canvasWidth; x += 1)
+            {
+                let y = amplitude * Math.tan(frequency * x + xOffset) + yOffset;
+                context.lineTo(x, y);
+            }
+
+            context.strokeStyle = 'green';
+            context.lineWidth = 2;
+            context.stroke();
+        }
+
+        function animate()
+        {
+            xOffset += 0.1;
+            drawTangentWave();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    }
+
+    generateTangentWaveWithMotion();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Sine and Cosine Wave Motion */
+function()
+{
+    function generateSineAndCosineWavesWithMotion()
+    {
+        let amplitude = 50;
+        let frequency = 0.05;
+
+        let xOffset = 0;
+        let yOffset = 100;
+
+        let canvasWidth = window.innerWidth;
+        let canvasHeight = 200;
+
+        /*----*/
+
+        let canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.left = '0';
+        canvas.style.top = '0';
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        canvas.style.zIndex = '10000';
+        canvas.style.pointerEvents = 'none';
+        document.body.append(canvas);
+
+        /*----*/
+
+        let context = canvas.getContext('2d');
+
+        /*----*/
+
+        function drawSineCosineWaves()
+        {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            /* draw the sine wave in blue */
+            context.beginPath();
+            context.strokeStyle = 'blue';
+            context.lineWidth = 2;
+
+            for (let x = 0; x < canvasWidth; x += 1)
+            {
+                let y = amplitude * Math.sin(frequency * x + xOffset) + yOffset;
+                context.lineTo(x, y);
+            }
+
+            context.stroke();
+
+            /* draw the cosine wave in red */
+            context.beginPath();
+            context.strokeStyle = 'red';
+
+            for (let x = 0; x < canvasWidth; x += 1)
+            {
+                let y = amplitude * Math.cos(frequency * x + xOffset) + yOffset;
+                context.lineTo(x, y);
+            }
+
+            context.stroke();
+        }
+
+        /*----*/
+
+        function animate()
+        {
+            xOffset += 0.1;
+            drawSineCosineWaves();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    }
+
+    generateSineAndCosineWavesWithMotion();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Draw a Circle - Draw a 45 Degree Line - Create a Label */
+function()
+{
+    function drawCircleWith45DegreeLine()
+    {
+        let canvasWidth = 400;
+        let canvasHeight = 400;
+
+        let canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.left = '0';
+        canvas.style.top = '0';
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+        canvas.style.zIndex = '10000';
+        canvas.style.pointerEvents = 'none';
+        document.body.append(canvas);
+
+        /*----*/
+
+        let context = canvas.getContext('2d');
+
+        /*----*/
+
+        function drawCircle()
+        {
+            let centerX = canvasWidth / 2;
+            let centerY = canvasHeight / 2;
+
+            let radius = 150;
+
+            context.strokeStyle = 'aqua';
+
+            context.lineWidth = 4;
+
+            /* draw the circle */
+            context.beginPath();
+
+            context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+
+            context.stroke();
+
+            /*----*/
+
+            /* draw the radius line at an angle */
+            let angleInDegrees = 45;
+
+            let angleInRadians = (angleInDegrees * Math.PI) / 180;
+
+            let endX = centerX + radius * Math.cos(angleInRadians);
+
+            let endY = centerY + radius * Math.sin(angleInRadians);
+
+            context.strokeStyle = 'white';
+            context.lineWidth = 4;
+            context.beginPath();
+            context.moveTo(centerX, centerY);
+            context.lineTo(endX, endY);
+            context.stroke();
+
+            /*----*/
+
+            /* label the angle in degrees */
+            context.font = '30px arial';
+            context.fillStyle = 'white';
+            context.fillText(angleInDegrees + '°', centerX + 20, centerY - 20);
+        }
+        drawCircle();
+    }
+
+    drawCircleWith45DegreeLine();
+
+}());
+
+/*
+creates a circle with a 45 degree line and a label
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Angle between two objects Constant Updates */
+function()
+{
+    let object1 = document.createElement("div");
+    object1.style.position = "absolute";
+    object1.style.top = "50px";
+    object1.style.left = "50px";
+    object1.style.width = "20px";
+    object1.style.height = "20px";
+    object1.style.background = "red";
+    document.body.append(object1);
+
+    /*----*/
+
+    let object2 = document.createElement("div");
+    object2.style.position = "absolute";
+    object2.style.top = "100px";
+    object2.style.left = "200px";
+    object2.style.width = "20px";
+    object2.style.height = "20px";
+    object2.style.background = "blue";
+    document.body.append(object2);
+
+    function calculateAngle()
+    {
+        let deltaX = object2.offsetLeft - object1.offsetLeft;
+
+        let deltaY = object2.offsetTop - object1.offsetTop;
+
+        let angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+
+        return angle;
+    }
+
+    function updateAngleDisplay()
+    {
+        let angle = calculateAngle();
+
+        console.log("Angle between objects: " + angle.toFixed(2) + " degrees");
+    }
+
+    function moveObjectDown()
+    {
+        let top = parseInt(object2.style.top) || 0;
+
+        object2.style.top = (top + 1) + "px";
+
+        /* move the blue object down */
+        updateAngleDisplay();
+    }
+
+    function animate()
+    {
+        moveObjectDown();
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    /* start moving the blue object down and updating the angle */
+    moveObjectDown();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Ball Moves in a Circle */
+function()
+{
+    /* create a ball element */
+    let ball = document.createElement('div');
+    ball.style.position = 'absolute';
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.backgroundColor = 'blue';
+    ball.style.borderRadius = '50%';
+    document.body.append(ball);
+
+    /*----*/
+
+    /* set the initial position */
+    let angle = 0;
+
+    let xPos = 100;
+    let yPos = 100;
+
+    let radius = 100;
+
+    function updatePosition()
+    {
+        let x = xPos + radius * Math.cos(angle);
+
+        let y = yPos + radius * Math.sin(angle);
+
+        ball.style.left = x + 'px';
+        ball.style.top = y + 'px';
+
+        /* angle increment for speed */
+        angle += 0.02;
+
+        requestAnimationFrame(updatePosition);
+    }
+
+    /* start the animation */
+    updatePosition();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Ball moves in elliptical pattern */
+function()
+{
+    let ball = document.createElement('div');
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.backgroundColor = 'blue';
+    ball.style.borderRadius = '50%';
+    ball.style.position = 'absolute';
+    document.body.append(ball);
+
+    /* initial position and parameters for ellipse */
+    let angle = 0;
+
+    let xPos = 300;
+    let yPos = 200;
+
+    /* horizontal radius */
+    let a = 150;
+
+    /* vertical radius */
+    let b = 100;
+
+    function updatePosition()
+    {
+        let x = xPos + a * Math.cos(angle);
+        let y = yPos + b * Math.sin(angle);
+
+        ball.style.left = x + 'px';
+        ball.style.top = y + 'px';
+
+        /* angle increment for speed */
+        angle += 0.02;
+
+        requestAnimationFrame(updatePosition);
+    }
+
+    /* start the animation */
+    updatePosition();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Ball with Sinusoidal Motion */
+function()
+{
+    /* create a ball element */
+    let ball = document.createElement('div');
+    ball.style.position = 'absolute';
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.backgroundColor = 'blue';
+    ball.style.borderRadius = '50%';
+    document.body.append(ball);
+
+    /* position and parameters for sine wave */
+    let angle = 0;
+
+    let xPos = 0;
+    let yPos = 100;
+
+    /* amplitude of the wave (vertical size) */
+    let amplitude = 100;
+
+    /* frequency of the wave (speed) */
+    let frequency = 0.2;
+
+    function updatePosition()
+    {
+        /* horizontal motion */
+        let x = xPos + angle * 50;
+        
+        /* vertical motion using sine function */
+        let y = yPos + amplitude * Math.sin(angle * frequency);
+
+        ball.style.left = x + 'px';
+        ball.style.top = y + 'px';
+
+        /* adjust the angle increment for speed */
+        angle += 0.05;
+
+        requestAnimationFrame(updatePosition);
+    }
+
+    /* start the animation */
+    updatePosition();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Ball with Sinusoidal Motion Up and Down Only */
+function()
+{
+    /* create a ball element */
+    let ball = document.createElement('div');
+    ball.style.position = 'absolute';
+    ball.style.left = 100 + 'px';
+    ball.style.top = 0 + 'px';
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.backgroundColor = 'blue';
+    ball.style.borderRadius = '50%';
+    document.body.append(ball);
+
+    /* initial position, params for the sine wave */
+    let angle = 0;
+
+    let yPos = 100;
+
+    /* amplitude of the wave (vertical size) */
+    let amplitude = 100;
+
+    // frequency of the wave (speed)
+    let frequency = 0.7;
+
+    function updatePosition()
+    {      
+        /* vertical motion using sine function */
+        let y = yPos + amplitude * Math.sin(angle * frequency);
+
+        ball.style.top = y + 'px';
+
+        /* adjust the angle increment for speed */
+        angle += 0.02;
+
+        requestAnimationFrame(updatePosition);
+    }
+
+    /* start the animation */
+    updatePosition();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Ball moves in figure 8 pattern  */
+function()
+{
+    /* create a ball element */
+    let ball = document.createElement('div');
+    ball.style.position = 'absolute';
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.backgroundColor = 'blue';
+    ball.style.borderRadius = '50%';
+    document.body.append(ball);
+
+   /* set initial pos and parameters for figure eight motion */
+    let angle = 0;
+
+    let xPos = 400;
+    let yPos = 150;
+
+    let radius = 100;
+
+    function updatePosition()
+    {
+        let x = xPos + radius * Math.cos(angle);
+        let y = yPos + radius * Math.sin(2 * angle);
+
+        /* use sine with double the angle for the figure-eight */
+        ball.style.left = x + 'px';
+        ball.style.top = y + 'px';
+
+        /* angle increment for speed */
+        angle += 0.02;
+
+        requestAnimationFrame(updatePosition);
+    }
+
+    /* start the animation */
+    updatePosition();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Ball moves in figure 8 pattern - adjusted speed and radius */
+function()
+{
+    let ball = document.createElement('div');
+    ball.style.position = 'absolute';
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.backgroundColor = 'blue';
+    ball.style.borderRadius = '50%';
+    document.body.append(ball);
+
+    /* pos and params for figure-eight motion */
+    let angle = 0;
+
+    let xPos = 400;
+    let yPos = 150;
+
+    let radius = 75;
+
+    let speed = 0.09;
+
+    function updatePosition()
+    {
+        let x = xPos + radius * Math.cos(angle);
+
+        let y = yPos + radius * Math.sin(2 * angle);
+
+  /* sine with double the angle for figure-eight */
+        ball.style.left = x + 'px';
+        ball.style.top = y + 'px';
+
+        /* angle increment for speed */
+        angle += speed;
+
+        requestAnimationFrame(updatePosition);
+    }
+
+    /* start the animation */
+    updatePosition();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Trigonometry - Ball moves in Spiral pattern - From Center Outward */
+function()
+{
+    let ball = document.createElement('div');
+    ball.style.position = 'absolute';
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.backgroundColor = 'blue';
+    ball.style.borderRadius = '50%';
+    document.body.append(ball);
+
+    /* set initial pos and parameters for spiral motion */
+    let angle = 0;
+
+    let xPos = 400;
+    let yPos = 400;
+
+    let radius = 5;
+
+    let angularSpeed = 0.05;
+
+    let radialSpeed = 1;
+
+    function updatePosition()
+    {
+        let x = xPos + radius * Math.cos(angle);
+        let y = yPos + radius * Math.sin(angle);
+
+        ball.style.left = x + 'px';
+        ball.style.top = y + 'px';
+
+        angle += angularSpeed;
+
+        radius += radialSpeed;
+
+        requestAnimationFrame(updatePosition);
+    }
+
+    /* start the animation */
+    updatePosition();
+
+}());
+```
+
+---
