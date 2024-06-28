@@ -10535,7 +10535,7 @@ function()
     sendButton.textContent = "Send";
     mainDiv.append(sendButton);
 
-   /* if keyword is found, use these responses */
+    /* if keyword is found, use these responses */
     let responses =
     [
         {
@@ -10627,7 +10627,7 @@ function()
                 {
                     let randomIndex = Math.floor(Math.random() * randomResponses.length);
 
-            alert(randomResponses[randomIndex]);
+                    alert(randomResponses[randomIndex]);
                 }
             }
 
