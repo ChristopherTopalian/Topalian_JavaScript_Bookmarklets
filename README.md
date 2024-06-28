@@ -10604,7 +10604,7 @@ function()
             {
                 let randomIndex = Math.floor(Math.random() * responseObj.responses.length);
 
-    alert(responseObj.responses[randomIndex]);
+                alert(responseObj.responses[randomIndex]);
 
                 if (responseObj.keywords.indexOf("bye") !== -1)
                 {
