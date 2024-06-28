@@ -10504,7 +10504,11 @@ function()
 ```javascript
 javascript:(
 /* Robot AI */
-/*Textbox for Input with Send Button - Random Responses every time to keywords and phrases and variations of keywords and phrases found. Other random response when no keywords are found - and Calculations*/
+/* Textbox for Input with Send Button - 
+Random Responses every time to keywords
+and phrases and variations of keywords 
+and phrases found. Other random response 
+when no keywords are found - and Calculations */
 function()
 {
     let mainDiv = document.createElement("div");
@@ -10556,7 +10560,7 @@ function()
         }
     ];
 
-/* if no keywords found, use these responses */
+    /* if no keywords found, use these responses */
     let randomResponses =
     [
         "That's interesting!",
