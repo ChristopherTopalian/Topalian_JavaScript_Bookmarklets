@@ -9071,3 +9071,1579 @@ function()
 ```
 
 ---
+
+```javascript
+javascript:(
+/* Trigonometry - Ball Spiral motion starts outside to center, back outwards */
+function()
+{
+    let ball = document.createElement('div');
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.backgroundColor = 'blue';
+    ball.style.borderRadius = '50%';
+    ball.style.position = 'absolute';
+    document.body.append(ball);
+
+/* initial pos, params for inward spiral motion */
+    let angle = 0;
+
+    let xPos = 400;
+    let yPos = 200;
+
+    /* start from the outer edge */
+    let radius = 200;
+    let angularSpeed = 0.05;
+
+ /* positive radial speed for inward movement */
+    let radialSpeed = 1;
+
+    function updatePosition()
+    {
+        let x = xPos + radius * Math.cos(angle);
+        let y = yPos + radius * Math.sin(angle);
+
+        ball.style.left = x + 'px';
+        ball.style.top = y + 'px';
+
+        angle += angularSpeed;
+
+        /* decrease the radius to move inward */
+        radius -= radialSpeed;
+
+        requestAnimationFrame(updatePosition);
+    }
+
+    /* start the animation */
+    updatePosition();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Bouncing Ball - Linear - Bounces Up/Down - No Trigonometry required */
+function()
+{
+    function createBallWithMotion()
+    {
+        let ball = document.createElement('div');
+        ball.id = 'ball';
+        ball.style.position = "absolute";
+        ball.style.width = "50px";
+        ball.style.height = "50px";
+        ball.style.borderRadius = "50%";
+        ball.style.margin = "0px";
+        ball.style.overflow = "hidden";
+        ball.style.backgroundColor = "aqua";
+        document.body.append(ball);
+
+        /* 1 goes down, -1 goes up */
+        let direction = 1;
+
+        let position = 0;
+
+        let speed = 2;
+
+        function animate()
+        {
+            position += direction * speed;
+
+            ball.style.top = position + 'px';
+
+            if (position >= (window.innerHeight - 50) || position <= 0)
+            {
+                /* reverse direction at top or bottom */
+                direction *= -1;
+            }
+        }
+
+        let animationFrameId001;
+
+        function gameLoop()
+        {
+            animate();
+
+            animationFrameId001 = requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    }
+
+    createBallWithMotion();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Bouncing Ball - Linear - Starts at an Angle - No Trigonometry Required */
+function()
+{
+    function createBallWithMotion()
+    {
+        let ball = document.createElement('div');
+        ball.id = 'ball';
+        ball.style.position = "absolute";
+        ball.style.width = "50px";
+        ball.style.height = "50px";
+        ball.style.borderRadius = "50%";
+        ball.style.margin = "0px";
+        ball.style.overflow = "hidden";
+        ball.style.backgroundColor = "aqua";
+        document.body.append(ball);
+
+        let x = 0;
+        let y = 0;
+
+        let dx = 5;
+        let dy = 5;
+
+        function animate()
+        {
+            x += dx;
+            y += dy;
+
+            if (x < 0 || x > window.innerWidth - ball.clientWidth)
+            {
+                dx = -dx;
+            }
+
+            if (y < 0 || y > window.innerHeight - ball.clientHeight)
+            {
+                dy = -dy;
+            }
+
+            ball.style.left = x + 'px';
+            ball.style.top = y + 'px';
+        }
+
+        let animationFrameId001;
+
+        function gameLoop()
+        {
+            animate();
+
+            animationFrameId001 = requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    }
+
+    createBallWithMotion();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Bouncing Ball - Linear - Starts at Angle - Trigonometry Angle Calculation */
+function()
+{
+    function createBouncingBall()
+    {
+        let ball = document.createElement('div');
+        ball.id = 'ball';
+        ball.style.position = "absolute";
+        ball.style.width = "50px";
+        ball.style.height = "50px";
+        ball.style.borderRadius = "50%";
+        ball.style.margin = "0px";
+        ball.style.overflow = "hidden";
+        ball.style.backgroundColor = "aqua";
+        document.body.append(ball);
+
+        /* initial angle in degrees */
+        let angle = 45; 
+        let speed = 2;
+
+        /* convert degrees to radians for Math.sin and Math.cos */
+        let radians = angle * (Math.PI / 180);
+
+        let xSpeed = Math.cos(radians) * speed;
+        let ySpeed = Math.sin(radians) * speed;
+
+        let positionX = 0;
+        let positionY = 0;
+
+        function animate()
+        {
+            positionX += xSpeed;
+            positionY += ySpeed;
+
+            ball.style.left = positionX + 'px';
+            ball.style.top = positionY + 'px';
+
+            /* bounce off the walls */
+            if (positionX >= (window.innerWidth - 50) || positionX <= 0)
+            {
+                xSpeed *= -1;
+            }
+
+            if (positionY >= (window.innerHeight - 50) || positionY <= 0)
+            {
+                ySpeed *= -1;
+            }
+        }
+
+        let animationFrameId001;
+
+        function gameLoop()
+        {
+            animate();
+
+            animationFrameId001 = requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    }
+
+    createBouncingBall();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Bouncing Circles - Linear - Starts at Angle - No Trigonometry Required  */
+function()
+{
+    let circles = [];
+
+    let numberOfCircles = 10;
+
+    function getRandomPosition()
+    {
+        let x = Math.floor(Math.random() * window.innerWidth);
+
+        let y = Math.floor(Math.random() * window.innerHeight);
+
+        return {
+            x: x,
+            y: y
+        };
+    }
+
+    for (let x = 0; x < numberOfCircles; x++)
+    {
+        let circle = document.createElement('div');
+        circle.style.position = 'absolute';
+        circle.style.width = '20px';
+        circle.style.height = '20px';
+        circle.style.backgroundColor = 'none';
+        circle.style.borderStyle = 'solid';
+        circle.style.borderWidth = '1px';
+        circle.style.borderRadius = '50%';
+        circle.style.pointerEvents = 'none';
+
+        let position = getRandomPosition();
+        circle.style.left = position.x + 'px';
+        circle.style.top = position.y + 'px';
+
+        circle.dx = Math.random() * 4 - 2;
+        circle.dy = Math.random() * 4 - 2;
+
+        document.body.append(circle);
+
+        circles.push(circle);
+    }
+
+    function animate()
+    {
+        for (let x = 0; x < circles.length; x++)
+        {
+            let circle = circles[x];
+
+            circle.style.left = (parseInt(circle.style.left) + circle.dx) + 'px';
+
+            circle.style.top = (parseInt(circle.style.top) + circle.dy) + 'px';
+
+            if (parseInt(circle.style.left) <= 0 || parseInt(circle.style.left) >= window.innerWidth - 20)
+            {
+                circle.dx *= -1;
+            }
+
+            if (parseInt(circle.style.top) <= 0 || parseInt(circle.style.top) >= window.innerHeight - 20)
+            {
+                circle.dy *= -1;
+            }
+        }
+    }
+
+    let animationFrameId001;
+
+    function gameLoop()
+    {
+        animate();
+
+        animationFrameId001 = requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Ball - Bouncing with Gravity and Damping */
+function()
+{
+    /* create a ball element */
+    let ball = document.createElement('div');
+    ball.style.width = '50px';
+    ball.style.height = '50px';
+    ball.style.backgroundColor = 'blue';
+    ball.style.borderRadius = '50%';
+    ball.style.position = 'absolute';
+    document.body.append(ball);
+
+    /* set initial pos, velocity, and parameters */
+    let y = 0;
+
+    let velocity = 0;
+
+    let xPos = 200;
+
+    let initialY = 100;
+
+    /* acceleration due to gravity */
+    let gravity = 0.5;
+
+    /* damping factor (controls bounce) */
+    let damping = 0.8;
+
+    function updatePosition()
+    {
+        /* apply gravity */
+        velocity += gravity;
+
+        /* update vertical position */
+        y += velocity;
+
+        /* bounce when ball reaches the floor */
+        if (y >= window.innerHeight - 50)
+        {
+            /* prevent ball from going below floor */
+            y = window.innerHeight - 50;
+
+            /* reverse velocity with damping */
+            velocity *= -damping;
+        }
+
+        ball.style.left = xPos + 'px';
+
+        ball.style.top = y + 'px';
+    
+        requestAnimationFrame(updatePosition);
+    }
+
+    /* start the animation */
+    updatePosition();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Calculus - Cartesian coordinate system - plot points on a graph*/
+function()
+{
+    /* graph container */
+    let graphContainer = document.createElement("div");
+    graphContainer.style.position = "absolute";
+    graphContainer.style.width = "400px";
+    graphContainer.style.height = "400px";
+    graphContainer.style.border = "1px solid #000";
+    document.body.append(graphContainer);
+
+    /* origin point (0, 0) */
+    let origin = document.createElement("div");
+    origin.style.position = "absolute";
+    origin.style.left = "200px";
+    origin.style.top = "200px";
+    origin.style.width = "5px";
+    origin.style.height = "5px";
+    origin.style.background = "red";
+    graphContainer.append(origin);
+
+  /* prompt user to enter a point's coordinates */
+    let x = parseFloat(prompt("Enter the x-coordinate:"));
+    let y = parseFloat(prompt("Enter the y-coordinate:"));
+
+    /* create user's point and plot it on graph */
+    let userPoint = document.createElement("div");
+    userPoint.style.position = "absolute";
+    userPoint.style.left = (200 + x) + "px";
+    userPoint.style.top = (200 - y) + "px";
+    userPoint.style.width = "5px";
+    userPoint.style.height = "5px";
+    userPoint.style.background = "blue";
+    graphContainer.append(userPoint);
+
+    /* show coordinates of user's point */
+    alert("You plotted a point at (" + x + ", " + y + ") on the graph.");
+
+}());
+
+/*
+creates a graph with an origin (0, 0) at the center.
+
+we enter the x and y coordinates for a point and it our script will plot those points on the graph.
+
+this visualizes the Cartesian coordinate system by plotting points on a graph.
+
+this is a very important concept of precalculus for more advanced topics in mathematics and science.
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Calculus Line Segments - Connecting Points - Cartesian Coodinate System */
+function()
+{
+    /* graph container */
+    let graphContainer = document.createElement("div");
+    graphContainer.style.position = "absolute";
+    graphContainer.style.width = "400px";
+    graphContainer.style.height = "400px";
+    graphContainer.style.border = "1px solid #000";
+    document.body.append(graphContainer);
+
+    /* origin point (0, 0) */
+    let origin = document.createElement("div");
+    origin.style.position = "absolute";
+    origin.style.left = "200px";
+    origin.style.top = "200px";
+    origin.style.width = "5px";
+    origin.style.height = "5px";
+    origin.style.background = "red";
+    graphContainer.append(origin);
+
+    /* prompt user to enter coordinates of first point */
+    let x1 = parseFloat(prompt("Enter the x-coordinate of the first point:"));
+    let y1 = parseFloat(prompt("Enter the y-coordinate of the first point:"));
+
+    /* prompt user to enter coordinates of second point */
+    let x2 = parseFloat(prompt("Enter the x-coordinate of the second point:"));
+    let y2 = parseFloat(prompt("Enter the y-coordinate of the second point:"));
+
+    /* create line segment */
+    let lineSegment = document.createElement("div");
+    lineSegment.style.position = "absolute";
+    lineSegment.style.width = "2px";
+
+    /* calculate length */
+    lineSegment.style.height = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)) + "px";
+
+    /* set transformation origin */
+    lineSegment.style.transformOrigin = "0 0";
+
+    /* rotate line */
+    lineSegment.style.transform = `rotate(${Math.atan2(y2 - y1, x2 - x1)}rad)`;
+
+    /* set starting point */
+    lineSegment.style.left = (200 + x1) + "px";
+
+    /* set starting point */
+    lineSegment.style.top = (200 - y1) + "px";
+
+    /* line color */
+    lineSegment.style.background = "green";
+
+    graphContainer.append(lineSegment);
+
+    /* show the coordinates of the two points */
+    alert("You plotted a line segment from (" + x1 + ", " + y1 + ") to (" + x2 + ", " + y2 + ").");
+
+}());
+
+/*
+draws line segments to connect two points on the graph. 
+
+prompts user to enter the coordinates of two points and then draw the line segment connecting them.
+
+shows the important foundational concept of straight lines and their equations in precalculus
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Algebra - Solves Linear Equation */
+function()
+{
+    /* enter coefficients a and b */
+    let a = parseFloat(prompt("Enter the coefficient a"));
+
+    let b = parseFloat(prompt("Enter the constant b"));
+
+    /* test if the inputs are valid numbers */
+    if (!isNaN(a) && !isNaN(b)) 
+    {
+        /* solve linear equation ax + b = 0 for x */
+        let x = -b / a;
+
+        alert("The solution for x is: " + x);
+    }
+    else
+    {
+        alert("Enter valid numeric coefficients.");
+    }
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Statistics - Total, Average, Highest */
+function()
+{
+    let people =
+    [
+        {
+            name: "Jane",
+            score: 98
+        },
+        {
+            name: "Jennifer",
+            score: 85
+        },
+        {
+            name: "Joan",
+            score: 92
+        },
+        {
+            name: "John",
+            score: 83
+        }
+    ];
+
+    function getStatistics(whichArray)
+    {
+        // calculate the sum of scores
+        let sum = 0;
+
+        for (let i = 0; i < whichArray.length; i++)
+        {
+            sum += whichArray[i].score;
+        }
+
+        // calculate the average score
+        let average = sum / whichArray.length;
+
+        // find the person with the highest score
+        let highestScore = -1;
+
+        let highestScorer = "";
+
+        for (let i = 0; i < whichArray.length; i++)
+        {
+            if (whichArray[i].score > highestScore)
+            {
+                highestScore = whichArray[i].score;
+
+                highestScorer = whichArray[i].name;
+            }
+        }
+
+        alert("Total people: " + whichArray.length + "\nTotal score: " + sum + "\nAverage score: " + average + "\nHighest scorer: " + highestScorer + " with a score of " + highestScore);
+    }
+
+    getStatistics(people);
+
+}());
+
+/*
+
+Total people: 4
+Total score: 358
+Average score: 89.5
+Highest scorer: Jane with a score of 98
+
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* AI - Cube chases cube that moves at random positions */
+function()
+{
+    /* create div for the first cube */
+    let cube1 = document.createElement("div");
+    cube1.style.position = "absolute";
+    cube1.style.top = "100px";
+    cube1.style.left = "100px";
+    cube1.style.width = "50px";
+    cube1.style.height = "50px";
+    cube1.style.backgroundColor = "blue";
+    document.body.append(cube1);
+
+    /* create div for the second cube */
+    let cube2 = document.createElement("div");
+    cube2.style.position = "absolute";
+    cube2.style.top = "200px";
+    cube2.style.left = "200px";
+    cube2.style.width = "50px";
+    cube2.style.height = "50px";
+    cube2.style.backgroundColor = "red";
+    document.body.append(cube2);
+
+    /*----*/
+
+    function moveRandomly()
+    {
+        let maxX = window.innerWidth - 50;
+        let maxY = window.innerHeight - 50;
+        cube2.style.top = Math.random() * maxY + "px";
+        cube2.style.left = Math.random() * maxX + "px";
+    }
+
+    /* move second cube randomly every 2 seconds */
+    setInterval(moveRandomly, 2000);
+
+    /*----*/
+
+    function chase()
+    {
+     let cube1X = parseFloat(cube1.style.left) || 0;
+     let cube1Y = parseFloat(cube1.style.top) || 0;
+     let cube2X = parseFloat(cube2.style.left) || 0;
+     let cube2Y = parseFloat(cube2.style.top) || 0;
+
+      let deltaX = cube2X - cube1X;
+      let deltaY = cube2Y - cube1Y;
+      let distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+      let speed = 2;
+
+      let offsetX = (deltaX / distance) * speed;
+      let offsetY = (deltaY / distance) * speed;
+
+      cube1.style.left = cube1X + offsetX + "px";
+      cube1.style.top = cube1Y + offsetY + "px";
+    }
+
+    /* first cube chases second cube every 30 milliseconds */
+    setInterval(chase, 30);
+
+}());
+
+/*
+const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY); is used to calculate the Euclidean distance between two points in a two dimensional Cartesian coordinate system.
+*/
+
+/*
+calculates the distance between two points in a two dimensional space using the Pythagorean theorem.
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* AI - Cube chases other cube smoothly */
+function()
+{
+    /* create div for the first cube */
+    let cube1 = document.createElement("div");
+    cube1.style.position = "absolute";
+    cube1.style.top = "100px";
+    cube1.style.left = "100px";
+    cube1.style.width = "50px";
+    cube1.style.height = "50px";
+    cube1.style.backgroundColor = "blue";
+    document.body.append(cube1);
+
+    /* create div for the second cube */
+    let cube2 = document.createElement("div");
+    cube2.style.position = "absolute";
+    cube2.style.top = "200px";
+    cube2.style.left = "200px";
+    cube2.style.width = "50px";
+    cube2.style.height = "50px";
+    cube2.style.backgroundColor = "red";
+    document.body.append(cube2);
+
+    /*----*/
+
+    function moveRandomly(cube)
+    {
+        let maxX = window.innerWidth - 50;
+        let maxY = window.innerHeight - 50;
+
+        let targetX = Math.random() * maxX;
+        let targetY = Math.random() * maxY;
+
+        let speed = 70;
+
+        let distance = Math.sqrt(
+      Math.pow(targetX - cube.offsetLeft, 2) +
+        Math.pow(targetY - cube.offsetTop, 2)
+        );
+
+        /* milliseconds */
+        let duration = (distance / speed) * 1000;
+
+        cube.style.transition =
+      "left " + duration + "ms linear, top " + duration + "ms linear";
+
+       cube.style.left = targetX + "px";
+       cube.style.top = targetY + "px";
+
+       setTimeout(function()
+       {
+           /* clear the transition */
+           cube.style.transition = "";
+
+           moveRandomly(cube);
+
+       }, duration);
+    }
+
+    /* move both cubes towards each other */
+    moveRandomly(cube1);
+    moveRandomly(cube2);
+
+    /*----*/
+
+    function chase()
+    {
+     let cube1X = parseFloat(cube1.style.left) || 0;
+     let cube1Y = parseFloat(cube1.style.top) || 0;
+     let cube2X = parseFloat(cube2.style.left) || 0;
+     let cube2Y = parseFloat(cube2.style.top) || 0;
+
+        let deltaX = cube2X - cube1X;
+        let deltaY = cube2Y - cube1Y;
+        let distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+        let speed = 70;
+
+        let offsetX = (deltaX / distance) * speed;
+        let offsetY = (deltaY / distance) * speed;
+
+        cube1.style.left = cube1X + offsetX + "px";
+        cube1.style.top = cube1Y + offsetY + "px";
+
+        requestAnimationFrame(chase);
+      }
+
+      /* move first cube to chase second cube */
+      chase();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Airplane Projectile Simulated Drop where user clicks */
+function()
+{
+    let airplane = document.createElement('div');
+    airplane.style.position = 'absolute';
+    airplane.style.left = '-50px';
+    airplane.style.top = '50px';
+    airplane.style.width = '50px';
+    airplane.style.height = '20px';
+    airplane.style.backgroundColor = 'blue';
+    airplane.style.transition = 'all 2s linear';
+    document.body.append(airplane);
+
+    /*----*/
+
+    let projectile = document.createElement('div');
+    projectile.style.position = 'absolute';
+    projectile.style.width = '15px';
+    projectile.style.height = '15px';
+    projectile.style.borderRadius = "50%";
+    projectile.style.backgroundColor = 'aqua';
+    projectile.style.transition = 'all 1s linear';
+    projectile.style.display = 'none';
+    document.body.append(projectile);
+
+    let flying = false;
+
+    document.onclick = function(event)
+    {
+        if (!flying)
+        {
+            flying = true;
+
+            airplane.style.transform = 'translate(' + window.innerWidth + 'px, 0)';
+
+            setTimeout(function()
+            {
+                let x = event.clientX;
+                let y = event.clientY;
+
+                projectile.style.left = x + 'px';
+                projectile.style.top = '25px';
+
+                projectile.style.display = 'block';
+
+                /* projectile path */
+                projectile.style.transform = 'translateY(' + (y - 25) + 'px)';
+            }, 1000);
+        }
+    };
+
+}());
+
+/*
+When a person left clicks their mouse on the screen an airplane will fly to the right and simulate dropping a projectile below, which will remain on the screen.
+*/
+```
+
+---
+
+```javascript
+javascript:(
+/* Airplane - Projectile - Realistic - drops from bottom middle of airplane  */
+function()
+{
+    let airplane = document.createElement('div');
+    airplane.id = "airplane";
+    airplane.style.position = 'absolute';
+    airplane.style.left = '-50px';
+    airplane.style.top = '50px';
+    airplane.style.width = '50px';
+    airplane.style.height = '20px';
+    airplane.style.backgroundColor = 'blue';
+    airplane.style.transition = 'all 2s linear';
+    document.body.append(airplane);
+
+    /*----*/
+
+    let projectile = document.createElement('div');
+    projectile.id = "projectile";
+    projectile.style.position = 'absolute';
+    projectile.style.width = '15px';
+    projectile.style.height = '15px';
+    projectile.style.borderRadius = "50%";
+    projectile.style.backgroundColor = 'aqua';
+    /* initially hide the object */
+    projectile.style.display = 'none';
+    document.body.append(projectile);
+
+    let flying = false;
+
+    document.onclick = function(event)
+    {
+        if (!flying)
+        {
+            flying = true;
+
+            let x = event.clientX + 15;
+            let y = event.clientY;
+
+            /* adjustment for the airplane's center */
+            let airplaneCenterAdjustment = airplane.offsetWidth / 2;
+
+            /* set plane's starting position to left of viewport */
+            airplane.style.left = -airplaneCenterAdjustment + 'px';
+
+/* set plane's final pos (where it was clicked)*/
+            airplane.style.transform = 'translate(' + (x - airplaneCenterAdjustment) + 'px, 0)';
+
+            /* set initial pos of the projectile at the bottom middle of the airplane */
+            let airplaneRect = airplane.getBoundingClientRect();
+
+            let projectileLeft = x - airplaneCenterAdjustment;
+
+           /* place projectile at bottom of airplane */
+            let projectileTop = airplaneRect.bottom;                  
+
+            projectile.style.left = projectileLeft + 'px';
+            projectile.style.top = projectileTop + 'px';
+
+            /* calculate the distance to fall (from top to the user's click Y-coordinate) */
+            let distanceToFall = y - projectileTop;
+
+            /* set a timeout to start the object's descent and reveal it */
+            setTimeout(function()
+            {
+                /* display object to make it visible */
+                projectile.style.display = 'block';
+
+                /* set the initial time and speed */
+                let startTime = null;
+
+                /* falling speed: higher values make it fall faster */
+                let speed = 200;
+
+                function animateProjectile(timestamp)
+                {
+                    if (!startTime)
+                    {
+                        startTime = timestamp;
+                    }
+
+                    /* calculate the elapsed time */
+                    let elapsedTime = timestamp - startTime;
+
+                    /* calculate the new top position based on the elapsed time and speed */
+                    let newY = (elapsedTime / 1000) * speed;
+
+                    if (newY < distanceToFall)
+                    {
+                        /* continue the animation */
+      requestAnimationFrame(animateProjectile);
+                    }
+                    else
+                    {
+                        /* finish the animation when it reaches the target Y coordinate */
+                        newY = distanceToFall;
+                    }
+
+                    /* apply the new top position */
+                    projectile.style.transform = 'translateY(' + newY + 'px)';
+                }
+
+                /* start the animation */
+        requestAnimationFrame(animateProjectile);
+            }, 2000);
+
+                /* adjust the timeout delay based on the airplane's transition duration */
+        }
+    };
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Make Roads like in Cities Skylines */
+function()
+{
+    function makeRoad()
+    {
+        let road = document.createElement("div");
+        road.style.position = "absolute";
+        road.style.backgroundColor = "gray";
+        road.style.height = "20px";
+        road.style.width = "5px";
+        road.style.pointerEvents = "none";
+        document.body.append(road);
+
+        let isDrawing = false;
+
+      document.addEventListener("mousedown", function(e)
+        {
+            isDrawing = true;
+            road.style.left = e.pageX + "px";
+            road.style.top = e.pageY + "px";
+        });
+
+        document.addEventListener("mouseup", function()
+        {
+            isDrawing = false;
+        });
+
+      document.addEventListener("mousemove", function(e)
+        {
+            if (isDrawing)
+            {
+                let currentX = e.pageX;
+                let currentY = e.pageY;
+
+                let deltaX = currentX - parseInt(road.style.left);
+
+                let deltaY = currentY - parseInt(road.style.top);
+
+                let length = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+                let angle = Math.atan2(deltaY, deltaX);
+
+                road.style.width = length + "px";
+
+                road.style.transform = "rotate(" + angle + "rad)";
+            }
+        });
+    }
+
+    makeRoad();
+
+}());
+
+/* After we have activated this bookmarklet, we hold left click and drag our mouse to make the road, and then let go of the left click to place the road at that angle.
+Now at anytime that we want we can left click to place that angled road piece anywhere on the screen. */
+```
+
+---
+
+```javascript
+javascript:(
+/* Password Generator - Specify How Many Characters without Input Validation */
+function()
+{
+    function makePassword()
+    {
+        function generatePassword(whichAmount)
+        {
+            let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+=<>?/{}[]";
+
+            let password = "";
+
+            for (let x = 0; x < whichAmount; x++)
+            {
+                let randomIndex = Math.floor(Math.random() * characters.length);
+
+                password += characters.charAt(randomIndex);
+            }
+
+            return password;
+        }
+
+        let passwordLength = prompt("Enter how many characters");
+
+        if (passwordLength !== null)
+        {
+            let parsedLength = parseInt(passwordLength);
+
+            let generatedPassword = generatePassword(parsedLength);
+
+            console.log("Password is " + generatedPassword);
+
+            alert("Password is " + generatedPassword);
+        }
+    }
+
+    makePassword();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Password Generator - Specify How Many Characters with Input Validation */
+function()
+{
+    function makePassword()
+    {
+        function generatePassword(whichAmount)
+        {
+            let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+=<>?/{}[]";
+
+            let password = "";
+
+            for (let x = 0; x < whichAmount; x++)
+            {
+                let randomIndex = Math.floor(Math.random() * characters.length);
+
+                password += characters.charAt(randomIndex);
+            }
+
+            return password;
+        }
+
+        let passwordLength = prompt("Enter how many characters");
+
+        if (passwordLength !== null)
+        {
+            let parsedLength = parseInt(passwordLength);
+
+            if (!isNaN(parsedLength) && parsedLength > 0)
+            {
+                let generatedPassword = generatePassword(parsedLength);
+
+                console.log("Password is " + generatedPassword);
+
+                alert("Password is " + generatedPassword);
+            }
+            else
+            {
+                alert("You didn't enter how many characters you want the password to be.");
+            }
+        }
+    }
+
+    makePassword();
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* RegEx - Text Between Quotes - Single Match */
+function()
+{
+    let text = 'This is "some text" within double quotes.';
+
+    let regex = /"([^"]+)"/g;
+
+    let match = text.match(regex);
+
+    if (match)
+    {
+        alert(match);
+    }
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* RegEx - Text Between Quotes - join - shows each match on separate lines */
+function()
+{
+    let text = 'This is "some text" within double quotes. Here is "more text" in double quotes.';
+
+    let regex = /"([^"]+)"/g;
+
+    let matches = text.match(regex);
+
+    if (matches)
+    {
+        /* show each match on a new line */
+        alert(matches.join("\n"));
+    }
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* RegEx - Highlight Selected Text that is Text Between Quotes - join - shows each match on separate lines */
+function()
+{
+    let text = window.getSelection().toString();
+
+    let regex = /"([^"]+)"/g;
+
+    let matches = text.match(regex);
+
+    if (matches)
+    {
+        /* show each match on a new line */
+        alert(matches.join("\n"));
+    }
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* RegEx - Highlight Text Between Quotes - join - shows each match on new line */
+function()
+{
+    let text = document.body.textContent;
+
+    let regex = /"([^"]+)"/g;
+
+    let matches = text.match(regex);
+
+    if (matches)
+    {
+        /* show each match on a new line */
+        alert(matches.join("\n"));
+    }
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* NLP - Count How Many Words in a Selection */
+function()
+{
+    function getWordAndCharCountOfSelected()
+    {
+        /* get selected text from the webpage */
+        let selectedText = window.getSelection().toString();
+
+        /* count the number of words */
+        /* \s+ matches one or more whitespace characters (spaces, tabs, linebreaks)
+        /* splits the text based on any combination of whitespace characters */
+        let wordCount = selectedText.split(/\s+/).filter(Boolean).length;
+
+        /* count the number of characters */
+        let charCount = selectedText.length;
+
+        /* return the statistics */
+        return "Word Count: " + wordCount + "\nCharacter Count: " + charCount;
+    }
+
+    alert(getWordAndCharCountOfSelected());
+
+}());
+
+/*
+counts the number of words by splitting the text using a regular expression that matches one or more whitespace characters (spaces, tabs, and linebreaks) and then filters out any empty strings from the resulting array before counting its length.
+*/
+```
+
+```javascript
+javascript:(
+/* Natural Language Processing - split, some, startsWith */
+function()
+{
+    function processLanguage()
+    {
+        let sentence = prompt("Say Anything");
+
+        let words = sentence.split(' ');
+
+        let found = words.some(function(word)
+        {
+            return word.startsWith('n');
+        });
+
+        if (found)
+        {
+            alert('Found a word that starts with "n".');
+        }
+        else
+        {
+            alert('No words found that start with "n".');
+        }
+    }
+
+    processLanguage();
+
+}());
+
+/* Found a word that starts with "n"! */
+```
+
+---
+
+```javascript
+javascript:(
+/* NLP - with input */
+function()
+{
+    /* create a container div for input element */
+    let container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.right = '10px';
+    container.style.top = '10px';
+    document.body.append(container);
+
+    /*----*/
+
+    /* create the input element */
+    let userInput = document.createElement('input');
+    userInput.type = 'text';
+    userInput.placeholder = 'Search for words starting with "n"';
+    container.append(userInput);
+
+    /*----*/
+
+    /* create a button for executing the search */
+    let searchButton = document.createElement('button');
+    searchButton.innerText = 'Search';
+
+    /* Enter key triggers a click on send button */
+    userInput.onkeydown = function(event)
+    {
+        if (event.key === "Enter")
+        {
+            /* prevent default Enter key behavior */
+            event.preventDefault();
+
+            /* trigger a click on the search button */
+            searchButton.click();
+        }
+    };
+
+    container.append(searchButton); 
+
+    /*----*/
+
+    function searchWords()
+    {
+        let sentence = "It's a very nice day out.";
+
+        let words = sentence.split(' ');
+
+        let found = words.some(function(word)
+        {
+            return word.startsWith('n');
+        });
+
+        if (found)
+        {
+            alert('Found a word that starts with "n"!');
+        }
+        else
+        {
+            alert('No words found that start with "n".');
+        }
+    }
+
+    /* attach search func to button click event */
+    searchButton.addEventListener('click', function()
+    {
+        searchWords();
+    });
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* NLP - with input, word character count */
+function()
+{
+    let container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.right = '10px';
+    container.style.top = '10px';
+    document.body.append(container);
+
+    /*----*/
+
+    /* userInput */
+    let userInput = document.createElement('input');
+    userInput.type = 'text';
+    userInput.placeholder = 'Search for words starting with "n"';
+    container.append(userInput);
+
+    /*----*/
+
+    /* searchButton */
+    let searchButton = document.createElement('button');
+    searchButton.innerText = 'Search';
+
+    /* Enter key triggers a click on send button */
+    userInput.onkeydown = function(event)
+    {
+        if (event.key === "Enter")
+        {
+            /* prevent default Enter key behavior */
+            event.preventDefault();
+
+            /* trigger a click on the search button */
+            searchButton.click();
+        }
+    };
+
+    container.append(searchButton); 
+
+    /*----*/
+
+    function searchWords()
+    {
+        let sentence = "It's a very nice day out.";
+
+        let words = sentence.split(' ');
+
+        let found = words.some(function(word)
+        {
+            return word.startsWith('n');
+        });
+
+        if (found)
+        {
+            alert('Found a word that starts with "n"!');
+        }
+        else
+        {
+            alert('No words found that start with "n".');
+        }
+
+        /* count the number of words */
+        let wordCount = words.length;
+
+        /* count the number of characters */
+        let charCount = sentence.length;
+
+      /* display word count and character count */
+        console.log("Word Count: " + wordCount + "\n" + "Character Count: " + charCount);
+    }
+
+    /* attach search func to button click event */
+    searchButton.addEventListener('click', function()
+    {
+        searchWords();
+    });
+
+}());
+```
+
+---
+
+```javascript
+javascript:(
+/* Robot AI */
+/*Textbox for Input with Send Button - Random Responses every time to keywords and phrases and variations of keywords and phrases found. Other random response when no keywords are found - and Calculations*/
+function()
+{
+    let mainDiv = document.createElement("div");
+    mainDiv.style.position = "fixed";
+    mainDiv.style.top = "0";
+    mainDiv.style.right = "0";
+    mainDiv.style.padding = "5px";
+    mainDiv.style.backgroundColor = "rgb(0, 0, 0)";
+    mainDiv.style.color = "rgb(255, 255, 255)";
+    mainDiv.style.zIndex = "10000";
+    document.body.append(mainDiv);
+
+    let userInput = document.createElement("input");
+    userInput.type = "text";
+    userInput.placeholder = "Type Words Here";
+    userInput.style.width = "200px";
+    userInput.style.paddingLeft = "10px";
+    userInput.style.paddingRight = "10px";
+    userInput.style.paddingTop = "4px";
+    userInput.style.paddingBottom = "4px";
+    mainDiv.append(userInput);
+
+    let sendButton = document.createElement("button");
+    sendButton.textContent = "Send";
+    mainDiv.append(sendButton);
+
+   /* if keyword is found, use these responses */
+    let responses =
+    [
+        {
+            keywords: ["hi", "howdy", "hey"],
+            responses: ["Howdy", "Hi there", "Hi"]
+        },
+        {
+            keywords: ["weather", "forecast", "sunny", "cloudy"],
+            responses: ["It's a beautiful day.", "The weather is very nice.", "It's sunny and warm."]
+        },
+        {
+            keywords: ["how are you", "what's up", "what are you up to?"],
+            responses: ["I'm doing good, you?", "Having fun and you?", "I'm good, how about you?"]
+        },
+        {
+            keywords: ["bye", "goodbye", "take care"],
+            responses: ["Bye. Talk to you soon.", "Goodbye!", "Have fun."]
+        },
+        {
+            keywords: ["interests", "career"],
+            responses: ["Computer Science is fun.", "Programming is lots of fun.", "I like programming a lot."]
+        }
+    ];
+
+/* if no keywords found, use these responses */
+    let randomResponses =
+    [
+        "That's interesting!",
+        "Would you tell me more?",
+        "Hmm, tell me more about that.",
+        "Would you elaborate?",
+        "Interesting, please go on.",
+        "Fascinating! Tell me more.",
+    ];
+
+    let context = null;
+
+    /* Enter key triggers a click on send button */
+    userInput.onkeydown = function(event)
+    {
+        if (event.key === "Enter")
+        {
+            /* prevent default Enter key behavior */
+            event.preventDefault();
+
+            /* trigger a click on the send button */
+            sendButton.click();
+        }
+    };
+
+    sendButton.onclick = function()
+    {
+        let userQuestion = userInput.value.trim();
+
+        if (userQuestion)
+        {
+            let responseObj = responses.find(function(obj)
+            {
+                return obj.keywords.some(function (keyword)
+                {
+                    return userQuestion.toLowerCase().indexOf(keyword) !== -1;
+                });
+            });
+
+            if (responseObj)
+            {
+                let randomIndex = Math.floor(Math.random() * responseObj.responses.length);
+
+    alert(responseObj.responses[randomIndex]);
+
+                if (responseObj.keywords.indexOf("bye") !== -1)
+                {
+                    context = null;
+                }
+                else
+                {
+                    context = responseObj.keywords;
+                }
+            }
+            else
+            {
+                let result = calculate(userQuestion);
+
+                if (result !== null)
+                {
+                    alert("The result is: " + result);
+                }
+                else
+                {
+                    let randomIndex = Math.floor(Math.random() * randomResponses.length);
+
+            alert(randomResponses[randomIndex]);
+                }
+            }
+
+            userInput.value = "";
+        }
+    };
+
+    function calculate(input)
+    {
+        try
+        {
+            return eval(input);
+        }
+        catch (error)
+        {
+            return null;
+        }
+    }
+
+}());
+```
+
+---
